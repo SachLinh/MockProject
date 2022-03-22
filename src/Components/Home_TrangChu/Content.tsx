@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Body from '../../component2Tuan/Body';
-import Footer from '../Footer';
+import Footer from '../FooterAndHeader/Footer';
+import Body from './Body';
 import Menu from './Menu';
 
 export default function Content() {
