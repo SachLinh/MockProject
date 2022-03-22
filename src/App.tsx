@@ -3,9 +3,9 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import Content from './components/Home_TrangChu/Content';
-import Cart from './components/cart-order/Cart';
-import Header from './components/FooterAndHeader/Header';
+import Cart from './Components/CartOrder/Cart';
+import Header from './Components/FooterAndHeader/Header';
+import Content from './Components/HomeTrangChu/Content';
 
 function App() {
 	return (
