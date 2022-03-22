@@ -13,7 +13,7 @@ export default function ImgProduct() {
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
     return (
         <div>
-            <Swiper className="w-[350px] border-[1px] rounded-xl" 
+            <Swiper className="w-[350px] border-[1px] rounded-xl text-center items-center" 
                 loop={true}
                 spaceBetween={10}
                 autoplay={{
@@ -42,7 +42,7 @@ export default function ImgProduct() {
                 onSwiper={setThumbsSwiper}
                 loop={true}
                 spaceBetween={10}
-                slidesPerView={4}
+                slidesPerView={5}
                 freeMode={true}
                 watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}>

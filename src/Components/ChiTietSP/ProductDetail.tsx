@@ -4,25 +4,38 @@ import { ImGift } from 'react-icons/im';
 import { BsCheckCircle } from 'react-icons/bs';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import ImgProduct from './ImgProduct';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 const ProductDetail = () => {
+	useEffect(() => {
+		getProductDetail()
+	}, []);
+	const [detailProduct, setDetailProduct] = useState<any>([])
+	const getProductDetail = async () => {
+		const res = await axios.get('https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc')
+		setDetailProduct(res.data)
+	}
 	return (
-		<div className='font-sans'>
-			<div className='py-[10px] border-solid mx-[327px]'>
+		<div className='font-sans -z-50'>
+			
+			<div className='py-[10px] border-solid mx-[5%]'>
 				<h3 className='font-bold text-[18px]'>
 					iPhone 13 Pro Max 256GB I Chính hãng VN/A
 				</h3>
 			</div>
 			<div className='border-[1px] pb-5 shadow-lg shadow-gray-300 border-stone-300'>
-				<div className='mx-[350px] grid grid-cols-3 gap-5 mt-5'>
+				<div className='mx-[5%] grid grid-cols-3 gap-5 mt-5'>
 					<div className='mt-5 '>
-						<div className=' '>
+						<div className='flex justify-center '>
 							<ImgProduct />
 						</div>
-						<img
-							className='mt-5 rounded-lg'
-							src='https://cdn.cellphones.com.vn/media/wysiwyg/Banner/400-100-product.png'
-							alt=''
-						/>
+						<div className='flex justify-center'>
+							<img
+								className='mt-5 rounded-lg w-full'
+								src='https://cdn.cellphones.com.vn/media/wysiwyg/Banner/400-100-product.png'
+								alt=''
+							/>
+						</div>
 					</div>
 					<div className=''>
 						<div className='w-[90px] text-center text-[14px] text-red-600 bg-red-100 border-[1px] border-red-500 rounded-lg '>
