@@ -7,12 +7,12 @@ export default class Body extends Component {
 		return (
 			<div className='px-[75px]'>
 				<div className='sp'>
-					<div className='mt-15px min-h-screen bg-white '>
-						<div className=' inline flex justify-between items-center m-2'>
+					<div className='mt-[15px] min-h-screen bg-white '>
+						<div className=' flex justify-between items-center m-2'>
 							<h3 className='no-underline font-bold ... hover:underline ... '>
 								ĐIỆN THOẠI NỔI BẬT NHẤT
 							</h3>
-							<div className='flex-1 text-right m-10px '>
+							<div className='flex-1 text-right m-[10px] '>
 								<ul>
 									<li className='m-1 p-2 list-none no-underline inline-block bg-slate-100 rounded-lg'>
 										<Link to=''>Reno 7 Z</Link>
@@ -48,8 +48,8 @@ export default class Body extends Component {
 							</div>
 						</div>
 						<div className='flex flex-row flex-wrap justify-around'>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className='bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -60,8 +60,8 @@ export default class Body extends Component {
 								<h4 className='font-bold'>Iphone SE 2012</h4>
 								<p className='text-red-500 font-bold'>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -72,8 +72,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -84,8 +84,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -96,8 +96,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -108,8 +108,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -120,8 +120,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -133,8 +133,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 
@@ -146,8 +146,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 
@@ -159,8 +159,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 
@@ -175,7 +175,7 @@ export default class Body extends Component {
 						</div>
 					</div>
 					<div className='mt-15px min-h-screen bg-white '>
-						<div className=' inline flex justify-between items-center m-2'>
+						<div className=' flex justify-between items-center m-2'>
 							<h3 className='no-underline font-bold ... hover:underline ... '>
 								LAPTOP
 							</h3>
@@ -218,8 +218,8 @@ export default class Body extends Component {
 							</div>
 						</div>
 						<div className='flex flex-row flex-wrap justify-around'>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -230,8 +230,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -242,8 +242,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -254,8 +254,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -266,8 +266,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -278,8 +278,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -290,8 +290,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -303,8 +303,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 
@@ -316,8 +316,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 
@@ -329,8 +329,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 
@@ -345,7 +345,7 @@ export default class Body extends Component {
 						</div>
 					</div>
 					<div className='mt-15px min-h-screen bg-white '>
-						<div className=' inline flex justify-between items-center m-2'>
+						<div className=' flex justify-between items-center m-2'>
 							<h3 className='no-underline font-bold ... hover:underline ... '>
 								MÁY TÍNH ĐỂ BÀN
 							</h3>
@@ -388,8 +388,8 @@ export default class Body extends Component {
 							</div>
 						</div>
 						<div className='flex flex-row flex-wrap justify-around'>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -400,8 +400,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -412,8 +412,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -424,8 +424,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -436,8 +436,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -448,8 +448,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -460,8 +460,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 								<img
@@ -473,8 +473,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 
@@ -486,8 +486,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 
@@ -499,8 +499,8 @@ export default class Body extends Component {
 								<h4>Tên</h4>
 								<p>7.990.000</p>
 							</div>
-							<div className='m-2 h-260px mt-20px p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
-								<p className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
+							<div className='m-2  mt-[20px] p-3 rounded-lg duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]'>
+								<p className=' bg-gradient-to-r from-cyan-500 to-blue-500 h-[25px] w-[100px] pl-1 rounded-r-lg'>
 									Giảm 13%
 								</p>
 
@@ -520,140 +520,140 @@ export default class Body extends Component {
 				</h3>
 				<div className='text-center'>
 					<div className=' m-2 flex flex-row flex-wrap justify-around'>
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-1644.svg'
 								className=''></img>
 						</div>
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-43.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-286.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-108.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='	https://cellphones.com.vn/media/icons/category/cate-114.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='	https://cellphones.com.vn/media/icons/category/cate-122.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-676.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-1644.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-1644.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-1644.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-1644.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-1644.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-1644.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-1644.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-1644.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-1644.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-1644.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-1644.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/category/cate-1644.svg'
 								className=''></img>
 						</div>{' '}
-						<div className='bg-fuchsia-300 w-[120px]  h-[150px] m-1 h-150 rounded-lg  cursor-pointer p-2 m-2'>
+						<div className='bg-fuchsia-300 w-[120px]  h-[150px] h-150 rounded-lg  cursor-pointer p-2 m-2'>
 							<p className='text-white font-bold'>Độc quyền</p>
 							<img
 								alt=''

@@ -1,32 +1,22 @@
-
 /** @format */
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Body from './component2Tuan/Body';
-import Footer from './Components/Footer';
+import { Route, Routes } from 'react-router-dom';
+
 import Header from './Components/Header';
-import Menu from './Components/Home_TrangChu/Menu';
+import Content from './Components/Home_TrangChu/Content';
+import Cart from './pages/cart-order/Cart';
 
 function App() {
 	return (
 		<div className='App'>
 			<Header />
-			<div className='pt-[70px]'>
-				<Menu />
-				<div className='px-[75px] w-full h-[75px] mt-[15px] mb-[25px]'>
-					<Link to=''>
-						<img
-							src='https://cdn.cellphones.com.vn/media/wysiwyg/Banner/1200-75-max.png'
-							alt=''
-						/>
-					</Link>
-				</div>
-				<Body />
-				<Footer />
-			</div>
+
+			<Routes>
+				<Route path='/' element={<Content />}></Route>
+				<Route path='/cart' element={<Cart />}></Route>
+			</Routes>
 		</div>
 	);
-
 }
 export default App;

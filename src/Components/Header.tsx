@@ -61,7 +61,7 @@ export default function Header() {
 					</div>
 				</Link>
 				<Link
-					to=''
+					to='/cart'
 					className='flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl'>
 					<i className='fa-solid fa-bag-shopping text-[25px] mr-2'></i>
 					<div className='h-[50px] w-20 flex flex-col justify-start items-start'>
@@ -70,7 +70,7 @@ export default function Header() {
 				</Link>
 				<Link
 					to=''
-					className='h-[40px] flex flex-col justify-start items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl'>
+					className='h-[50px] flex flex-col justify-start items-center text-white p-[5px] hover:bg-[#eb4a4a] px-1 rounded-xl'>
 					<i className='fa-solid fa-user text-[20px] mr-2 h-[25px]'></i>
 					<span className='inline-block h-[25px] leading-6'>Smember</span>
 				</Link>

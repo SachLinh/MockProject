@@ -116,7 +116,7 @@ export default function Menu() {
 						</li>
 					</ul>
 				</div>
-				<div className='rounded-2xl shadow-inner shadow-[#9e9c9c] w-[700px] shadow-[0_0px_5px_2px_#9b9a9a]'>
+				<div className='rounded-2xl shadow-[#9e9c9c] w-[700px] shadow-[0_0px_5px_2px_#9b9a9a]'>
 					<div className='w-full'>
 						<img
 							src='https://cdn.cellphones.com.vn/media/ltsoft/promotion/mI_12.png'
