@@ -1,37 +1,38 @@
 /** @format */
 
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
-	return (
-		<div className='w-full px-[75px] bg-[#d70018] h-[64px] fixed'>
-			<div className='flex flex-row justify-around items-center text-white w-full text-[12px] h-full leading-[64px]'>
-				<h2 className='text-[18px] font-extrabold text-[rgb(255,255,255)]'>
-					<i className='fa-solid fa-bars'></i>
-					<Link to=''> G1-UlTr Phone</Link>
-				</h2>
-				<div className='flex flex-row justify-around items-center bg-[#eb4a4a] rounded-xl'>
-					<i className='fa-solid fa-location-dot pl-[5px] text-base'></i>
-					<div className=' h-[40px] w-[100px] flex flex-col justify-center items-center'>
-						<span className='inline-block h-[20px] text-[#fff] leading-[15px]'>
-							Khu vực
-						</span>
-						<select className='outline-none text-[#fff] text-[14px] bg-[#eb4a4a] inline-block  rounded-xl'>
-							<option className='bg-[#fff] text-[#000] rounded-xl w-[100px]'>
-								Mien Nam
-							</option>
-							<option className=' bg-[#fff] text-[#000] rounded-xl'>
-								Mien Bac
-							</option>
-						</select>
-					</div>
-				</div>
+  return (
+    <div className="w-full bg-[#d70018] h-[64px] fixed flex flex-col justify-center items-center z-50">
+      <div className="w-[1200px] z-50">
+        <div className="flex flex-row justify-around items-center text-white w-full text-[12px] h-full leading-[64px]">
+          <h2 className="text-[18px] font-extrabold text-[rgb(255,255,255)]">
+            <i className="fa-solid fa-bars"></i>
+            <Link to=""> G1-UlTr Phone</Link>
+          </h2>
+          <div className="flex flex-row justify-around items-center bg-[#eb4a4a] rounded-xl">
+            <i className="fa-solid fa-location-dot pl-[5px] text-base"></i>
+            <div className=" h-[40px] w-[100px] flex flex-col justify-center items-center">
+              <span className="inline-block h-[20px] text-[#fff] leading-[15px]">
+                Khu vực
+              </span>
+              <select className="outline-none text-[#fff] text-[14px] bg-[#eb4a4a] inline-block  rounded-xl">
+                <option className="bg-[#fff] text-[#000] rounded-xl w-[100px]">
+                  Mien Nam
+                </option>
+                <option className=" bg-[#fff] text-[#000] rounded-xl">
+                  Mien Bac
+                </option>
+              </select>
+            </div>
+          </div>
 
-				<input
-					className='h-[40px] pl-3 rounded-xl p-[5px] outline-none text-[#020000] text-[14px] w-[300px]'
-					placeholder='Bạn cần tìm gì?'
-				/>
+          <input
+            className="h-[40px] pl-3 rounded-xl p-[5px] outline-none text-[#020000] text-[14px] w-[300px]"
+            placeholder="Bạn cần tìm gì?"
+          />
 
 				<Link
 					to=''
@@ -77,4 +78,5 @@ export default function Header() {
 			</div>
 		</div>
 	);
+
 }
