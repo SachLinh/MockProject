@@ -52,7 +52,7 @@ export default function Header() {
 					</div>
 				</Link>
 				<Link
-					to=''
+					to='/SearchOrder'
 					className='flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl'>
 					<i className='fa-solid fa-truck text-[25px] mr-2'></i>
 					<div className='h-[50px] w-20 flex flex-col justify-start items-start'>

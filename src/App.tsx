@@ -3,9 +3,10 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import Content from './components/Home_TrangChu/Content';
-import Cart from './components/cart-order/Cart';
-import Header from './components/FooterAndHeader/Header';
+import Content from './Components/Home_TrangChu/Content';
+import Cart from './Components/cart-order/Cart';
+import Header from './Components/FooterAndHeader/Header';
+import SearchOrder from './Components/TraCuuDonHang/SearchOrder';
 
 function App() {
 	return (
@@ -14,6 +15,7 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Content />}></Route>
 				<Route path='/cart' element={<Cart />}></Route>
+				<Route path='/SearchOrder' element={<SearchOrder />}></Route>
 			</Routes>
 		</div>
 	);
