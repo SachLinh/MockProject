@@ -20,7 +20,7 @@ function SearchOrder() {
     console.log(searchOrder?.id);
     
     return(
-        <div className="w-[1180px] h-[200px] pt-[80px] mx-auto">
+        <div className="w-[1180px] h-[200px] pt-[80px] mx-auto mb-[700px]">
             <div className="bg-[#eeeeee] text-[#444444] h-36 pt-[10px]">
                 <div>
                     <h3 className="text-[22px] font-[700] leading-[26.4px] p-[10px 0] text-center">

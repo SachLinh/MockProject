@@ -34,49 +34,54 @@ export default function Header() {
             placeholder="Bạn cần tìm gì?"
           />
 
-				<Link
-					to=''
-					className='flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl'>
-					<i className='fa-solid fa-phone text-[25px] mr-2'></i>
-					<div className='h-[50px] w-20 flex flex-col justify-start items-start'>
-						<span className='h-[25px] leading-6'>Gọi mua hàng</span>
-						<span className='h-[25px] leading-6'>1234.5678</span>
-					</div>
-				</Link>
-				<Link
-					to=''
-					className='flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl'>
-					<i className='fa-solid fa-location-dot text-[25px] mr-2'></i>
-					<div className='h-[50px] w-20 flex flex-col justify-start items-start'>
-						<span className='h-[25px] leading-6'>Cửa hàng</span>
-						<span className='h-[25px] leading-6'>gần bạn</span>
-					</div>
-				</Link>
-				<Link
-					to='/SearchOrder'
-					className='flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl'>
-					<i className='fa-solid fa-truck text-[25px] mr-2'></i>
-					<div className='h-[50px] w-20 flex flex-col justify-start items-start'>
-						<span className='h-[25px] leading-6'>Tra cứu</span>
-						<span className='h-[25px] leading-6'>đơn hàng</span>
-					</div>
-				</Link>
-				<Link
-					to='/cart'
-					className='flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl'>
-					<i className='fa-solid fa-bag-shopping text-[25px] mr-2'></i>
-					<div className='h-[50px] w-20 flex flex-col justify-start items-start'>
-						<span className='h-[50px] leading-[50px]'>Giỏ hàng</span>
-					</div>
-				</Link>
-				<Link
-					to=''
-					className='h-[50px] flex flex-col justify-start items-center text-white p-[5px] hover:bg-[#eb4a4a] px-1 rounded-xl'>
-					<i className='fa-solid fa-user text-[20px] mr-2 h-[25px]'></i>
-					<span className='inline-block h-[25px] leading-6'>Smember</span>
-				</Link>
-			</div>
-		</div>
-	);
-
+          <Link
+            to=""
+            className="flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
+          >
+            <i className="fa-solid fa-phone text-[25px] mr-2"></i>
+            <div className="h-[50px] w-20 flex flex-col justify-start items-start">
+              <span className="h-[25px] leading-6">Gọi mua hàng</span>
+              <span className="h-[25px] leading-6">1234.5678</span>
+            </div>
+          </Link>
+          <Link
+            to=""
+            className="flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
+          >
+            <i className="fa-solid fa-location-dot text-[25px] mr-2"></i>
+            <div className="h-[50px] w-20 flex flex-col justify-start items-start">
+              <span className="h-[25px] leading-6">Cửa hàng</span>
+              <span className="h-[25px] leading-6">gần bạn</span>
+            </div>
+          </Link>
+          <Link
+            to="/SearchOrder"
+            className="flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
+          >
+            <i className="fa-solid fa-truck text-[25px] mr-2"></i>
+            <div className="h-[50px] w-20 flex flex-col justify-start items-start">
+              <span className="h-[25px] leading-6">Tra cứu</span>
+              <span className="h-[25px] leading-6">đơn hàng</span>
+            </div>
+          </Link>
+          <Link
+            to="/cart"
+            className="flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
+          >
+            <i className="fa-solid fa-bag-shopping text-[25px] mr-2"></i>
+            <div className="h-[50px] w-20 flex flex-col justify-start items-start">
+              <span className="h-[50px] leading-[50px]">Giỏ hàng</span>
+            </div>
+          </Link>
+          <Link
+            to=""
+            className="h-[50px] flex flex-col justify-start items-center text-white p-[5px] hover:bg-[#eb4a4a] px-1 rounded-xl"
+          >
+            <i className="fa-solid fa-user text-[20px] mr-2 h-[25px]"></i>
+            <span className="inline-block h-[25px] leading-6">Smember</span>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 }
