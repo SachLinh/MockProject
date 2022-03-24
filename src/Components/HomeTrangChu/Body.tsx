@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default class Body extends Component {
 	render() {
 		return (
-			<div className='px-[75px]'>
+			<div className=''>
 				<div className='sp'>
 					<div className='mt-[15px] min-h-screen bg-white '>
 						<div className=' flex justify-between items-center m-2'>
