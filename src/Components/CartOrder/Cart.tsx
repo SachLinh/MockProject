@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Cart() {
 	return (
-		<div className='w-5/12 h-96 mx-auto pt-[70px]'>
+		<div className='w-5/12 h-96 mx-auto pt-[70px] mb-[100px]'>
 			<div className='grid grid-flow-row grid-cols-2 place-content-center'>
 				<div>
 					<svg

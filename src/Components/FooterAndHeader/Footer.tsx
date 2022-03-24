@@ -4,7 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 export default function Footer() {
   return (
-    <div className="w-full flex flex-col justify-center items-center shadow-inner shadow-[#e4e0e0] ">
+    <div className="w-full flex flex-col justify-center items-center shadow-inner shadow-[#e4e0e0] mt-[100px]">
       <div className="w-[1200px]">
         <div className="font-Roboto text-[#444444] flex flex-row justify-between items-start w-full py-[15px] text-[12px]">
           <div>
