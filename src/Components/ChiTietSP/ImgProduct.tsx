@@ -11,15 +11,17 @@ import "swiper/css/thumbs";
 import { Images } from "./ModelPrdDetail";
 import axios from 'axios';
 import { useEffect } from 'react';
+import { useParams } from "react-router-dom";
 
 export default function ImgProduct() {
     useEffect(() => {
         getImg()
-    }, []);
+    },[]);
+    const params = useParams();
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
     const [img, setImg] = useState<Images[]>([]);
     const getImg = async () => {
-        const resImg = await axios.get('https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/1/Loai/1/SanPham/1/ThongTinAnh')
+        const resImg = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}//Loai/${params.idLoai}/SanPham/${params.idSP}/ThongTinAnh`)
         setImg(resImg.data)
     }
     return (
