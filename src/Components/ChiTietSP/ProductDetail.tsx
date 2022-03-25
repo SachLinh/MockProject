@@ -27,16 +27,16 @@ const ProductDetail = () => {
 		<div>
 			{detailProduct.map(item => {
 				return (
-					<div className='font-sans -z-50'>
+					<div className='font-sans '>
 
 						<div className='py-[10px] border-solid mx-[5%]'>
 							<h3 className='font-bold text-[18px]'>
 								{item.name}
 							</h3>
 						</div>
-						<div className='border-[1px] pb-5 shadow-lg shadow-gray-300 border-stone-300'>
-							<div className='mx-[5%] grid grid-cols-3 gap-5 mt-5'>
-								<div className='mt-5 '>
+						<div className='border-[1px] pb-5 shadow-lg shadow-gray-300 border-stone-300 flex justify-center'>
+							<div className='w-[1200px] grid grid-cols-3 gap-5 mt-5'>
+								<div className='mt-5 mr-2'>
 									<div className='flex justify-center '>
 										<ImgProduct />
 									</div>
