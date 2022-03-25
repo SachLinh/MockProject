@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Pay() {
+function Payment() {
     return (
-        <div className="w-5/12 h-96 mx-auto mt-3">
+        <div className="w-5/12 mx-auto mt-16">
             <div className="text-center">
                 <h3 className="text-lg font-bold text-red-600">Thanh toán</h3>
             </div>
@@ -77,12 +78,14 @@ function Pay() {
                     <p className="text-md font-bold">Tổng tiền tạm tính:</p>
                     <p className="text-md text-red-600 font-semibold text-right">35.990.000 ₫</p>
                 </div>
-                <div className="text-center bg-red-600 text-white font-bold py-4 rounded-md mb-2 cursor-pointer">
-                    <p>TIẾP TỤC</p>
-                </div>
+                <Link to="/complete-payment">
+                    <div className="text-center bg-red-600 text-white font-bold py-4 rounded-md mb-2 cursor-pointer">
+                        <p>TIẾP TỤC</p>
+                    </div>
+                </Link>
             </div>
         </div>
     );
 }
 
-export default Pay;
+export default Payment;
