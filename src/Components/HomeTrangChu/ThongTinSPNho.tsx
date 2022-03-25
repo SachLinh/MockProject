@@ -44,5 +44,5 @@ export default function ThongTinSpNho(props: TypeID) {
       </Link>
     );
   });
-  return <span className="flex flex-row w-auto inline">{ShowLoaiSP}</span>;
+  return <span className="flex flex-row w-auto">{ShowLoaiSP}</span>;
 }

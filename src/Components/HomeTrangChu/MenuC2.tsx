@@ -21,11 +21,10 @@ export default function MenuC2(props:TypeID) {
       console.log(error);
     }
   };
-  console.log(props);
   const showLoaiSP = listLoaiSP.map((itemLoai, indexLoai) =>{
 	return (
 	  <li className="hover:bg-[#fab6b6]  p-[6px] pl-[10px]" key={indexLoai}>
-		<Link className="w-full pl-[20px]" to="/product-detail">
+		<Link className="w-full pl-[20px]" to={`/DanhMucSPCon/${props.id}/Loai/${itemLoai.id}`}>
 		  {itemLoai.name}
 		</Link>
 	  </li>
