@@ -30,13 +30,10 @@ function App() {
 				<Route path='/payment' element={<Payment />}></Route>
 				<Route path='/payment-info' element={<PaymentInfo />}></Route>
 				<Route path='/complete-payment' element={<CompletePayment />}></Route>
-
 				<Route path='/SearchOrder' element={<SearchOrder />}></Route>
 				<Route path='/DanhMucSP/:idDM' element={<DanhMucSP />}></Route>
 				<Route path='/DanhMucSPCon/:idDM/Loai/:idLoai' element={<DanhMucSPCon />}></Route>
-
 				<Route path='/product-detail/:idDM/Loai/:idLoai/SanPham/:idSP' element={<ProductDetail/>}></Route>
-
 			</Routes>
 			<Footer/>
 		</div>
