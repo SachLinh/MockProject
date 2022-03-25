@@ -13,11 +13,9 @@ function SearchOrder() {
     }, [])
     
     const getSearchOrder = async () => {
-        const res = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/1/Loai/1/SanPham`);
+        const res = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/HoaDon`);
         setSearchOrder(res.data[0]);
     }
-    
-    console.log(searchOrder?.id);
     
     return(
         <div className="w-[1180px] h-[200px] pt-[80px] mx-auto">
@@ -30,20 +28,20 @@ function SearchOrder() {
                 <div className="text-center flex justify-center">
                     <label
                         className="mt-[30px] px-[10px] font-bold">
-                            Số điện thoại:  </label> 
+                            Mã đơn hàng:  </label> 
                     <input id="order_tracking_phone" placeholder="(Bắt buộc)"
                         className="w-[225px] h-[40px] border-[#dedede] rounded border-solid border mt-[25px] p-[8px] text-center leading-[18px]"
                     />
                     <label
                         className="mt-[30px] px-[10px] font-bold">
-                            Mã đơn hàng: </label> 
-                    <input id="order_tracking_phone" placeholder="(Bắt buộc)"
+                            Số điện thoại: </label> 
+                    <input id="order_tracking_phone" 
                         className="w-[225px] h-[40px] border-[#dedede] rounded border-solid border mt-[25px] p-[8px] text-center leading-[18px]"
                     />
-                    <Link to='/'>
+                    <Link to="">
                         <button 
                             className="w-[150px] h-[39px] bg-[#e11b1e] border-[#e11b1e] rounded border-solid border-[1px] text-[#ffffff] font-bold ml-4 mt-6"
-                        >
+                        onClick={searchOrder}>
                             Kiểm tra
                         </button>
                     </Link>
@@ -51,14 +49,14 @@ function SearchOrder() {
             </div>
             
             <div className="px-2 border border-solid">
-                <div className="text-lg text-black-700 bg-[#f6f6f6] grid grid-flow-row grid-cols-1 gap-y-3 border border-solid rounded-xl mx-1 my-3 px-3 pb-5 ">
+                <div className="text-lg text-black font-bold grid grid-flow-row grid-cols-1 gap-y-3 border border-solid rounded-xl mx-1 my-3 px-3 pb-5 ">
                     <h2 className="text-center font-bold">Tình trạng đơn hàng</h2>
-                    <p>Mã Đơn Hàng: <input value={searchOrder?.id} type="text" /></p>
-                    <p>Người Nhận: <input value={searchOrder?.name} type="text"/></p>
-                    <p>Số Điện Thoại: <input value={searchOrder?.capacity} type="text"/></p>
-                    <p>Email: <input value={searchOrder?.capacity} type="text"/></p>
-                    <p>Nhận Sản Phẩm Tại: <input type="text"/></p>
-                    <p>Tổng Tiền: <input type="text"/></p>
+                    <p>Mã Đơn Hàng : <input value={searchOrder?.id} type="text"  /></p> 
+                    <p>Người Nhận : <input value={searchOrder?.name} type="text" /></p>
+                    <p>Số Điện Thoại : <input value={searchOrder?.phonenumber} type="text" /></p>
+                    <p>Ngày nhận : <input value={searchOrder?.date} type="text" /></p>
+                    <p>Nhận Sản Phẩm Tại : <input value={searchOrder?.addStress + "," + searchOrder?.addCity + "," + searchOrder?.addCountry} type="text" /></p>
+                    <p>Tổng Tiền : <input value={searchOrder?.totalprice} type="text" /></p>
                 </div>
                 <div className="px-2 mt-3 ">
                     <div className="p-3 m-2 grid grid-flow-col grid-cols-3 border border-solid rounded-xl ">
