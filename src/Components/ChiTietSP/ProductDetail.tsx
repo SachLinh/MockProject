@@ -8,14 +8,13 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { DetailProduct, Color, Capacity } from './ModelPrdDetail';
 import { useParams } from 'react-router-dom';
+import React from 'react';
 
 const ProductDetail = () => {
 	useEffect(() => {
 		getData()
-	}, []);
+	});
 	const params = useParams();
-	console.log(params);
-	
 	const [detailProduct, setDetailProduct] = useState<DetailProduct[]>([])
 	const [color, setColor] = useState<Color[]>([])
 	const [capacity, setCapacity] = useState<Capacity[]>([])
@@ -27,6 +26,7 @@ const ProductDetail = () => {
 		setColor(resColor.data)
 		setCapacity(resCapacity.data)
 	}
+	
 	return (
 		<div>
 			{detailProduct.map(item => {
@@ -124,7 +124,9 @@ const ProductDetail = () => {
 									</div>
 									<div className='mt-5'>
 										<div className='text-center bg-red-600 rounded-xl py-2 text-white cursor-pointer'>
-											<h1 className='font-bold text-[18px]'>MUA NGAY</h1>
+											<h1 className='font-bold text-[18px]' onClick={() => {			
+											 	localStorage.setItem('data' , JSON.stringify(detailProduct))
+											}}>MUA NGAY</h1>
 											<p>(Giao tận nơi hoặc lấy tại cửa hàng)</p>
 										</div>
 										<div>
