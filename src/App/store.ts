@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import allDanhMuc from '../StoreSlice/MenuSlice'
+import allDanhMuc from '../Features/MenuSlice'
 export const store = configureStore({
   reducer: {
       listDanhMuc:allDanhMuc

@@ -13,11 +13,12 @@ import axios from "axios";
 import MenuC2 from "./MenuC2";
 import { useDispatch, useSelector } from "react-redux";
 import DanhMucSP from "../DanhMucSP/DanhMucSP";
-import { AllDanhMucSlice } from "../../StoreSlice/MenuSlice";
+import { AllDanhMucSlice } from "../../Features/MenuSlice";
 import { RootState } from "../../App/store";
+import { useAppSelector } from "../../App/hooks";
 export default function Menu() {
   const [thums, setThums] = useState<any>(null);
-  // const listCatas = useSelector((state:RootState) => state.listDanhMuc.listCata);
+  // const listCatas = useAppSelector((state)=>state.listDanhMuc)
   // const dispatch = useDispatch()
   useEffect(() => {
 	  getListCata();

@@ -18,10 +18,15 @@ export default function Body() {
   const [listDanhMucSp, setListDanhMucSp] = useState<listDanhMucType[]>([]);
 
   const getListDanhMuc = async () => {
-    const res = await axios.get(
-      "https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc"
-    );
-    setListDanhMucSp(res.data);
+    try {
+      const res = await axios.get(
+        "https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc"
+      );
+      setListDanhMucSp(res.data);
+    } catch (error) {
+      console.log(error);
+      
+    }
   };
   const ShowSanPham = listDanhMucSp.map((item, index) => {
     if (item.id === "1" || item.id === "2" || item.id === "5") {

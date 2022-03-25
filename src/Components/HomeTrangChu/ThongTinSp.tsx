@@ -24,10 +24,16 @@ export default function ThongTinSp(props: TypeID) {
   }, []);
   const [listTTSp, setListTTSp] = useState<listTTSpType[]>([]);
   const getLoaiSp = async () => {
-    const res = await axios.get(
-      `https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${props.iddm}/Loai/${props.id}/SanPham`
-    );
-    setListTTSp(res.data);
+    try {
+      const res = await axios.get(
+        `https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${props.iddm}/Loai/${props.id}/SanPham`
+      );
+      setListTTSp(res.data);
+    } catch (error) {
+      console.log(error);
+      
+    }
+
   };
   const ShowLoaiSP = listTTSp.map((itemSP, indexSP) => {
     return (

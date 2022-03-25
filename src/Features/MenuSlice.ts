@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { DanhMucType } from '../TypeState/DanhMucType';
 const initialState = {
-    listCata:null,
+    listCata: null,
     loading:false
 }
 const getAllDanhMuc = createAsyncThunk('/AllDanhMuc',

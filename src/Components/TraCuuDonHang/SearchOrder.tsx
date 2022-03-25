@@ -13,8 +13,14 @@ function SearchOrder() {
     }, [])
     
     const getSearchOrder = async () => {
-        const res = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/1/Loai/1/SanPham`);
-        setSearchOrder(res.data[0]);
+        try {
+            const res = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/1/Loai/1/SanPham`);
+            setSearchOrder(res.data[0]);
+        } catch (error) {
+            console.log(error);
+            
+        }
+       
     }
     
     console.log(searchOrder?.id);

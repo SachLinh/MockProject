@@ -17,8 +17,13 @@ export default function LoaiSanPham (props:TypeID) {
     },[])
     const[listLoaiSp, setListLoaiSp] = useState<listLoaiSpType[]>([]) ;
     const getLoaiSp= async()=>{
-        const res=await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${props.id}/Loai`);
+        try {
+            const res=await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${props.id}/Loai`);
         setListLoaiSp(res.data);
+        } catch (error) {
+            console.log(error);
+            
+        }
     }
     const ShowLoaiSP = listLoaiSp.map((itemLoai, indexLoai)=>{
             return(
