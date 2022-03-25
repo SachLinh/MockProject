@@ -4,18 +4,22 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
 function SearchOrder() {
 
     const [searchOrder, setSearchOrder] = useState<any>()
+    const [checkOrder, setcheckOrder] = useState<any>();
 
-    useEffect(() => {
-        getSearchOrder();
-    }, [])
-    
+    // useEffect(() => {
+    //     getSearchOrder();
+    // }, [])
+
     const getSearchOrder = async () => {
         const res = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/HoaDon`);
-        setSearchOrder(res.data[0]);
+        setSearchOrder(res.data[Number(checkOrder-1)]);
     }
+
+    console.log("checkOrder", checkOrder);
     
     return(
         <div className="w-[1180px] h-[200px] pt-[80px] mx-auto">
@@ -29,7 +33,7 @@ function SearchOrder() {
                     <label
                         className="mt-[30px] px-[10px] font-bold">
                             Mã đơn hàng:  </label> 
-                    <input id="order_tracking_phone" placeholder="(Bắt buộc)"
+                    <input value={checkOrder} onChange={(e)=>setcheckOrder(e.target.value)} id="order_tracking_phone" placeholder="(Bắt buộc)"
                         className="w-[225px] h-[40px] border-[#dedede] rounded border-solid border mt-[25px] p-[8px] text-center leading-[18px]"
                     />
                     <label
@@ -41,7 +45,7 @@ function SearchOrder() {
                     <Link to="">
                         <button 
                             className="w-[150px] h-[39px] bg-[#e11b1e] border-[#e11b1e] rounded border-solid border-[1px] text-[#ffffff] font-bold ml-4 mt-6"
-                        onClick={searchOrder}>
+                        onClick={getSearchOrder}>
                             Kiểm tra
                         </button>
                     </Link>
