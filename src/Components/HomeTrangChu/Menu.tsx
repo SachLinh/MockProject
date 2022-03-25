@@ -8,13 +8,20 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import { DanhMucType } from "../../TypeState/DanhMucType";
+import { DanhMucType, LoaiSP } from "../../TypeState/DanhMucType";
 import axios from "axios";
 import MenuC2 from "./MenuC2";
+import { useDispatch, useSelector } from "react-redux";
+import DanhMucSP from "../DanhMucSP/DanhMucSP";
+import { AllDanhMucSlice } from "../../StoreSlice/MenuSlice";
+import { RootState } from "../../App/store";
 export default function Menu() {
   const [thums, setThums] = useState<any>(null);
+  // const listCatas = useSelector((state:RootState) => state.listDanhMuc.listCata);
+  // const dispatch = useDispatch()
   useEffect(() => {
 	  getListCata();
+    //dispatch(AllDanhMucSlice)
   }, []);
   const [listCatas, setListCatas] = useState<DanhMucType[]>([]);
   const getListCata = async () => {
@@ -33,7 +40,7 @@ export default function Menu() {
         className="w-full h-full hover:bg-[#d6d3d3]  p-[6px] first:rounded-t-2xl last:rounded-b-2xl pl-[10px] flex flex-row justify-between items-center group transition-transform-[0,25s]"
         key={index}
       >
-        <Link className="w-full pl-[15px]" to="">
+        <Link className="w-full pl-[15px]" to={`/DanhMucSP/${item.id}`}>
           {item.name}
         </Link>
         <i className="fa-solid fa-angle-right pr-[15px]"></i>

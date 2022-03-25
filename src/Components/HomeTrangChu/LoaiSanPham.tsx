@@ -8,7 +8,7 @@ interface listLoaiSpType {
         DanhMucId: string;
     }
     interface TypeID{
-        id: string,
+        id: any,
     }
 
 export default function LoaiSanPham (props:TypeID) {

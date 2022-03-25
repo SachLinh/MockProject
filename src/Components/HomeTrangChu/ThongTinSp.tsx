@@ -3,8 +3,8 @@ import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 interface TypeID {
-  id: string;
-  iddm: string;
+  id: any;
+  iddm: any;
 }
 interface listTTSpType {
   name: string;
@@ -31,7 +31,7 @@ export default function ThongTinSp(props: TypeID) {
   };
   const ShowLoaiSP = listTTSp.map((itemSP, indexSP) => {
     return (
-      <div className="text-left bg-white b w-[230px]  h-[340px] ml-[5px]  rounded-lg re cursor-pointer duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]">
+      <div className="text-left bg-white mt-3 w-[230px]  h-[340px] ml-[5px]  rounded-lg re cursor-pointer duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]">
         <p className="bg-gradient-to-r from-cyan-500 m-[5px] to-blue-500 h-[30px] w-[100px] pl-1 rounded-r-lg leading-[30px] ">
           Giảm <span>{itemSP.promotion}%</span>
         </p>
@@ -45,5 +45,5 @@ export default function ThongTinSp(props: TypeID) {
       </div>
     );
   });
-  return <span className="flex flex-row w-auto inline">{ShowLoaiSP}</span>;
+  return <span className="flex flex-row w-auto flex-wrap">{ShowLoaiSP}</span>;
 }
