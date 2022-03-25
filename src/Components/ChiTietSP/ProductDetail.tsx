@@ -7,18 +7,22 @@ import ImgProduct from './ImgProduct';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { DetailProduct, Color, Capacity } from './ModelPrdDetail';
+import { useParams } from 'react-router-dom';
 
 const ProductDetail = () => {
 	useEffect(() => {
 		getData()
 	}, []);
+	const params = useParams();
+	console.log(params);
+	
 	const [detailProduct, setDetailProduct] = useState<DetailProduct[]>([])
 	const [color, setColor] = useState<Color[]>([])
 	const [capacity, setCapacity] = useState<Capacity[]>([])
 	const getData = async () => {
-		const resDetail = await axios.get('https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/1/Loai/1/SanPham/1/ThongTinSanPham')
-		const resColor = await axios.get('https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/1/Loai/1/SanPham/1/ColorPrice')
-		const resCapacity = await axios.get('https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/1/Loai/1/SanPham/1/CapacityPrice')
+		const resDetail = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}/Loai/${params.idLoai}/SanPham/${params.idSP}/ThongTinSanPham`)
+		const resColor = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}/Loai/${params.idLoai}/SanPham/${params.idSP}/ColorPrice`)
+		const resCapacity = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}/Loai/${params.idLoai}/SanPham/${params.idSP}/CapacityPrice`)
 		setDetailProduct(resDetail.data)
 		setColor(resColor.data)
 		setCapacity(resCapacity.data)

@@ -31,17 +31,17 @@ export default function ThongTinSpNho(props: TypeID) {
   };
   const ShowLoaiSP = listTTSp.map((itemSP, indexSP) => {
     return (
+      <Link
+        to={`/product-detail/${props.iddm}/Loai/${props.id}/SanPham/${itemSP.id}`}
+      >
         <div className="w-1/10 mr-[15px] text-left bg-indigo-200 b w-[111px]  h-[127px] rounded-lg re cursor-pointer ">
-            <p className="absolute p-[14px] font-bold text-white">
-               {" "}
-               {itemSP.name}
-        </p>
-        <img
-          alt=""
-          src={itemSP.avatar}
-          className="w-[111px] h-[127px]"
-        ></img>
-      </div>
+          <p className="absolute p-[14px] font-bold text-white">
+            {" "}
+            {itemSP.name}
+          </p>
+          <img alt="" src={itemSP.avatar} className="w-[111px] h-[127px]"></img>
+        </div>
+      </Link>
     );
   });
   return <span className="flex flex-row w-auto inline">{ShowLoaiSP}</span>;

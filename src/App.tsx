@@ -24,7 +24,7 @@ function App() {
 
 				<Route path='/SearchOrder' element={<SearchOrder />}></Route>
 
-				<Route path='/product-detail' element={<ProductDetail/>}></Route>
+				<Route path='/product-detail/:idDM/Loai/:idLoai/SanPham/:idSP' element={<ProductDetail/>}></Route>
 
 			</Routes>
 			<Footer/>
