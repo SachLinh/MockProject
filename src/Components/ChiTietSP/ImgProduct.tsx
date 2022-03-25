@@ -16,9 +16,8 @@ import { useParams } from "react-router-dom";
 export default function ImgProduct() {
     useEffect(() => {
         getImg()
-    });
+    },[]);
     const params = useParams();
-	console.log(params);
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
     const [img, setImg] = useState<Images[]>([]);
     const getImg = async () => {

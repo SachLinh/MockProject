@@ -21,11 +21,8 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Content />}></Route>
 				<Route path='/cart' element={<Cart />}></Route>
-
 				<Route path='/SearchOrder' element={<SearchOrder />}></Route>
-
 				<Route path='/product-detail/:idDM/Loai/:idLoai/SanPham/:idSP' element={<ProductDetail/>}></Route>
-
 			</Routes>
 			<Footer/>
 		</div>

@@ -13,7 +13,7 @@ import React from 'react';
 const ProductDetail = () => {
 	useEffect(() => {
 		getData()
-	});
+	}, []);
 	const params = useParams();
 	const [detailProduct, setDetailProduct] = useState<DetailProduct[]>([])
 	const [color, setColor] = useState<Color[]>([])
@@ -31,10 +31,9 @@ const ProductDetail = () => {
 		<div>
 			{detailProduct.map(item => {
 				return (
-					<div className='font-sans '>
-
-						<div className='py-[10px] border-solid mx-[5%]'>
-							<h3 className='font-bold text-[18px]'>
+					<div key={item.id} className='font-sans '>
+						<div className='py-[10px] border-solid ml-2 mt-[65px] flex justify-center'>
+							<h3 className='font-bold text-[18px] w-[1200px]'>
 								{item.name}
 							</h3>
 						</div>
