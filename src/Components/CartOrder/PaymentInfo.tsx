@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function OrderInfo() {
+function PaymentInfo() {
     return (
-        <div className="w-5/12 h-96 mx-auto mt-3">
+        <div className="w-5/12 mx-auto mt-16">
             <div className="grid grid-flow-row grid-cols-2 place-content-center">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline text-red-600" viewBox="0 0 20 20" fill="currentColor">
@@ -87,15 +88,19 @@ function OrderInfo() {
                     <p className="text-md font-bold">Tổng tiền tạm tính:</p>
                     <p className="text-md text-red-600 font-semibold text-right">35.990.000 ₫</p>
                 </div>
-                <div className="text-center bg-red-600 text-white font-bold py-4 rounded-md mb-2 cursor-pointer">
-                    <p>TIẾP TỤC</p>
-                </div>
-                <div className="border border-solid border-red-600 py-4 text-center text-red-600  font-bold rounded-md hover:bg-red-500 hover:text-white cursor-pointer transition-all">
-                    <p>CHỌN THÊM SẢN PHẨM KHÁC</p>
-                </div>
+                <Link to="/payment">
+                    <div className="text-center bg-red-600 text-white font-bold py-4 rounded-md mb-2 cursor-pointer">
+                        <p>TIẾP TỤC</p>
+                    </div>
+                </Link>
+                <Link to="/">
+                    <div className="border border-solid border-red-600 py-4 text-center text-red-600  font-bold rounded-md hover:bg-red-500 hover:text-white cursor-pointer transition-all">
+                        <p>CHỌN THÊM SẢN PHẨM KHÁC</p>
+                    </div>
+                </Link>
             </div>
         </div>
     );
 }
 
-export default OrderInfo;
+export default PaymentInfo;

@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function CompleteOrder() {
+function CompletePayment() {
     return (
-        <div className="w-5/12 h-96 mx-auto mt-3">
+        <div className="w-5/12 mx-auto mt-16">
             <div className="grid grid-flow-row grid-cols-2 place-content-center">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline text-red-600" viewBox="0 0 20 20" fill="currentColor">
@@ -46,16 +47,18 @@ function CompleteOrder() {
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <div className="bg-red-600 py-2 text-center text-white font-bold rounded-xl cursor-pointer">
-                        <p>TIẾP TỤC MUA HÀNG</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mx-auto" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-                        </svg>
-                    </div>
+                    <Link to="/">
+                        <div className="bg-red-600 py-2 text-center text-white font-bold rounded-xl cursor-pointer">
+                            <p>TIẾP TỤC MUA HÀNG</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mx-auto" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                            </svg>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>
     );
 }
 
-export default CompleteOrder;
+export default CompletePayment;
