@@ -45,7 +45,7 @@ export default function Header() {
             </div>
           </Link>
           <Link
-            to=""
+            to="/CuaHang"
             className="flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
           >
             <i className="fa-solid fa-location-dot text-[25px] mr-2"></i>

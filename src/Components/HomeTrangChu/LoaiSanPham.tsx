@@ -34,7 +34,7 @@ export default function LoaiSanPham (props:TypeID) {
     });
     const ShowTTSP = listLoaiSp.map((itemLoai, indexLoai)=>{
         return(
-            <div className="m-2">
+            <div className="">
               <ThongTinSp iddm = {props.id} id={itemLoai.id}/>
             </div>
         );
