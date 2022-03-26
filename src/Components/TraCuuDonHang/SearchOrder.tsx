@@ -34,13 +34,13 @@ function SearchOrder() {
                     <label
                         className="mt-[30px] px-[10px] font-bold">
                             Mã đơn hàng:  </label> 
-                    <input value={checkOrder} onChange={(e)=>setcheckOrder(e.target.value)} id="order_tracking_phone" placeholder="(Bắt buộc)"
+                    <input value={checkOrder} onChange={(e)=>setcheckOrder(e.target.value)} placeholder="(Bắt buộc)"
                         className="w-[225px] h-[40px] border-[#dedede] rounded border-solid border mt-[25px] p-[8px] text-center leading-[18px]"
                     />
                     <label
                         className="mt-[30px] px-[10px] font-bold">
                             Số điện thoại: </label> 
-                    <input id="order_tracking_phone" 
+                    <input 
                         className="w-[225px] h-[40px] border-[#dedede] rounded border-solid border mt-[25px] p-[8px] text-center leading-[18px]"
                     />
                     <Link to="">
