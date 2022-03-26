@@ -17,6 +17,7 @@ import DanhMucSPCon from './Components/DanhMucSP/DanhMucSPCon';
 import Payment from './Components/CartOrder/Payment';
 import PaymentInfo from './Components/CartOrder/PaymentInfo';
 import CompletePayment from './Components/CartOrder/CompletePayment';
+import Admin from './Components/Administrator/Admin';
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
 			<Header />
 			<Routes>
 				<Route path='/' element={<Content />}></Route>
-				
+				<Route path='/Admin' element={<Admin />}></Route>				
 				<Route path='/cart' element={<Cart />}></Route>
 				<Route path='/payment' element={<Payment />}></Route>
 				<Route path='/payment-info' element={<PaymentInfo />}></Route>
