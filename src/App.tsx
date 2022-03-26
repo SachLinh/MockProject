@@ -18,6 +18,7 @@ import Payment from './Components/CartOrder/Payment';
 import PaymentInfo from './Components/CartOrder/PaymentInfo';
 import CompletePayment from './Components/CartOrder/CompletePayment';
 import Admin from './Components/Administrator/Admin';
+import CuaHang from './Components/CuaHang/CuaHang';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
 				<Route path='/Admin' element={<Admin />}></Route>				
 				<Route path='/cart' element={<Cart />}></Route>
 				<Route path='/payment' element={<Payment />}></Route>
+				<Route path='/CuaHang' element={<CuaHang />}></Route>
 				<Route path='/payment-info' element={<PaymentInfo />}></Route>
 				<Route path='/complete-payment' element={<CompletePayment />}></Route>
 				<Route path='/SearchOrder' element={<SearchOrder />}></Route>
