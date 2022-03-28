@@ -38,8 +38,13 @@ export default function QuanLyDanhMuc() {
           </Link>
         </td>
         <td className="border border-slate-400  w-[170px] text-center">
-          <Link to={"/Admin/ListSanPham"} >
-          <button className="btn btn-outline-dark">Chi tiết Danh Mục</button>
+
+<!--           <Link to={"/Admin/ListSanPham"} >
+          <button className="btn btn-outline-dark">Chi tiết Danh Mục</button> -->
+
+          <Link to={`${item.id}/QuanLyLoaiSP`}>
+            <button className="btn btn-outline-dark">Chi tiết Danh Mục</button>
+
           </Link>
         </td>
       </tr>
