@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import { DanhMucType, LoaiSP } from "../../TypeState/DanhMucType";
+import { DanhMucType } from "../../TypeState/DanhMucType";
 import axios from "axios";
 import MenuC2 from "./MenuC2";
 import { useDispatch, useSelector } from "react-redux";
