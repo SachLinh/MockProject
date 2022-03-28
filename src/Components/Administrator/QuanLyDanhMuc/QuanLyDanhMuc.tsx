@@ -31,20 +31,15 @@ export default function QuanLyDanhMuc() {
           </Link>
         </td>
         <td className="border border-slate-400 w-[170px] text-center">
-        <Link to={`/Admin/Delete/${item.id}`}>
-        <button type="button" className="btn btn-warning">
-            Delete
-          </button>
+          <Link to={`/Admin/Delete/${item.id}`}>
+            <button type="button" className="btn btn-warning">
+              Delete
+            </button>
           </Link>
         </td>
         <td className="border border-slate-400  w-[170px] text-center">
-
-<!--           <Link to={"/Admin/ListSanPham"} >
-          <button className="btn btn-outline-dark">Chi tiết Danh Mục</button> -->
-
           <Link to={`${item.id}/QuanLyLoaiSP`}>
             <button className="btn btn-outline-dark">Chi tiết Danh Mục</button>
-
           </Link>
         </td>
       </tr>
@@ -56,7 +51,9 @@ export default function QuanLyDanhMuc() {
         QUẢN LÝ DANH MỤC
       </h1>
       <Link to="/Admin/AddNewDanhMuc">
-        <button className="btn btn-outline-success mx-[20px] my-4">Thêm mới danh mục</button>
+        <button className="btn btn-outline-success mx-[20px] my-4">
+          Thêm mới danh mục
+        </button>
       </Link>
       <table className="table table-hover leading-[40px]">
         <thead>
