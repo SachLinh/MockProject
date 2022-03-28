@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function CuaHang() {
   return (
-    <div>
+    <div className="mt-[100px]">
         <div className="mt-[80px] w-[1200px] flex flex-row h-auto m-auto ">
       <div className="w-4/5 rounded-t-lg border-2">
         <div className="image">
