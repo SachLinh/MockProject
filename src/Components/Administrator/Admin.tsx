@@ -6,6 +6,8 @@ import AddNewDanhMuc from "./QuanLyDanhMuc/AddNewDanhMuc";
 import DeleteDanhMuc from "./QuanLyDanhMuc/DeleteDanhMuc";
 import QuanLyDanhMuc from "./QuanLyDanhMuc/QuanLyDanhMuc";
 import UpdateDanhMuc from "./QuanLyDanhMuc/UpdateDanhMuc";
+import ListSanPham from "./ChiTietDanhMuc/ListSanPham";
+import UpdateProd from "./ChiTietDanhMuc/UpdateProd";
 
 export default function Admin() {
   return (
@@ -21,6 +23,8 @@ export default function Admin() {
             <Route path="/AddNewDanhMuc" element={<AddNewDanhMuc />}></Route>
             <Route path="/Update/:idDM" element={<UpdateDanhMuc />}></Route>
             <Route path="/Delete/:idDM" element={<DeleteDanhMuc />}></Route>
+            <Route path="/ListSanPham" element={<ListSanPham />} ></Route>
+            <Route path="/UpdateProd" element={<UpdateProd />}></Route>
           </Routes>
         </div>
       </div>
