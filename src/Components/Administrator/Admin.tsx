@@ -14,6 +14,10 @@ import AddNewLoaiSP from "./QuanLyLoaiSP/AddNewLoaiSP";
 import DeleteLoaiSP from "./QuanLyLoaiSP/DeleteLoaiSP";
 import QuanLyLoaiSp from "./QuanLyLoaiSP/QuanLyLoaiSP";
 import UpdateLoaiSP from "./QuanLyLoaiSP/UpdateLoaiSP";
+import AddProd from "./ChiTietDanhMuc/AddProd";
+import DeleteProd from "./ChiTietDanhMuc/DeleteProd";
+import QLThongTinSp from "./ThongSoSanPham/QLThongTinSp";
+import SuaThongTinSP from "./ThongSoSanPham/SuaThongTinSP";
 
 
 export default function Admin() {
@@ -39,7 +43,14 @@ export default function Admin() {
             <Route path="/AddNewLoaiSP/:idDM" element={<AddNewLoaiSP />}></Route>
             <Route path="/Update/:idDM/Loai/:idLoai" element={<UpdateLoaiSP />}></Route>
             <Route path="/Delete/:idDM/Loai/:idLoai" element={<DeleteLoaiSP />}></Route>
-
+            {/* List sản phẩm */}
+            <Route path="QuanLyDanhMuc/:idDM/QuanLyLoaiSP/:idLoai/ListSanPham" element={<ListSanPham />}></Route>
+            <Route path="/AddProd/:idDM/Loai/:idLoai" element={<AddProd />}></Route>
+            <Route path="/Update/:idDM/Loai/:idLoai/SanPham/:idSanPham" element={<UpdateProd />}></Route>
+            <Route path="/Delete/:idDM/Loai/:idLoai/SanPham/:idSanPham" element={<DeleteProd />}></Route>
+            {/* Thông số sản phẩm */}
+            <Route path="QuanLyDanhMuc/:idDM/QuanLyLoaiSP/:idLoai/ListSanPham/:idSanPham/QLThongTinSp" element={<QLThongTinSp />}></Route>
+            <Route path="/Update/:idDM/Loai/:idLoai/SanPham/:idSanPham/QLThongTinSp/:idThongTin" element={<SuaThongTinSP />}></Route>
           </Routes>
         </div>
       </div>
