@@ -3,12 +3,10 @@ import React, { Component, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { DanhMucType } from "../../../TypeState/DanhMucType";
 
-const initState = {
-  id: "",
-  name: "",
-};
+
 export default function UpdateDanhMuc() {
   const params = useParams();
+
   const [danhMuc, setDanhmuc] = useState<DanhMucType>();
   const navigate = useNavigate();
   const getDanhMuc = async () => {
@@ -24,12 +22,19 @@ export default function UpdateDanhMuc() {
   useEffect(() => {
     getDanhMuc();
   }, []);
+  const initState = {
+    id: "",
+    name: "",
+  };
   const [data, setData] = useState(initState);
   const { id, name } = data;
+  
   const onChangeText = (e: any) => {
     setData({
-      ...data,
-      [e.target.name]: e.target.value,
+      id : danhMuc?.id,
+      name: e.target.value
+      // ...data,
+      // [e.target.name] : [e.target.value]
     });
   };
   const onSubmit = async (e: any) => {
@@ -45,7 +50,7 @@ export default function UpdateDanhMuc() {
         );
         setDanhmuc(res.data);
         setData({
-          id: "",
+          id: danhMuc?.id,
           name: "",
         });
         alert("Thay đổi thành công");
@@ -67,9 +72,9 @@ export default function UpdateDanhMuc() {
             type="text"
             name="id"
             placeholder={danhMuc?.id}
-            value={id}
+            value={danhMuc?.id}
             className="border p-[10px] mr-[20px] outline-none"
-            onChange={onChangeText}
+            disabled
           />
           <label htmlFor="">Tên Danh Mục</label>
           <input
