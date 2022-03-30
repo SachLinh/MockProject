@@ -1,9 +1,15 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Header() {
+  const [redirect, setRedirect] = useState(() => {
+    if(localStorage.getItem('mock-project-signed-in') === 'false')
+      return "/Smember/thong-tin";
+    else return "/Smember";
+  })
+
   return (
     <div className="w-full bg-[#d70018] h-[64px] fixed flex flex-col justify-center items-center z-50">
       <div className="w-[1200px] z-50">
@@ -74,7 +80,7 @@ export default function Header() {
             </div>
           </Link>
           <Link
-            to=""
+            to={redirect}
             className="h-[50px] flex flex-col justify-start items-center text-white p-[5px] hover:bg-[#eb4a4a] px-1 rounded-xl"
           >
             <i className="fa-solid fa-user text-[20px] mr-2 h-[25px]"></i>
