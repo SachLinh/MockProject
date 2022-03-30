@@ -37,7 +37,7 @@ export default function ThongTinSpNho(props: TypeID) {
   };
   const ShowLoaiSP = listTTSp.map((itemSP, indexSP) => {
     return (
-      <Link
+      <Link key={indexSP}
         to={`/product-detail/${props.iddm}/Loai/${props.id}/SanPham/${itemSP.id}`}
       >
         <div className="w-1/10 mr-[15px] text-left bg-indigo-200 b w-[111px]  h-[127px] rounded-lg re cursor-pointer ">
