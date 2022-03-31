@@ -35,9 +35,6 @@ export default function Admin() {
             <Route path="/AddNewDanhMuc" element={<AddNewDanhMuc />}></Route>
             <Route path="/Update/:idDM" element={<UpdateDanhMuc />}></Route>
             <Route path="/Delete/:idDM" element={<DeleteDanhMuc />}></Route>
-            {/* // SanPham */}
-            <Route path="/ListSanPham" element={<ListSanPham />} ></Route>
-            <Route path="/UpdateProd" element={<UpdateProd />}></Route>
             {/* Loai Sp */}
             <Route path="QuanLyDanhMuc/:idDM/QuanLyLoaiSP" element={<QuanLyLoaiSp />}></Route>
             <Route path="/AddNewLoaiSP/:idDM" element={<AddNewLoaiSP />}></Route>

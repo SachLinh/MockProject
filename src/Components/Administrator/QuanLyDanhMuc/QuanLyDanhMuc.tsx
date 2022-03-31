@@ -2,12 +2,17 @@ import axios from "axios";
 import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { DanhMucType } from "../../../TypeState/DanhMucType";
+import Pagination from "./Pagination";
 
 export default function QuanLyDanhMuc() {
   useEffect(() => {
     getListCata();
   }, []);
   const [listCatas, setListCatas] = useState<DanhMucType[]>([]);
+  // page
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(6);
+  // Lấy dữ liệu
   const getListCata = async () => {
     try {
       const res = await axios.get(
@@ -18,30 +23,35 @@ export default function QuanLyDanhMuc() {
       console.log(error);
     }
   };
+
+  // Giá trị sắp xếp
   const SORT = {
     up: "2",
     down: "3",
   };
   const [sortId, setSortId] = useState(SORT.up);
+  // Hiển thị giá trị trên màn hình
   const getSortAge = () => {
     if (sortId === SORT.down) {
-      return "v";
+      return `^`;
     }
     if (sortId === SORT.up) {
       return "^";
     }
   };
+  // Chuyển đổi giá trị sắp xếp
   const handleSort = () => {
     if (sortId === SORT.down) {
       setSortId(SORT.up);
     } else {
       if (sortId === SORT.up) {
         setSortId(SORT.down);
-      } 
+      }
     }
   };
 
   const [searchName, setSearchName] = useState("");
+  // Tìm kiếm
   const findName = function (list: DanhMucType[]) {
     let res: DanhMucType[] = [...list];
     if (searchName) {
@@ -51,13 +61,20 @@ export default function QuanLyDanhMuc() {
     }
     if (sortId !== SORT.down) {
       res.sort((a, b) => (parseInt(a.id) > parseInt(b.id) ? 1 : -1));
-    }
-    else{
+    } else {
       res.sort((a, b) => (parseInt(a.id) < parseInt(b.id) ? 1 : -1));
     }
     return res;
   };
-  const getListDanhMuc = findName(listCatas).map((item, index) => {
+  // get ccurrent Page
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = listCatas.slice(indexOfFirstPost, indexOfLastPost);
+  // function paginate
+  const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
+
+  // Render map data
+  const getListDanhMuc = findName(currentPosts).map((item, index) => {
     return (
       <tr key={index}>
         <td className="border border-slate-400 text-center">{item.id}</td>
@@ -114,14 +131,12 @@ export default function QuanLyDanhMuc() {
       <table className="table table-hover leading-[40px]">
         <thead>
           <tr className="text-center">
-            <th className="border border-slate-400">Mã ID</th>
             <th className="border border-slate-400">
-              {" "}
               <button className="btn btn-outline-success" onClick={handleSort}>
-                Tên danh mục {getSortAge()}
+                Mã ID {getSortAge()}
               </button>
-             
             </th>
+            <th className="border border-slate-400">Tên danh mục</th>
             <th className="border border-slate-400">Sửa</th>
             <th className="border border-slate-400">Xóa</th>
             <th className="border border-slate-400">Chi tiết</th>
@@ -129,6 +144,11 @@ export default function QuanLyDanhMuc() {
         </thead>
         <tbody className="font-Roboto font-[500px]">{getListDanhMuc}</tbody>
       </table>
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={listCatas.length}
+        paginate={paginate}
+      />
     </div>
   );
 }
