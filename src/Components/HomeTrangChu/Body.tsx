@@ -15,6 +15,7 @@ export default function Body() {
   useEffect(() => {
     getListDanhMuc();
   }, []);
+
   const [listDanhMucSp, setListDanhMucSp] = useState<listDanhMucType[]>([]);
 
   const getListDanhMuc = async () => {
@@ -32,7 +33,7 @@ export default function Body() {
     if (item.id === "1" || item.id === "2" || item.id === "5") {
       return (
         <div key={index} className="relative">
-          <h4 className=" absolute m-1 no-underline text-left font-bold ... hover:underline ... ">
+          <h4 className="absolute m-1 no-underline text-left font-bold ... hover:underline ... ">
             {item.name}
           </h4>
           {/* Menu */}

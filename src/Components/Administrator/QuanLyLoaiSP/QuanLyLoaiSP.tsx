@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
-import { listLoaiSpType } from './listLoaiSpType';
-
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Link, useParams } from "react-router-dom";
+import { listLoaiSpType } from "./listLoaiSpType";
 
 export default function LoaiSP() {
   useEffect(() => {
@@ -10,6 +9,7 @@ export default function LoaiSP() {
   }, []);
   const params = useParams();
   const [loaiSP, setLoaiSP] = useState<listLoaiSpType[]>([])
+
   const getLoaiSP = async () => {
     try {
       const res = await axios.get(
@@ -40,7 +40,9 @@ export default function LoaiSP() {
           </Link>
         </td>
         <td className="border border-slate-400  w-[170px] text-center">
+
           <button className="btn btn-outline-dark">Chi tiết Loại SP</button>
+
         </td>
       </tr>
     );
@@ -51,7 +53,9 @@ export default function LoaiSP() {
         QUẢN LÝ Loại Sản Phẩm
       </h1>
       <Link to={`/Admin/AddNewLoaiSP/${params.idDM}`}>
+
         <button className="btn btn-outline-success mx-[20px] my-4">Thêm mới Loại Sản Phẩm</button>
+
       </Link>
       <table className="table table-hover leading-[40px]">
         <thead>
@@ -67,4 +71,6 @@ export default function LoaiSP() {
       </table>
     </div>
   );
+
 }
+
