@@ -37,12 +37,12 @@ function Cart() {
 					</p>
 				</div>
 				<Link to="/payment-info">
-					<div className='text-center bg-red-600 text-white font-bold py-5 rounded-md mb-2 cursor-pointer'>
+					<div className='text-center bg-red-600 text-white font-bold py-4 rounded-md mb-2 cursor-pointer'>
 						<p>TIẾN HÀNH ĐẶT HÀNG</p>
 					</div>
 				</Link>
 				<Link to="/">
-					<div className='border border-solid border-red-600 py-5 text-center text-red-600  font-bold rounded-md hover:bg-red-500 hover:text-white cursor-pointer transition-all'>
+					<div className='border border-solid border-red-600 py-4 text-center text-red-600  font-bold rounded-md hover:bg-red-500 hover:text-white cursor-pointer transition-all'>
 						<p>CHỌN THÊM SẢN PHẨM KHÁC</p>
 					</div>
 				</Link>

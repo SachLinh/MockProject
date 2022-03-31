@@ -1,13 +1,21 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Header() {
   const [redirect, setRedirect] = useState(() => {
-    if(localStorage.getItem('mock-project-signed-in') === 'false')
+    if (localStorage.getItem('mock-project-signed-in') == 'true')
       return "/Smember/thong-tin";
     else return "/Smember";
+  })
+  useEffect(() => {
+    console.log("header render");
+    setRedirect(() => {
+      if (localStorage.getItem('mock-project-signed-in') == 'true')
+        return "/Smember/thong-tin";
+      else return "/Smember";
+    })
   })
 
   return (
@@ -51,7 +59,7 @@ export default function Header() {
             </div>
           </Link>
           <Link
-            to=""
+            to="/CuaHang"
             className="flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
           >
             <i className="fa-solid fa-location-dot text-[25px] mr-2"></i>

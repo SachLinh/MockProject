@@ -37,7 +37,8 @@ function App() {
 	useEffect(() => {
 		const unregisterAuthObserver = firebase.auth().onAuthStateChanged(user => {
 			setIsSignedIn(!!user);
-			localStorage.setItem('mock-project-signed-in', JSON.stringify(isSignedIn))
+      console.log(user);
+			localStorage.setItem('mock-project-signed-in', JSON.stringify(!!user))
 			localStorage.setItem('mock-project-smember', JSON.stringify(user))
 		});
 		return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
