@@ -20,6 +20,7 @@ export default function Menu() {
 	  getListCata();
     //dispatch(AllDanhMucSlice)
   }, []);
+
   const [listCatas, setListCatas] = useState<DanhMucType[]>([]);
   const getListCata = async () => {
     try {

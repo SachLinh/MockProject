@@ -28,6 +28,7 @@ export default function ThongTinSp(props: TypeID) {
       const res = await axios.get(
         `https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${props.iddm}/Loai/${props.id}/SanPham`
       );
+      console.log('====================================');
       setListTTSp(res.data);
     } catch (error) {
       console.log(error);
