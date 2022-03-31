@@ -3,6 +3,7 @@ import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { SanPhamType } from "../../../TypeState/SanPhamType";
+import PageProd from "./PageProd";
 
 export default function ListSanPham() {
     useEffect(() => {
@@ -10,6 +11,8 @@ export default function ListSanPham() {
       }, []);
       const [listProd, setListProd] = useState<SanPhamType[]>([]);
       const params = useParams();
+      const [currentPage, setCurrentPage] = useState(1);
+      const [postsPerPage] = useState(6);
       const getListCata = async () => {
         try {
           const resProd = await axios.get(
@@ -61,7 +64,14 @@ export default function ListSanPham() {
       return res;
     };
 
-      const getListSanPham = findName(listProd).map((item, index) => {
+    // get ccurrent Page
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = listProd.slice(indexOfFirstPost, indexOfLastPost);
+    // function paginate
+    const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
+
+      const getListSanPham = findName(currentPosts).map((item, index) => {
         return (
           <tr key={index}>
             <td className="border border-slate-400 text-center">{item.id}</td>
@@ -145,6 +155,11 @@ export default function ListSanPham() {
             </thead>
             <tbody className="font-Roboto font-[500px]">{getListSanPham}</tbody>
           </table>
+          <PageProd
+          postsPerPage={postsPerPage}
+          totalPosts={listProd.length}
+          paginate={paginate}
+          />
         </div>
       );
 }
