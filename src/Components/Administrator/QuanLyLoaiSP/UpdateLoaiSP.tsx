@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { listLoaiSpType } from "./listLoaiSpType";
 
 const initState = {
-    danhMucId:"",
+    danhMucId: "",
     id: "",
     name: "",
 };
@@ -46,7 +46,7 @@ export default function UpdateDanhMuc() {
                 );
                 setEditLoaiSP(res.data);
                 setData({
-                    danhMucId:"",
+                    danhMucId: "",
                     id: "",
                     name: "",
                 });
@@ -73,7 +73,7 @@ export default function UpdateDanhMuc() {
                         className="border p-[10px] mr-[20px] outline-none"
                         onChange={onChangeText}
                     />
-                    <label htmlFor="">ID SP</label>
+                    <label htmlFor="">ID Loại</label>
                     <input
                         type="text"
                         name="id"
@@ -82,7 +82,7 @@ export default function UpdateDanhMuc() {
                         className="border p-[10px] mr-[20px] outline-none"
                         onChange={onChangeText}
                     />
-                    <label htmlFor="">Tên SP</label>
+                    <label htmlFor="">Loại SP</label>
                     <input
                         type="text"
                         name="name"
