@@ -8,7 +8,7 @@ interface listLoaiSpType {
   DanhMucId: string;
 }
 interface TypeID {
-  id: any
+  id: any;
 }
 
 export default function LoaiSanPham(props: TypeID) {
@@ -38,8 +38,8 @@ export default function LoaiSanPham(props: TypeID) {
   });
   const ShowTTSP = listLoaiSp.map((itemLoai, indexLoai) => {
     return (
-        <div className="" key={indexLoai}>
-        <ThongTinSp iddm = {props.id} id={itemLoai.id} />
+      <div className="" key={indexLoai}>
+        <ThongTinSp iddm={props.id} id={itemLoai.id} />
       </div>
     );
   });
