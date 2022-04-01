@@ -19,6 +19,7 @@ import DeleteProd from "./ChiTietDanhMuc/DeleteProd";
 import QLThongTinSp from "./ThongSoSanPham/QLThongTinSp";
 import SuaThongTinSP from "./ThongSoSanPham/SuaThongTinSP";
 
+import QuanLyHoaDon from "./QuanLyHoaDon/QuanLyHoaDon";
 
 export default function Admin() {
   return (
@@ -48,6 +49,9 @@ export default function Admin() {
             {/* Thông số sản phẩm */}
             <Route path="QuanLyDanhMuc/:idDM/QuanLyLoaiSP/:idLoai/ListSanPham/:idSanPham/QLThongTinSp" element={<QLThongTinSp />}></Route>
             <Route path="/Update/:idDM/Loai/:idLoai/SanPham/:idSanPham/QLThongTinSp/:idThongTin" element={<SuaThongTinSP />}></Route>
+
+            {/* Hoa Don */}
+            <Route path="/QuanLyHoaDon" element={<QuanLyHoaDon />}></Route>
           </Routes>
         </div>
       </div>
