@@ -25,7 +25,7 @@ export default function Menu() {
   const getListCata = async () => {
     try {
       const res = await axios.get(
-        "https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc"
+        "https://6232e62e6de3467dbac2a7d6.mockapi.io/DanhMuc"
       );
       setListCatas(res.data);
     } catch (error) {

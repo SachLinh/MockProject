@@ -19,29 +19,37 @@ export default function LoaiSanPham(props: TypeID) {
   const getLoaiSp = async () => {
     try {
       const res = await axios.get(
-        `https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${props.id}/Loai`
+        `https://6232e62e6de3467dbac2a7d6.mockapi.io/Loai`
       );
       setListLoaiSp(res.data);
     } catch (error) {
       console.log(error);
     }
   };
+  
   const ShowLoaiSP = listLoaiSp.map((itemLoai, indexLoai) => {
-    return (
-      <li
-        key={indexLoai}
-        className="m-1 p-2 list-none no-underline inline-block bg-slate-100 rounded-lg"
-      >
-        <Link to="#">{itemLoai.name}</Link>
-      </li>
-    );
+    if(itemLoai.DanhMucId === props.id)
+    {  
+      return (
+        <li
+          key={indexLoai}
+          className="m-1 p-2 list-none no-underline inline-block bg-slate-100 rounded-lg"
+        >
+          <Link to="#">{itemLoai.name}</Link>
+        </li>
+      );
+    
+    }
   });
   const ShowTTSP = listLoaiSp.map((itemLoai, indexLoai) => {
-    return (
+    if(itemLoai.DanhMucId === props.id){
+       return (
       <div className="" key={indexLoai}>
-        <ThongTinSp iddm={props.id} id={itemLoai.id} />
+        <ThongTinSp id={itemLoai.id} />
       </div>
     );
+    }
+   
   });
   return (
     <div className="">
