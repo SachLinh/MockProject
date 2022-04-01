@@ -4,7 +4,6 @@ import axios from "axios";
 import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import LoaiSanPham from "./LoaiSanPham";
-import LoaiSPNho from "./LoaiSPNho";
 import ThongTinSp from "./ThongTinSp";
 
 export default function Body() {
@@ -14,6 +13,8 @@ export default function Body() {
   }
   useEffect(() => {
     getListDanhMuc();
+    console.log("abc");
+    
   }, []);
 
   const [listDanhMucSp, setListDanhMucSp] = useState<listDanhMucType[]>([]);
@@ -21,7 +22,7 @@ export default function Body() {
   const getListDanhMuc = async () => {
     try {
       const res = await axios.get(
-        "https://6232e62e6de3467dbac2a7d6.mockapi.io/DanhMuc"
+        "https://6232e62e6de3467dbac2a7d6.mockapi.io/Loai"
       );
       setListDanhMucSp(res.data);
     } catch (error) {
@@ -30,38 +31,22 @@ export default function Body() {
     }
   };
   const ShowSanPham = listDanhMucSp.map((item, index) => {
-    if (item.id === "1" || item.id === "2" || item.id === "5") {
-      return (
-        <div key={index} className="relative">
-          <h4 className="absolute m-1 no-underline text-left font-bold ... hover:underline ... ">
-            {item.name}
-          </h4>
-          {/* Menu */}
-          <div className="flex-1 text-right w-[1200px]">
-            <ul className="">
-              <LoaiSanPham id={item.id}/>
-            </ul>
-            {/* List Điện thoại 1 */}
-          </div>
+   if(item.name === "Apple" || item.name === "SamSung" || item.name === "Oppo" || item.name === "XiaoMi"){
+    return (
+      <div key={index} className="relative">
+        <h4 className=" m-1 no-underline text-left font-bold ... hover:underline ... ">
+          {item.name}
+        </h4>
+        {/* Menu */}
+        <div className="mt-[15px] flex-1 text-right w-[1200px]">
+          <ul className="mb-[10px]">
+            <ThongTinSp id={item.id}/>
+          </ul>
+          {/* List Điện thoại 1 */}
         </div>
-      );
-    }
-    if (item.id === "6" || item.id === "7") {
-      return (
-        <div key={index} className="relative">
-          <h4 className=" absolute m-1 no-underline text-left font-bold ... hover:underline ... ">
-            {item.name}
-          </h4>
-          {/* Menu */}
-          <div className="flex-1 text-right w-[1200px]">
-            <ul className="">
-              <LoaiSPNho id={item.id} />
-            </ul>
-            {/* List Điện thoại 1 */}
-          </div>
-        </div>
-      );
-    }
+      </div>
+    )
+   }
   });
 
   return (

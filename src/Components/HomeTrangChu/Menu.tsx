@@ -25,7 +25,7 @@ export default function Menu() {
   const getListCata = async () => {
     try {
       const res = await axios.get(
-        "https://6232e62e6de3467dbac2a7d6.mockapi.io/DanhMuc"
+        "https://6232e62e6de3467dbac2a7d6.mockapi.io/Loai"
       );
       setListCatas(res.data);
     } catch (error) {
@@ -42,11 +42,11 @@ export default function Menu() {
           {item.name}
         </Link>
         <i className="fa-solid fa-angle-right pr-[15px]"></i>
-        <div className="absolute  left-[100%] top-[0%] w-full h-full bg-[#fff] -z-50 opacity-0 group-hover:z-20 group-hover:opacity-100">
+        {/* <div className="absolute  left-[100%] top-[0%] w-full h-full bg-[#fff] -z-50 opacity-0 group-hover:z-20 group-hover:opacity-100">
           <ul className="h-full flex flex-col justify-between">
             <MenuC2 id={item.id}/>
           </ul>
-        </div>
+        </div> */}
       </li>
     );
 

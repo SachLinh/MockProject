@@ -11,7 +11,6 @@ import Header from './Components/FooterAndHeader/Header';
 import Content from './Components/HomeTrangChu/Content';
 import SearchOrder from './Components/TraCuuDonHang/SearchOrder';
 import DanhMucSP from './Components/DanhMucSP/DanhMucSP';
-import DanhMucSPCon from './Components/DanhMucSP/DanhMucSPCon';
 import Payment from './Components/CartOrder/Payment';
 import PaymentInfo from './Components/CartOrder/PaymentInfo';
 import CompletePayment from './Components/CartOrder/CompletePayment';
@@ -84,13 +83,9 @@ function AppUser() {
           <Route path="/payment-info" element={<PaymentInfo />}></Route>
           <Route path="/complete-payment" element={<CompletePayment />}></Route>
           <Route path="/SearchOrder" element={<SearchOrder />}></Route>
-          <Route path="/DanhMucSP/:idDM" element={<DanhMucSP />}></Route>
+          <Route path="/DanhMucSP/:idLoai" element={<DanhMucSP />}></Route>
           <Route
-            path="/DanhMucSPCon/:idDM/Loai/:idLoai"
-            element={<DanhMucSPCon />}
-          ></Route>
-          <Route
-            path="/product-detail/:idDM/Loai/:idLoai/SanPham/:idSP"
+            path="/product-detail/:idSP"
             element={<ProductDetail />}
           ></Route>
         </Routes>
