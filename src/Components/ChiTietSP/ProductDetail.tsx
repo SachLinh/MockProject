@@ -10,19 +10,22 @@ import { DetailProduct } from './ModelPrdDetail';
 import { useParams } from 'react-router-dom';
 import React from 'react';
 
-const ProductDetail = () => {
+function ProductDetail(){
+	const params = useParams();
+	const [detailProduct, setDetailProduct] = useState<DetailProduct[]>([])
 	useEffect(() => {
 		getData()
 	}, []);
-	const params = useParams();
-	const [detailProduct, setDetailProduct] = useState<DetailProduct[]>([])
 	const getData = async () => {
 		const resDetail = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}/Loai/${params.idLoai}/SanPham/${params.idSP}/ThongTinSanPham`)
 		setDetailProduct(resDetail.data)
+		console.log(resDetail.data);
 	}
+	console.log(params);
+	
 	return (
 		<div>
-			{detailProduct.map(item => {
+			{detailProduct.length > 0 ? (detailProduct.map(item => {
 				return (
 					<div key={item.id} className='font-sans '>
 						<div className='py-[10px] border-solid ml-2 mt-[65px] flex justify-center'>
@@ -208,7 +211,9 @@ const ProductDetail = () => {
 						</div>
 					</div>
 				)
-			})}
+			}))
+			: <div className='w-full flex flex-row justify-center items-start  mt-[100px] text-[#fd3737]'><h2 className='w-[1200px] font-[500]'>Không có thông tin về sản phẩm này</h2></div> }
+			
 		</div>
 
 	);
