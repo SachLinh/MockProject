@@ -50,7 +50,7 @@ export default function DeleteDanhMuc() {
                         value={deleteLoaiSP?.DanhMucId}
                         className="border p-[10px] mr-[20px] outline-none"
                     />
-                    <label htmlFor="">Mã SP</label>
+                    <label htmlFor="">ID Loại</label>
                     <input
                         type="text"
                         name="id"
@@ -58,7 +58,7 @@ export default function DeleteDanhMuc() {
                         value={deleteLoaiSP?.id}
                         className="border p-[10px] mr-[20px] outline-none"
                     />
-                    <label htmlFor="">Tên SP</label>
+                    <label htmlFor="">Loại SP</label>
                     <input
                         type="text"
                         name="name"

@@ -15,6 +15,7 @@ export default function Body() {
   useEffect(() => {
     getListDanhMuc();
   }, []);
+
   const [listDanhMucSp, setListDanhMucSp] = useState<listDanhMucType[]>([]);
 
   const getListDanhMuc = async () => {

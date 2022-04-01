@@ -11,11 +11,7 @@ import "swiper/css/thumbs";
 import { DanhMucType } from "../../TypeState/DanhMucType";
 import axios from "axios";
 import MenuC2 from "./MenuC2";
-import { useDispatch, useSelector } from "react-redux";
-import DanhMucSP from "../DanhMucSP/DanhMucSP";
-import { AllDanhMucSlice } from "../../Features/MenuSlice";
-import { RootState } from "../../App/store";
-import { useAppSelector } from "../../App/hooks";
+
 export default function Menu() {
   const [thums, setThums] = useState<any>(null);
   // const listCatas = useAppSelector((state)=>state.listDanhMuc)
@@ -24,6 +20,7 @@ export default function Menu() {
 	  getListCata();
     //dispatch(AllDanhMucSlice)
   }, []);
+
   const [listCatas, setListCatas] = useState<DanhMucType[]>([]);
   const getListCata = async () => {
     try {
