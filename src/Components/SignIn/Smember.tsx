@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {}
 
@@ -23,6 +24,16 @@ const uiConfig = {
 };
 
 function Smember({ }: Props) {
+    const navigate = useNavigate();
+    useEffect(() => {
+        const waitNavigate = setTimeout(() => {
+            if(localStorage.getItem('mock-project-signed-in') === 'true'){
+                navigate('/Smember-info')
+            }
+        }, 200);
+        return () => clearTimeout(waitNavigate);
+    }, [])
+    
     return (
         <div className="w-3/5 mx-auto mt-20">
             <div className="">
