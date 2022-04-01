@@ -16,7 +16,7 @@ import Payment from './Components/CartOrder/Payment';
 import PaymentInfo from './Components/CartOrder/PaymentInfo';
 import CompletePayment from './Components/CartOrder/CompletePayment';
 import SmemberMain from './Components/Smember/SmemberMain';
-import MemberInfo from './Components/Smember/MemberInfo';
+import Smember from './Components/SignIn/Smember';
 import CuaHang from './Components/CuaHang/CuaHang';
 
 // Configure Firebase.
@@ -78,8 +78,8 @@ function AppUser() {
           <Route path="/" element={<Content />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/payment" element={<Payment />}></Route>
-          <Route path='/Smember' element={<SmemberMain />}></Route>
-  				<Route path='/Smember/thong-tin' element={<MemberInfo />}></Route>
+          <Route path='/Smember' element={<Smember />}></Route>
+  				<Route path='/Smember-info/*' element={<SmemberMain />}></Route>
           <Route path="/CuaHang" element={<CuaHang />}></Route>
           <Route path="/payment-info" element={<PaymentInfo />}></Route>
           <Route path="/complete-payment" element={<CompletePayment />}></Route>

@@ -1,18 +1,9 @@
 /** @format */
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-  const [redirect, setRedirect] = useState("/Smember");
-  useEffect(() => {
-    setRedirect(() => {
-      if (localStorage.getItem('mock-project-smember') !== 'null')
-        return "/Smember-info";
-      else return "/Smember";
-    })
-  }, []);
-
   return (
     <div className="w-full bg-[#d70018] h-[64px] fixed flex flex-col justify-center items-center z-50">
       <div className="w-[1200px] z-50">
