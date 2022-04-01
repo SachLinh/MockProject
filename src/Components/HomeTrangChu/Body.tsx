@@ -39,7 +39,7 @@ export default function Body() {
           {/* Menu */}
           <div className="flex-1 text-right w-[1200px]">
             <ul className="">
-              <LoaiSanPham id={item.id} />
+              <LoaiSanPham id={item.id}/>
             </ul>
             {/* List Điện thoại 1 */}
           </div>

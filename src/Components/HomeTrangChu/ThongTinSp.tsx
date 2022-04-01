@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 interface TypeID {
   id: any;
-  iddm: any;
+  iddm: any
 }
 interface listTTSpType {
   name: string;
@@ -28,12 +28,12 @@ export default function ThongTinSp(props: TypeID) {
       const res = await axios.get(
         `https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${props.iddm}/Loai/${props.id}/SanPham`
       );
-      console.log('====================================');
       setListTTSp(res.data);
     } catch (error) {
       console.log(error);
     }
   };
+   
   const ShowLoaiSP = listTTSp.map((itemSP, indexSP) => {
     return (
       <div
@@ -57,5 +57,9 @@ export default function ThongTinSp(props: TypeID) {
       </div>
     );
   });
-  return <span className="flex flex-row w-auto flex-wrap">{ShowLoaiSP}</span>;
+  return(
+  <div>
+    <span className="flex flex-row w-auto flex-wrap">{ShowLoaiSP}</span>
+  </div>)
+  
 }

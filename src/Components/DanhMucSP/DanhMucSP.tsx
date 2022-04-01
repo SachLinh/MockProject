@@ -6,6 +6,7 @@ import LoaiSanPham from "../HomeTrangChu/LoaiSanPham";
 
 export default function DanhMucSP() {
   const params = useParams();
+
   return (
     <div className="w-full flex flex-row justify-center items-start mt-[100px]">
       <div className="w-[1200px]">
@@ -131,8 +132,9 @@ export default function DanhMucSP() {
             </SwiperSlide>
           </Swiper>
         </div>
+       
         <div className="mt-[50px]">
-            <LoaiSanPham id={params.idDM}/>
+          <LoaiSanPham id={params.idDM}/>
         </div>
       </div>
     </div>

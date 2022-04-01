@@ -8,7 +8,7 @@ interface listLoaiSpType {
   DanhMucId: string;
 }
 interface TypeID {
-  id: any;
+  id: any
 }
 
 export default function LoaiSanPham(props: TypeID) {
@@ -21,7 +21,6 @@ export default function LoaiSanPham(props: TypeID) {
       const res = await axios.get(
         `https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${props.id}/Loai`
       );
-      console.log('====================================');
       setListLoaiSp(res.data);
     } catch (error) {
       console.log(error);
@@ -40,7 +39,7 @@ export default function LoaiSanPham(props: TypeID) {
   const ShowTTSP = listLoaiSp.map((itemLoai, indexLoai) => {
     return (
         <div className="" key={indexLoai}>
-        <ThongTinSp iddm = {props.id} id={itemLoai.id}/>
+        <ThongTinSp iddm = {props.id} id={itemLoai.id} />
       </div>
     );
   });

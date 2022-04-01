@@ -5,26 +5,19 @@ import { Autoplay, FreeMode, Navigation, Thumbs } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import LoaiSanPham from "../HomeTrangChu/LoaiSanPham";
 import ThongTinSp from "../HomeTrangChu/ThongTinSp";
+import ThongTinSpCon from "../HomeTrangChu/ThongTinSpCon";
 
 interface listLoaiSpType {
-    name: string;
-    id: string;
-    DanhMucId: string;
+  name: string;
+  id: string;
+  DanhMucId: string;
 }
-interface TypeID{
-    id: any,
+interface TypeID {
+  id: any;
 }
 
 export default function DanhMucSPCon() {
   const params = useParams();
-//   useEffect(()=>{
-//     getLoaiSp();
-// },[])
-// const[listLoaiSp, setListLoaiSp] = useState<listLoaiSpType[]>([]) ;
-// const getLoaiSp= async()=>{
-//     const res=await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}/Loai`);
-//     setListLoaiSp(res.data);
-// }
   return (
     <div className="w-full flex flex-row justify-center items-start mt-[100px]">
       <div className="w-[1200px]">
@@ -150,8 +143,9 @@ export default function DanhMucSPCon() {
             </SwiperSlide>
           </Swiper>
         </div>
+        
         <div className="mt-[50px]">
-            <ThongTinSp iddm={params.idDM} id={params.idLoai}/>
+          <ThongTinSpCon iddm={params.idDM} id={params.idLoai} />
         </div>
       </div>
     </div>
