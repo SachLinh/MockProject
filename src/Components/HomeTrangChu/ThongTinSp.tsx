@@ -16,6 +16,8 @@ interface listTTSpType {
   promotion: number;
   id: string;
   LoaiId: string;
+  oldCost: string
+  endow: string
 }
 
 export default function ThongTinSp(props: TypeID) {
@@ -30,6 +32,7 @@ export default function ThongTinSp(props: TypeID) {
       );
       console.log('====================================');
       setListTTSp(res.data);
+
     } catch (error) {
       console.log(error);
     }
@@ -38,12 +41,12 @@ export default function ThongTinSp(props: TypeID) {
     return (
       <div
         key={indexSP}
-        className="text-left bg-white mt-3 w-[230px] pl-[5px] mr-[10px] h-[340px] rounded-lg re cursor-pointer duration-500 shadow-[0_0px_4px_4px_#b6b5b5] hover:shadow-[0_0px_8px_8px_#868585]"
+        className="text-left bg-white mt-3 w-[230px] pl-[5px] mr-[10px] h-[340px] rounded-lg re cursor-pointer duration-500 shadow-[0_0px_4px_4px_#EAEAEA] hover:shadow-[0_0px_8px_8px_#CECECE]"
       >
         <Link
           to={`/product-detail/${props.iddm}/Loai/${props.id}/SanPham/${itemSP.id}`}
         >
-          <p className="bg-gradient-to-r from-cyan-500 m-[-5px] to-blue-500 h-[30px] w-[100px] pl-1 rounded-br-lg leading-[30px] ">
+          <p className="bg-red-600 h-[30px] w-[100px] mb-2 text-center rounded-lg leading-[30px] text-white font-bold right-2 bottom-1 relative ">
             Giảm <span>{itemSP.promotion}%</span>
           </p>
           <img
@@ -51,8 +54,14 @@ export default function ThongTinSp(props: TypeID) {
             src={itemSP.avatar}
             className="w-[160px] h-[160px] text-center m-auto mt-[15px]"
           ></img>
-          <h4 className="font-bold m-[5px]">{itemSP.name}</h4>
-          <p className="text-red-600 font-bold  m-1">{itemSP.cost}</p>
+          <h4 className="font-bold m-[5px] text-gray-800">{itemSP.name}</h4>
+          <div className="flex">
+            <p className="text-red-600 font-bold  m-1 ">{itemSP.cost}<span>đ</span></p>
+            <p className="mt-1 ml-2 line-through text-gray-500">{itemSP.oldCost}<span>đ</span></p>
+          </div>
+          <div className="text-black my-1 mr-1 bg-gray-200 rounded-md">
+            <p className="p-2 text-[12px]">{itemSP.endow}</p>
+          </div>
         </Link>
       </div>
     );

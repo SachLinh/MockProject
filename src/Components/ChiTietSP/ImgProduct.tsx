@@ -28,7 +28,7 @@ export default function ImgProduct() {
         <div>
             {img.map(item => {
                 return (
-                    <><Swiper className="w-[370px] border-[1px] rounded-xl text-center items-center"
+                    <div key={item.SanPhamId}><Swiper className="w-[370px] border-[1px] rounded-xl text-center items-center"
                         loop={true}
                         spaceBetween={10}
                         autoplay={{
@@ -76,7 +76,7 @@ export default function ImgProduct() {
                             <SwiperSlide className="border-[1px] rounded-xl border-gray-400 p-1">
                                 <img className="rounded-xl" src={item.img5} alt="img5" />
                             </SwiperSlide>
-                        </Swiper></>
+                        </Swiper></div>
                 )
             })}
         </div>

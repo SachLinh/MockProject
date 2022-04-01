@@ -1,5 +1,5 @@
 export interface DetailProduct {
-	name: string;
+	ten: string;
 	avatar: string;
 	kichThuoc: string;
 	doPhangiai: string;
@@ -20,18 +20,6 @@ export interface DetailProduct {
     gia: string
 	id: string;
 	SanPhamId: string;
-}
-export interface Color {
-    color: string;
-    colorPrice: string;
-    id: string;
-    SanPhamId: string;
-}
-export interface Capacity {
-    capacity: number;
-    capacityPrice: string;
-    id: string;
-    SanPhamId: string;
 }
 export interface Images {
     img1: string;

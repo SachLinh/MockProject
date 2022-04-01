@@ -6,7 +6,7 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 import ImgProduct from './ImgProduct';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { DetailProduct, Color, Capacity } from './ModelPrdDetail';
+import { DetailProduct } from './ModelPrdDetail';
 import { useParams } from 'react-router-dom';
 import React from 'react';
 
@@ -16,17 +16,10 @@ const ProductDetail = () => {
 	}, []);
 	const params = useParams();
 	const [detailProduct, setDetailProduct] = useState<DetailProduct[]>([])
-	const [color, setColor] = useState<Color[]>([])
-	const [capacity, setCapacity] = useState<Capacity[]>([])
 	const getData = async () => {
 		const resDetail = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}/Loai/${params.idLoai}/SanPham/${params.idSP}/ThongTinSanPham`)
-		const resColor = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}/Loai/${params.idLoai}/SanPham/${params.idSP}/ColorPrice`)
-		const resCapacity = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}/Loai/${params.idLoai}/SanPham/${params.idSP}/CapacityPrice`)
 		setDetailProduct(resDetail.data)
-		setColor(resColor.data)
-		setCapacity(resCapacity.data)
 	}
-	
 	return (
 		<div>
 			{detailProduct.map(item => {
@@ -34,12 +27,12 @@ const ProductDetail = () => {
 					<div key={item.id} className='font-sans '>
 						<div className='py-[10px] border-solid ml-2 mt-[65px] flex justify-center'>
 							<h3 className='font-bold text-[18px] w-[1200px]'>
-								{item.name}
+								{item.ten}
 							</h3>
 						</div>
-						<div className='border-[1px] pb-5 shadow-lg shadow-gray-300 border-stone-300 flex justify-center'>
+						<div className='border-[1px] pb-5 shadow-md shadow-gray-300 border-stone-300 flex justify-center'>
 							<div className='w-[1200px] grid grid-cols-3 gap-5 mt-5'>
-								<div className='mt-5 mr-2'>
+								<div className='mt-3 mr-2'>
 									<div className='flex justify-center '>
 										<ImgProduct />
 									</div>
@@ -63,47 +56,8 @@ const ProductDetail = () => {
 											{item.giaCu}<span className='text-[14px]'>₫</span>
 										</p>
 									</div>
-									<div className='grid grid-cols-3 gap-2'>
-										{capacity.map(item => {
-											return (
-												<div className='price-memory '>
-													<p className='font-bold text-gray-800 '>
-														{item.capacity}
-													</p>
-													<p>
-														{item.capacityPrice} <span className='text-[10px]'>₫</span>
-													</p>
-												</div>
-											)
-										})}
-									</div>
 									<div>
-										<p className='py-[15px] text-[15px] font-bold'>
-											Chọn màu để xem giá
-										</p>
-										<div className='grid grid-cols-3 gap-2'>
-											{color.map(item => {
-												return (
-													<button className='price-color '>
-														<div className='flex'>
-															<img
-																className='w-[38px]'
-																src='https://image.cellphones.com.vn/358x/media/catalog/product/i/p/iphone_13-_pro-3_6.jpg'
-																alt=''
-															/>
-															<div>
-																<p className='font-bold'>{item.color}</p>
-																<p>
-																	{item.colorPrice}
-																	<span className='text-[10px]'>₫</span>
-																</p>
-															</div>
-														</div>
-													</button>
-												)
-											})}
-
-										</div>
+										
 									</div>
 									<div className='mt-7 border-[1px] rounded-xl'>
 										<div className='flex  text-red-600 bg-red-200 py-[5px] px-3 rounded-t-xl'>
