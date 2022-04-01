@@ -1,14 +1,17 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-  const [redirect, setRedirect] = useState(() => {
-    if(localStorage.getItem('mock-project-signed-in') === 'false')
-      return "/Smember/thong-tin";
-    else return "/Smember";
-  })
+  const [redirect, setRedirect] = useState("/Smember");
+  useEffect(() => {
+    setRedirect(() => {
+      if (localStorage.getItem('mock-project-smember') !== 'null')
+        return "/Smember-info";
+      else return "/Smember";
+    })
+  }, []);
 
   return (
     <div className="w-full bg-[#d70018] h-[64px] fixed flex flex-col justify-center items-center z-50">
