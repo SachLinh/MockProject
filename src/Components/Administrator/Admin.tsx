@@ -20,6 +20,9 @@ import QLThongTinSp from "./ThongSoSanPham/QLThongTinSp";
 import SuaThongTinSP from "./ThongSoSanPham/SuaThongTinSP";
 
 import QuanLyHoaDon from "./QuanLyHoaDon/QuanLyHoaDon";
+import UpdateHoaDon from "./QuanLyHoaDon/UpdateHoaDon";
+import DeleteHoaDon from "./QuanLyHoaDon/DeleteHoaDon";
+import AddHoaDon from "./QuanLyHoaDon/AddHoaDon";
 
 export default function Admin() {
   return (
@@ -52,6 +55,9 @@ export default function Admin() {
 
             {/* Hoa Don */}
             <Route path="/QuanLyHoaDon" element={<QuanLyHoaDon />}></Route>
+            <Route path="/UpdateHoaDon/:idhoaDon" element={<UpdateHoaDon />}></Route>
+            <Route path="/DeleteHoaDon/:idhoaDon" element={<DeleteHoaDon />}></Route>
+            <Route path="/AddHoaDon" element={<AddHoaDon />}></Route>
           </Routes>
         </div>
       </div>
