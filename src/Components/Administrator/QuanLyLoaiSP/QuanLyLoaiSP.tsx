@@ -90,8 +90,10 @@ export default function LoaiSP() {
           </Link>
         </td>
         <td className="border border-slate-400  w-[170px] text-center">
-
-          <button className="btn btn-outline-dark">Chi tiết Loại SP</button>
+          <Link to={`/Admin/QuanLyDanhMuc/${item.DanhMucId}/QuanLyLoaiSP/${item.id}/ListSanPham`}>
+            <button className="btn btn-outline-dark">Chi tiết Loại SP</button>
+          </Link>
+          
 
         </td>
       </tr>
