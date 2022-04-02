@@ -47,7 +47,7 @@ export default function ListSanPham() {
               </Link>
             </td>
             <td className="border border-slate-400  w-[70px] text-center">
-              <Link to={""} >
+              <Link to={`/Admin/QuanLyDanhMuc/${params.idDM}/QuanLyLoaiSP/${params.idLoai}/ListSanPham/${params.idSanPham}/QLThongTinSp`} >
               <button className="btn btn-outline-dark">Chi Tiết</button>
               </Link>
             </td>
