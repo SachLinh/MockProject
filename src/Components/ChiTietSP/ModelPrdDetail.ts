@@ -1,15 +1,4 @@
 export interface DetailProduct {
-	// name: string;
-	// avatar: string;
-	// cost: string;
-	// capacity: number;
-	// description: string;
-	// color: string;
-	// promotion: number;
-	// id: string;
-	// LoaiId: string;
-	// oldCost: string
-	// endow: string
 	id: string;
 	name: string;
 	avatar: string;
