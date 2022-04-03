@@ -74,6 +74,7 @@ export default function ListSanPham() {
     return (
       <tr key={index}>
         <td className="border border-slate-400 text-center">{item.id}</td>
+        <td className="border border-slate-400 text-center">{item.LoaiId}</td>
         <td className="border border-slate-400">{item.name}</td>
         <td className="border border-slate-400">
           <img alt="" className="w-[100px]" src={item.avatar}></img>
@@ -81,11 +82,10 @@ export default function ListSanPham() {
         <td className="border border-slate-400">{item.cost}</td>
         <td className="border border-slate-400">{item.capacity}</td>
         <td className="border border-slate-400">{item.color}</td>
-        <td className="border border-slate-400">{item.promotion}</td>
 
         <td className="border border-slate-400  w-[70px] text-center">
           <Link
-            to={`/Admin/Update/${params.idDM}/Loai/${params.idLoai}/SanPham/${item.id}`}
+            to={`/Admin/QuanLySanPham/Update/${item.id}`}
           >
             <button type="button" className="btn btn-info">
               Update
@@ -94,7 +94,7 @@ export default function ListSanPham() {
         </td>
         <td className="border border-slate-400 w-[70px] text-center">
           <Link
-            to={`/Admin/Delete/${params.idDM}/Loai/${params.idLoai}/SanPham/${item.id}`}
+            to={`/Admin/QuanLySanPham/Delete/${item.id}`}
           >
             <button type="button" className="btn btn-warning">
               Delete
@@ -102,7 +102,7 @@ export default function ListSanPham() {
           </Link>
         </td>
         <td className="border border-slate-400  w-[70px] text-center">
-          <Link to={""}>
+          <Link to={`/Admin/QuanLySanPham/Detail/${item.id}`}>
             <button className="btn btn-outline-dark">Chi Tiết</button>
           </Link>
         </td>
@@ -139,18 +139,18 @@ export default function ListSanPham() {
       <table className="table table-hover leading-[40px]">
         <thead>
           <tr className="text-center">
-            <th className="border border-slate-400">Mã ID</th>
+            <th className="border border-slate-400" onClick={handleSort}>{" "}
+              <button className="btn btn-outline-success" >
+                ID{getSortAge()}
+              </button></th>
+            <th className="border border-slate-400">Loai ID</th>
             <th className="border border-slate-400">
-              {" "}
-              <button className="btn btn-outline-success" onClick={handleSort}>
-                Tên Sản Phẩm {getSortAge()}
-              </button>
+              Tên sản phẩm
             </th>
             <th className="border border-slate-400">Hình ảnh</th>
             <th className="border border-slate-400">Gía</th>
             <th className="border border-slate-400">Dung lượng</th>
             <th className="border border-slate-400">Màu sắc</th>
-            <th className="border border-slate-400">Giảm giá(%)</th>
             <th className="border border-slate-400">Sửa</th>
             <th className="border border-slate-400">Xóa</th>
             <th className="border border-slate-400">Chi tiết</th>

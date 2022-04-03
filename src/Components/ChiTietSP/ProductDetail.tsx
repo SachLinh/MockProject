@@ -19,7 +19,7 @@ function ProductDetail() {
   const [detailProduct, setDetailProduct] = useState<DetailProduct[]>([]);
   const getData = async () => {
     const resDetail = await axios.get(
-      `https://6232e62e6de3467dbac2a7d6.mockapi.io/SanPham`
+      `https://6232e62e6de3467dbac2a7d6.mockapi.io/SanPham/`
     );
     setDetailProduct(resDetail.data)
   };

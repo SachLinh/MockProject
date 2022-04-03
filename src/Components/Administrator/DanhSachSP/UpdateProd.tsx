@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { SanPhamType } from "../../../TypeState/SanPhamType";
 
 const initState = {
+  id: "",
   name: "",
   avatar: "",
   cost: "",
@@ -13,7 +14,22 @@ const initState = {
   description: "",
   color: "",
   promotion: "",
-  id: "",
+  oldCost: "",
+  endow: "",
+  kichThuoc: "",
+  doPhangiai: "",
+  congNghemanhinh: "",
+  chatLieu: "",
+  thoiLuongpin: "",
+  thoiGiansac: "",
+  loaiCpu: "",
+  tinhNangnoibat: "",
+  cameraSau: "",
+  cameraTruoc: "",
+  RAM: "",
+  ROM: "",
+  SIM: "",
+  heDieuHanh: "",
   LoaiId: "",
 };
 
@@ -25,10 +41,9 @@ export default function UpdateProd() {
   const getsanPham = async () => {
     try {
       const res = await axios.get(
-        `https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}/Loai/${params.idLoai}/SanPham/${params.idSanPham}`
+        `https://6232e62e6de3467dbac2a7d6.mockapi.io/SanPham/${params.idSanPham}`
       );
       setsanPham(res.data);
-      console.log(sanPham);
     } catch (error) {
       console.log(error);
     }
@@ -37,8 +52,10 @@ export default function UpdateProd() {
   useEffect(() => {
     getsanPham();
   }, []);
+
   const [data, setData] = useState(initState);
   const {
+    id,
     name,
     avatar,
     cost,
@@ -46,7 +63,22 @@ export default function UpdateProd() {
     description,
     color,
     promotion,
-    id,
+    oldCost,
+    endow,
+    kichThuoc,
+    doPhangiai,
+    congNghemanhinh,
+    chatLieu,
+    thoiLuongpin,
+    thoiGiansac,
+    loaiCpu,
+    tinhNangnoibat,
+    cameraSau,
+    cameraTruoc,
+    RAM,
+    ROM,
+    SIM,
+    heDieuHanh,
     LoaiId,
   } = data;
   const onChangeText = (e: any) => {
@@ -59,24 +91,89 @@ export default function UpdateProd() {
   const onSubmit = async (e: any) => {
     e.preventDefault();
     try {
+      if (data.id != sanPham?.id) {
+        alert("Vui lòng nhập ID ban đầu")
+      } 
       if (data.name === "") {
-        if (data.color === "") {
-          alert("Vui lòng nhập thay đổi");
-        }
-        if (data.avatar === "") {
-          alert("Vui lòng nhập thay đổi");
-        }
-        if (data.promotion === "") {
-          alert("Vui lòng nhập thay đổi");
-        }
-        alert("Vui lòng nhập thay đổi");
-      } else {
+        alert("Vui lòng nhập name")
+      } 
+      if (data.avatar === "") {
+        alert("Vui lòng nhập avatar")
+      } 
+      if (data.cost === "") {
+        alert("Vui lòng nhập cost")
+      } 
+      if (data.capacity === "") {
+        alert("Vui lòng nhập capacity")
+      } 
+      if (data.description === "") {
+        alert("Vui lòng nhập description")
+      } 
+      if (data.color === "") {
+        alert("Vui lòng nhập color")
+      } 
+      if (data.promotion === "") {
+        alert("Vui lòng nhập promotion")
+      } 
+      if (data.oldCost === "") {
+        alert("Vui lòng nhập oldCost")
+      } 
+      if (data.endow === "") {
+        alert("Vui lòng nhập endow")
+      } 
+      if (data.kichThuoc === "") {
+        alert("Vui lòng nhập kichThuoc")
+      } 
+      if (data.doPhangiai === "") {
+        alert("Vui lòng nhập doPhangiai")
+      } 
+      if (data.congNghemanhinh === "") {
+        alert("Vui lòng nhập congNghemanhinh")
+      } 
+      if (data.chatLieu === "") {
+        alert("Vui lòng nhập chatLieu")
+      } 
+      if (data.thoiLuongpin === "") {
+        alert("Vui lòng nhập thoiLuongpin")
+      } 
+      if (data.thoiGiansac === "") {
+        alert("Vui lòng nhập thoiGiansac")
+      } 
+      if (data.loaiCpu === "") {
+        alert("Vui lòng nhập loaiCpu")
+      } 
+      if (data.tinhNangnoibat === "") {
+        alert("Vui lòng nhập tinhNangnoibat")
+      } 
+      if (data.cameraSau === "") {
+        alert("Vui lòng nhập cameraSau")
+      } 
+      if (data.cameraTruoc === "") {
+        alert("Vui lòng nhập cameraTruoc")
+      } 
+      if (data.RAM === "") {
+        alert("Vui lòng nhập RAM")
+      } 
+      if (data.ROM === "") {
+        alert("Vui lòng nhập ROM")
+      } 
+      if (data.SIM === "") {
+        alert("Vui lòng nhập SIM")
+      } 
+      if (data.heDieuHanh === "") {
+        alert("Vui lòng nhập heDieuHanh")
+      } 
+      if (data.LoaiId === "") {
+        alert("Vui lòng nhập LoaiId")
+      } 
+      else {
         const res = await axios.put(
-          `https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}/Loai/${params.idLoai}/SanPham/${params.idSanPham}`,
+          `https://6232e62e6de3467dbac2a7d6.mockapi.io/SanPham/${params.idSanPham}`,
           data
         );
         setsanPham(res.data);
         setData({
+          id: "",
           name: "",
           avatar: "",
           cost: "",
@@ -84,13 +181,26 @@ export default function UpdateProd() {
           description: "",
           color: "",
           promotion: "",
-          id: "",
+          oldCost: "",
+          endow: "",
+          kichThuoc: "",
+          doPhangiai: "",
+          congNghemanhinh: "",
+          chatLieu: "",
+          thoiLuongpin: "",
+          thoiGiansac: "",
+          loaiCpu: "",
+          tinhNangnoibat: "",
+          cameraSau: "",
+          cameraTruoc: "",
+          RAM: "",
+          ROM: "",
+          SIM: "",
+          heDieuHanh: "",
           LoaiId: "",
         });
         alert("Thay đổi thành công");
-        navigate(
-          `/Admin/QuanLyDanhMuc/${params.idDM}/QuanLyLoaiSP/${params.idLoai}/ListSanPham`
-        );
+        navigate(`/Admin/QuanLySanPham`);
       }
     } catch (error) {
       console.log(error);
@@ -98,119 +208,18 @@ export default function UpdateProd() {
   };
   return (
     <div className="">
-      <div className="text-center">
+      <div className="">
         <h2 className="text-[#f73d3d] text-[40px] w-full text-center bg-[#e2e2e2] p-[15px] rounded-xl">
           Update Sản Phẩm
         </h2>
-        <table className="m-[20px] border-separate border border-slate-400 w-5/6 table table-hover leading-[40px] ">
+        <Link to="/Admin/QuanLySanPham">
+          <button className="my-[10px] ml-[10px] p-[10px] border-2 font-Roboto font-[500] text-[20px]">
+            <i className="fa-solid fa-arrow-rotate-left"></i>Trở Lại
+          </button>
+        </Link>
+        <table className="p-[20px] mt-[20px]">
           <tr>
-            <th className="border border-slate-300">
-              <label htmlFor="">Tên Sản Phẩm</label>
-            </th>
-            <td className="w-5/6 border border-slate-300">
-              <input
-                type="text"
-                name="name"
-                placeholder={sanPham?.name}
-                value={name}
-                className="border p-[10px] mr-[20px] outline-none w-full"
-                onChange={onChangeText}
-              />
-            </td>
-          </tr>
-          <tr>
-            <th className="border border-slate-300">
-              <label htmlFor="">Hình ảnh</label>
-            </th>
-            <td className="w-5/6 border border-slate-300">
-              <input
-                type="text"
-                name="avatar"
-                placeholder={sanPham?.avatar}
-                value={avatar}
-                className="border p-[10px] mr-[20px] outline-none w-full"
-                onChange={onChangeText}
-              />
-            </td>
-          </tr>
-          <tr>
-            <th className="border border-slate-300">
-              <label htmlFor="">Cost</label>
-            </th>
-            <td className="w-5/6 border border-slate-300">
-              <input
-                type="text"
-                name="cost"
-                value={cost}
-                placeholder={sanPham?.cost}
-                className="border p-[10px] mr-[20px] outline-none w-full"
-                onChange={onChangeText}
-              />
-            </td>
-          </tr>
-          <tr>
-            <th className="border border-slate-300">
-              <label htmlFor="">Dung lượng</label>
-            </th>
-            <td className="w-5/6 border border-slate-300">
-              <input
-                type="text"
-                name="capacity"
-                value={capacity}
-                placeholder="Nhập dung lượng"
-                className="border p-[10px] mr-[20px] outline-none w-full"
-                onChange={onChangeText}
-              />
-            </td>
-          </tr>
-          <tr>
-            <th className="border border-slate-300">
-              <label htmlFor="">Mô tả</label>
-            </th>
-            <td className="w-5/6 border border-slate-300">
-              <input
-                type="text"
-                name="description"
-                value={description}
-                placeholder={sanPham?.description}
-                className="border p-[10px] mr-[20px] outline-none w-full"
-                onChange={onChangeText}
-              />
-            </td>
-          </tr>
-          <tr>
-            <th className="border border-slate-300">
-              {" "}
-              <label htmlFor="">Màu sắc</label>
-            </th>
-            <td className="w-5/6 border border-slate-300">
-              <input
-                type="text"
-                name="color"
-                value={color}
-                placeholder={sanPham?.color}
-                className="border p-[10px] mr-[20px] outline-none w-full"
-                onChange={onChangeText}
-              />
-            </td>
-          </tr>
-          <tr>
-            <th className="border border-slate-300">
-              <label htmlFor="">Giảm giá</label>
-            </th>
-            <td className="w-5/6 border border-slate-300">
-              <input
-                type="text"
-                name="promotion"
-                placeholder="Nhập giá giảm"
-                value={promotion}
-                className="border p-[10px] mr-[20px] outline-none w-full"
-                onChange={onChangeText}
-              />
-            </td>
-          </tr>
-          <tr>
-            <th className="border border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">ID</label>
             </th>
             <td className="w-5/6 border border-slate-300">
@@ -225,7 +234,354 @@ export default function UpdateProd() {
             </td>
           </tr>
           <tr>
-            <th className="border border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Name</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="name"
+                placeholder={sanPham?.name}
+                value={name}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Avatar</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="avatar"
+                placeholder={sanPham?.avatar}
+                value={avatar}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">cost</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="cost"
+                value={cost}
+                placeholder={sanPham?.cost}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Capacity</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="capacity"
+                value={capacity}
+                placeholder={sanPham?.capacity}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">description</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="description"
+                value={description}
+                placeholder={sanPham?.description}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              {" "}
+              <label htmlFor="">Color</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="color"
+                value={color}
+                placeholder={sanPham?.color}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              {" "}
+              <label htmlFor="">Promotion</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="promotion"
+                value={promotion}
+                placeholder={sanPham?.promotion}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Old Cost</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="oldCost"
+                placeholder={sanPham?.oldCost}
+                value={oldCost}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Endow</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="endow"
+                placeholder={sanPham?.endow}
+                value={endow}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Kích thước</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="kichThuoc"
+                placeholder={sanPham?.kichThuoc}
+                value={kichThuoc}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Độ phân giải</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="doPhangiai"
+                placeholder={sanPham?.doPhangiai}
+                value={doPhangiai}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Công nghệ màn hình</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="congNghemanhinh"
+                placeholder={sanPham?.congNghemanhinh}
+                value={congNghemanhinh}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Chất liệu</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="chatLieu"
+                placeholder={sanPham?.chatLieu}
+                value={chatLieu}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Thời lượng pin</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="thoiLuongpin"
+                placeholder={sanPham?.thoiLuongpin}
+                value={thoiLuongpin}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Thời lượng sạc</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="thoiGiansac"
+                placeholder={sanPham?.thoiGiansac}
+                value={thoiGiansac}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Loại CPU</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="loaiCpu"
+                placeholder={sanPham?.loaiCpu}
+                value={loaiCpu}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Tính năng nổi bật</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="tinhNangnoibat"
+                placeholder={sanPham?.tinhNangnoibat}
+                value={tinhNangnoibat}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Camera sau</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="cameraSau"
+                placeholder={sanPham?.cameraSau}
+                value={cameraSau}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Camara trước</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="cameraTruoc"
+                placeholder={sanPham?.cameraTruoc}
+                value={cameraTruoc}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">RAM</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="RAM"
+                placeholder={sanPham?.RAM}
+                value={RAM}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">ROM</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="ROM"
+                placeholder={sanPham?.ROM}
+                value={ROM}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">SIM</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="SIM"
+                placeholder={sanPham?.SIM}
+                value={SIM}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Hệ điều hành</label>
+            </th>
+            <td className="w-5/6 border border-slate-300">
+              <input
+                type="text"
+                name="heDieuHanh"
+                placeholder={sanPham?.heDieuHanh}
+                value={heDieuHanh}
+                className="border p-[10px] mr-[20px] outline-none w-full"
+                onChange={onChangeText}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">ID Loại</label>
             </th>
             <td className="w-5/6 border border-slate-300">
