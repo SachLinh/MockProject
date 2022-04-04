@@ -84,7 +84,6 @@ function AppUser() {
 		<div>
 			<div className='App w-full flex flex-col justify-start items-center'>
 				<Header />
-
 				<Routes>
 					<Route path='/' element={<Content />}></Route>
 					<Route path='/cart' element={<Cart />}></Route>
@@ -99,7 +98,7 @@ function AppUser() {
 					<Route path='/SearchOrder' element={<SearchOrder />}></Route>
 					<Route path='/DanhMucSP/:idLoai' element={<DanhMucSP />}></Route>
 					<Route
-						path='/product-detail/:id'
+						path='/product-detail/:idSP'
 						element={<ProductDetail />}></Route>
 				</Routes>
 				<Footer />
