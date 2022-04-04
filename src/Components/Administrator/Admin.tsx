@@ -20,6 +20,7 @@ import QLThongTinSp from "./ThongSoSanPham/QLThongTinSp";
 import SuaThongTinSP from "./ThongSoSanPham/SuaThongTinSP";
 
 import QuanLyHoaDon from "./QuanLyHoaDon/QuanLyHoaDon";
+import ManageUser from "./QuanLyUser/ManageUser";
 
 export default function Admin() {
   return (
@@ -52,6 +53,9 @@ export default function Admin() {
 
             {/* Hoa Don */}
             <Route path="/QuanLyHoaDon" element={<QuanLyHoaDon />}></Route>
+
+            {/* user */}
+            <Route path="/QuanLyUser" element={<ManageUser />}></Route>
           </Routes>
         </div>
       </div>
