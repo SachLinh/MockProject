@@ -3,19 +3,15 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { listLoaiSpType } from "./listLoaiSpType";
 
-const initState = {
-    danhMucId: "",
-    id: "",
-    name: "",
-};
-export default function UpdateDanhMuc() {
+
+export default function UpdateLoaiSP() {
     const params = useParams();
     const [editLoaiSP, setEditLoaiSP] = useState<listLoaiSpType>();
     const navigate = useNavigate();
     const getDanhMuc = async () => {
         try {
             const res = await axios.get(
-                `https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}/Loai/${params.idLoai}`
+                `https://6232e62e6de3467dbac2a7d6.mockapi.io/Loai/${params.idLoai}`
             );
             setEditLoaiSP(res.data);
         } catch (error) {
@@ -25,12 +21,16 @@ export default function UpdateDanhMuc() {
     useEffect(() => {
         getDanhMuc();
     }, []);
+    const initState = {
+        id: "",
+        name: "",
+    };
     const [data, setData] = useState(initState);
-    const { id, name, danhMucId } = data;
+    const { id, name } = data;
     const onChangeText = (e: any) => {
         setData({
-            ...data,
-            [e.target.name]: e.target.value,
+            id: editLoaiSP?.id,
+            name:e.target.value
         });
     };
     const onSubmit = async (e: any) => {
@@ -41,17 +41,16 @@ export default function UpdateDanhMuc() {
                 alert("Vui lòng nhập tên cần thay đổi");
             } else {
                 const res = await axios.put(
-                    `https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}/Loai/${params.idLoai}`,
+                    `https://6232e62e6de3467dbac2a7d6.mockapi.io/Loai/${params.idLoai}`,
                     data
                 );
                 setEditLoaiSP(res.data);
                 setData({
-                    danhMucId: "",
                     id: "",
                     name: "",
                 });
                 alert("Thay đổi thành công");
-                navigate(`/Admin/QuanLyDanhMuc/${params.idDM}/QuanLyLoaiSP`);
+                navigate(`/Admin/QuanLyHangSX`);
             }
         } catch (error) {
             console.log(error);
@@ -61,28 +60,20 @@ export default function UpdateDanhMuc() {
         <div className="">
             <div className="">
                 <h2 className="text-[#f73d3d] text-[40px] w-full text-center bg-[#e2e2e2] p-[15px] rounded-xl">
-                    Update Danh Mục
+                    Update Hãng Sản Xuất
                 </h2>
                 <form className="flex justify-between items-center p-[50px]">
-                    <label htmlFor="">ID DM</label>
+                    <label htmlFor="">ID Hãng</label>
                     <input
                         type="text"
                         name="danhMucId"
-                        placeholder={editLoaiSP?.DanhMucId}
-                        value={editLoaiSP?.DanhMucId}
-                        className="border p-[10px] mr-[20px] outline-none"
-                        onChange={onChangeText}
-                    />
-                    <label htmlFor="">ID Loại</label>
-                    <input
-                        type="text"
-                        name="id"
                         placeholder={editLoaiSP?.id}
                         value={editLoaiSP?.id}
+                        disabled
                         className="border p-[10px] mr-[20px] outline-none"
-                        onChange={onChangeText}
                     />
-                    <label htmlFor="">Loại SP</label>
+
+                    <label htmlFor="">Tên Hãng</label>
                     <input
                         type="text"
                         name="name"

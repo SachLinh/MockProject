@@ -6,7 +6,7 @@ interface typeNumber{
     paginate:any
 }
 
-const Pagination = ({postsPerPage, totalPosts,paginate}:typeNumber)=> {
+const PageProd = ({postsPerPage, totalPosts,paginate}:typeNumber)=> {
     const pageNumnbers = [];
     for(let i = 1; i<= Math.ceil(totalPosts / postsPerPage); i++)
     {
@@ -26,4 +26,4 @@ const Pagination = ({postsPerPage, totalPosts,paginate}:typeNumber)=> {
     </nav>
   )
 }
-export default Pagination;
+export default PageProd;

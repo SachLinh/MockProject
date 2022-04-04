@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { Autoplay, FreeMode, Navigation, Thumbs } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import LoaiSanPham from "../HomeTrangChu/LoaiSanPham";
+import ThongTinSp from "../HomeTrangChu/ThongTinSp";
+import ThongTinSpCon from "../HomeTrangChu/ThongTinSpCon";
 
 export default function DanhMucSP() {
   const params = useParams();
@@ -134,7 +136,7 @@ export default function DanhMucSP() {
         </div>
        
         <div className="mt-[50px]">
-          <LoaiSanPham id={params.idDM}/>
+          <ThongTinSpCon idLoai={params.idLoai}/>
         </div>
       </div>
     </div>

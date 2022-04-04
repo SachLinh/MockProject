@@ -3,51 +3,45 @@ import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { SanPhamType } from "../../../TypeState/SanPhamType";
+import { HoaDonType } from "./HoaDonType";
 
 const initState = {
-  name: "",
-  avatar: "",
-  cost: "",
-  capacity: "",
-  description: "",
-  color: "",
-  promotion: "",
-  id: "",
-  LoaiId: "",
+    id: "",
+    name: "",
+    totalprice: "",
+    date: "",
+    phonenumber: "",
+    address: "",
 };
 
-export default function UpdateProd() {
-  const [sanPham, setsanPham] = useState<SanPhamType>();
+export default function UpdateHoaDon() {
+  const [hoaDon, sethoaDon] = useState<HoaDonType>();
   const navigate = useNavigate();
   const params = useParams();
 
-  const getsanPham = async () => {
+  const gethoaDon = async () => {
     try {
       const res = await axios.get(
-        `https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}/Loai/${params.idLoai}/SanPham/${params.idSanPham}`
+        `https://6238109d0a54d2ceab702909.mockapi.io/HoaDon/${params.idhoaDon}`
       );
-      setsanPham(res.data);
-      console.log(sanPham);
+      sethoaDon(res.data);
+      console.log(hoaDon);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getsanPham();
+    gethoaDon();
   }, []);
   const [data, setData] = useState(initState);
   const {
-    name,
-    avatar,
-    cost,
-    capacity,
-    description,
-    color,
-    promotion,
     id,
-    LoaiId,
+    name,
+    totalprice,
+    date,
+    phonenumber,
+    address,
   } = data;
   const onChangeText = (e: any) => {
     setData({
@@ -60,36 +54,36 @@ export default function UpdateProd() {
     e.preventDefault();
     try {
       if (data.name === "") {
-        if (data.color === "") {
+        if (data.totalprice === "") {
           alert("Vui lòng nhập thay đổi");
         }
-        if (data.avatar === "") {
+        if (data.date === "") {
           alert("Vui lòng nhập thay đổi");
         }
-        if (data.promotion === "") {
+        if (data.phonenumber === "") {
           alert("Vui lòng nhập thay đổi");
+        }
+        if (data.address === "") {
+            alert("Vui lòng nhập thay đổi");
         }
         alert("Vui lòng nhập thay đổi");
       } else {
         const res = await axios.put(
-          `https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}/Loai/${params.idLoai}/SanPham/${params.idSanPham}`,
+          `https://6238109d0a54d2ceab702909.mockapi.io/HoaDon/${params.idhoaDon}`,
           data
         );
-        setsanPham(res.data);
+        sethoaDon(res.data);
         setData({
-          name: "",
-          avatar: "",
-          cost: "",
-          capacity: "",
-          description: "",
-          color: "",
-          promotion: "",
-          id: "",
-          LoaiId: "",
+            id: "",
+            name: "",
+            totalprice: "",
+            date: "",
+            phonenumber: "",
+            address: "",
         });
         alert("Thay đổi thành công");
         navigate(
-          `/Admin/QuanLyDanhMuc/${params.idDM}/QuanLyLoaiSP/${params.idLoai}/ListSanPham`
+          `/Admin/QuanLyHoaDon`
         );
       }
     } catch (error) {
@@ -100,18 +94,18 @@ export default function UpdateProd() {
     <div className="">
       <div className="text-center">
         <h2 className="text-[#f73d3d] text-[40px] w-full text-center bg-[#e2e2e2] p-[15px] rounded-xl">
-          Update Sản Phẩm
+          Update Hóa Đơn
         </h2>
         <table className="m-[20px] border-separate border border-slate-400 w-5/6 table table-hover leading-[40px] ">
           <tr>
             <th className="border border-slate-300">
-              <label htmlFor="">Tên Sản Phẩm</label>
+              <label htmlFor="">Tên Hóa Đơn</label>
             </th>
             <td className="w-5/6 border border-slate-300">
               <input
                 type="text"
                 name="name"
-                placeholder={sanPham?.name}
+                placeholder={hoaDon?.name}
                 value={name}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
@@ -120,14 +114,14 @@ export default function UpdateProd() {
           </tr>
           <tr>
             <th className="border border-slate-300">
-              <label htmlFor="">Hình ảnh</label>
+              <label htmlFor="">Tổng Tiền</label>
             </th>
             <td className="w-5/6 border border-slate-300">
               <input
                 type="text"
-                name="avatar"
-                placeholder={sanPham?.avatar}
-                value={avatar}
+                name="totalprice"
+                placeholder={hoaDon?.totalprice}
+                value={totalprice}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -135,14 +129,14 @@ export default function UpdateProd() {
           </tr>
           <tr>
             <th className="border border-slate-300">
-              <label htmlFor="">Cost</label>
+              <label htmlFor="">Ngày đặt hàng</label>
             </th>
             <td className="w-5/6 border border-slate-300">
               <input
                 type="text"
-                name="cost"
-                value={cost}
-                placeholder={sanPham?.cost}
+                name="date"
+                value={date}
+                placeholder={hoaDon?.date}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -150,14 +144,14 @@ export default function UpdateProd() {
           </tr>
           <tr>
             <th className="border border-slate-300">
-              <label htmlFor="">Dung lượng</label>
+              <label htmlFor="">Số điện thoại</label>
             </th>
             <td className="w-5/6 border border-slate-300">
               <input
                 type="text"
-                name="capacity"
-                value={capacity}
-                placeholder="Nhập dung lượng"
+                name="phonenumber"
+                value={phonenumber}
+                placeholder={hoaDon?.phonenumber}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -165,45 +159,14 @@ export default function UpdateProd() {
           </tr>
           <tr>
             <th className="border border-slate-300">
-              <label htmlFor="">Mô tả</label>
+              <label htmlFor="">Địa chỉ giao hàng</label>
             </th>
             <td className="w-5/6 border border-slate-300">
               <input
                 type="text"
-                name="description"
-                value={description}
-                placeholder={sanPham?.description}
-                className="border p-[10px] mr-[20px] outline-none w-full"
-                onChange={onChangeText}
-              />
-            </td>
-          </tr>
-          <tr>
-            <th className="border border-slate-300">
-              {" "}
-              <label htmlFor="">Màu sắc</label>
-            </th>
-            <td className="w-5/6 border border-slate-300">
-              <input
-                type="text"
-                name="color"
-                value={color}
-                placeholder={sanPham?.color}
-                className="border p-[10px] mr-[20px] outline-none w-full"
-                onChange={onChangeText}
-              />
-            </td>
-          </tr>
-          <tr>
-            <th className="border border-slate-300">
-              <label htmlFor="">Giảm giá</label>
-            </th>
-            <td className="w-5/6 border border-slate-300">
-              <input
-                type="text"
-                name="promotion"
-                placeholder="Nhập giá giảm"
-                value={promotion}
+                name="address"
+                value={address}
+                placeholder={hoaDon?.address}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -217,23 +180,8 @@ export default function UpdateProd() {
               <input
                 type="text"
                 name="id"
-                placeholder={sanPham?.id}
+                placeholder={hoaDon?.id}
                 value={id}
-                className="border p-[10px] mr-[20px] outline-none w-full"
-                onChange={onChangeText}
-              />
-            </td>
-          </tr>
-          <tr>
-            <th className="border border-slate-300">
-              <label htmlFor="">ID Loại</label>
-            </th>
-            <td className="w-5/6 border border-slate-300">
-              <input
-                type="text"
-                name="LoaiId"
-                placeholder={sanPham?.LoaiId}
-                value={LoaiId}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />

@@ -1,45 +1,42 @@
 import axios from "axios";
 import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { DanhMucType } from "../../../TypeState/DanhMucType";
-import Pagination from "./Pagination";
+import { useParams } from "react-router-dom";
+import { SanPhamType } from "../../../TypeState/SanPhamType";
+import PageProd from "../Pagination/PageProd";
 
-export default function QuanLyDanhMuc() {
+export default function ListSanPham() {
   useEffect(() => {
     getListCata();
   }, []);
-  const [listCatas, setListCatas] = useState<DanhMucType[]>([]);
-  // page
+  const [listProd, setListProd] = useState<SanPhamType[]>([]);
+  const params = useParams();
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(6);
-  // Lấy dữ liệu
+  const [postsPerPage] = useState(5);
   const getListCata = async () => {
     try {
-      const res = await axios.get(
-        "https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc"
+      const resProd = await axios.get(
+        `https://6232e62e6de3467dbac2a7d6.mockapi.io/SanPham`
       );
-      setListCatas(res.data);
+      setListProd(resProd.data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  // Giá trị sắp xếp
   const SORT = {
     up: "2",
     down: "3",
   };
   const [sortId, setSortId] = useState(SORT.up);
-  // Hiển thị giá trị trên màn hình
   const getSortAge = () => {
     if (sortId === SORT.down) {
-      return `^`;
+      return "v";
     }
     if (sortId === SORT.up) {
       return "^";
     }
   };
-  // Chuyển đổi giá trị sắp xếp
   const handleSort = () => {
     if (sortId === SORT.down) {
       setSortId(SORT.up);
@@ -51,9 +48,8 @@ export default function QuanLyDanhMuc() {
   };
 
   const [searchName, setSearchName] = useState("");
-  // Tìm kiếm
-  const findName = function (list: DanhMucType[]) {
-    let res: DanhMucType[] = [...list];
+  const findName = function (list: SanPhamType[]) {
+    let res: SanPhamType[] = [...list];
     if (searchName) {
       res = res.filter((el) =>
         el.name.toLowerCase().includes(searchName.toLowerCase())
@@ -66,36 +62,48 @@ export default function QuanLyDanhMuc() {
     }
     return res;
   };
+
   // get ccurrent Page
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = listCatas.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = listProd.slice(indexOfFirstPost, indexOfLastPost);
   // function paginate
-  const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber: any) => setCurrentPage(pageNumber);
 
-  // Render map data
-  const getListDanhMuc = findName(currentPosts).map((item, index) => {
+  const getListSanPham = findName(currentPosts).map((item, index) => {
     return (
       <tr key={index}>
         <td className="border border-slate-400 text-center">{item.id}</td>
+        <td className="border border-slate-400 text-center">{item.LoaiId}</td>
         <td className="border border-slate-400">{item.name}</td>
-        <td className="border border-slate-400  w-[170px] text-center">
-          <Link to={`/Admin/Update/${item.id}`}>
+        <td className="border border-slate-400">
+          <img alt="" className="w-[100px]" src={item.avatar}></img>
+        </td>
+        <td className="border border-slate-400">{item.cost}</td>
+        <td className="border border-slate-400">{item.capacity}</td>
+        <td className="border border-slate-400">{item.color}</td>
+
+        <td className="border border-slate-400  w-[70px] text-center">
+          <Link
+            to={`/Admin/QuanLySanPham/Update/${item.id}`}
+          >
             <button type="button" className="btn btn-info">
               Update
             </button>
           </Link>
         </td>
-        <td className="border border-slate-400 w-[170px] text-center">
-          <Link to={`/Admin/Delete/${item.id}`}>
+        <td className="border border-slate-400 w-[70px] text-center">
+          <Link
+            to={`/Admin/QuanLySanPham/Delete/${item.id}`}
+          >
             <button type="button" className="btn btn-warning">
               Delete
             </button>
           </Link>
         </td>
-        <td className="border border-slate-400  w-[170px] text-center">
-          <Link to={`${item.id}/QuanLyLoaiSP`}>
-            <button className="btn btn-outline-dark">Chi tiết Danh Mục</button>
+        <td className="border border-slate-400  w-[70px] text-center">
+          <Link to={`/Admin/QuanLySanPham/Detail/${item.id}`}>
+            <button className="btn btn-outline-dark">Chi Tiết</button>
           </Link>
         </td>
       </tr>
@@ -104,23 +112,23 @@ export default function QuanLyDanhMuc() {
   return (
     <div className="w-full">
       <h1 className="text-[#f73d3d] text-[40px] w-full text-center bg-[#e2e2e2] p-[15px] rounded-xl">
-        QUẢN LÝ DANH MỤC
+        QUẢN LÝ SẢN PHẨM
       </h1>
-      <Link to="/Admin/AddNewDanhMuc">
+      <Link to={`/Admin/QuanLySanPham/AddProd`}>
         <button className="btn btn-outline-success mx-[20px] my-4">
-          Thêm mới danh mục
+          Thêm Sản Phẩm mới
         </button>
       </Link>
       <div className="flex flex-row justify-start items-center px-[20px] mb-[20px]">
-        <label className="mr-[30px]">Tên tìm kiếm</label>
+        <label className="mr-[30px] w-32">Tên tìm kiếm</label>
         <div className="input-group mb-3">
           <span className="input-group-text" id="basic-addon1">
             <i className="fa-solid fa-magnifying-glass"></i>
           </span>
           <input
             type="text"
-            name=""
             id=""
+            name=""
             placeholder="Tên cần tìm"
             value={searchName}
             onChange={(e) => setSearchName(e.target.value)}
@@ -131,22 +139,28 @@ export default function QuanLyDanhMuc() {
       <table className="table table-hover leading-[40px]">
         <thead>
           <tr className="text-center">
+            <th className="border border-slate-400" onClick={handleSort}>{" "}
+              <button className="btn btn-outline-success" >
+                ID{getSortAge()}
+              </button></th>
+            <th className="border border-slate-400">Loai ID</th>
             <th className="border border-slate-400">
-              <button className="btn btn-outline-success" onClick={handleSort}>
-                Mã ID {getSortAge()}
-              </button>
+              Tên sản phẩm
             </th>
-            <th className="border border-slate-400">Tên danh mục</th>
+            <th className="border border-slate-400">Hình ảnh</th>
+            <th className="border border-slate-400">Gía</th>
+            <th className="border border-slate-400">Dung lượng</th>
+            <th className="border border-slate-400">Màu sắc</th>
             <th className="border border-slate-400">Sửa</th>
             <th className="border border-slate-400">Xóa</th>
             <th className="border border-slate-400">Chi tiết</th>
           </tr>
         </thead>
-        <tbody className="font-Roboto font-[500px]">{getListDanhMuc}</tbody>
+        <tbody className="font-Roboto font-[500px]">{getListSanPham}</tbody>
       </table>
-      <Pagination
+      <PageProd
         postsPerPage={postsPerPage}
-        totalPosts={listCatas.length}
+        totalPosts={listProd.length}
         paginate={paginate}
       />
     </div>
