@@ -85,7 +85,7 @@ function AppUser() {
           <Route path="/SearchOrder" element={<SearchOrder />}></Route>
           <Route path="/DanhMucSP/:idLoai" element={<DanhMucSP />}></Route>
           <Route
-            path="/product-detail/:id"
+            path="/product-detail/:idSP"
             element={<ProductDetail />}
           ></Route>
         </Routes>
