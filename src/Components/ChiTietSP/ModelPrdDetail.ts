@@ -1,11 +1,18 @@
 export interface DetailProduct {
-	ten: string;
+	id: string;
+	name: string;
 	avatar: string;
+	cost: string;
+	capacity: number;
+	description: string;
+	color: string;
+	promotion: number;
+	oldCost: string;
+	endow: string;
 	kichThuoc: string;
 	doPhangiai: string;
 	congNghemanhinh: string;
 	chatLieu: string;
-	hangSanxuat: string;
 	thoiLuongpin: number;
 	thoiGiansac: number;
 	loaiCpu: string;
@@ -16,11 +23,8 @@ export interface DetailProduct {
 	ROM: string;
 	SIM: string;
 	heDieuHanh: string;
-    giaCu: string
-    gia: string
-	id: string;
-	SanPhamId: string;
-}
+	LoaiId: string;
+  }
 export interface Images {
     img1: string;
     img2: string;

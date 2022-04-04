@@ -85,14 +85,14 @@ export default function QuanLyHoaDon() {
         <td className="border border-slate-400">{item.date}</td>
         <td className="border border-slate-400">{item.address}</td>
         <td className="border border-slate-400  w-[170px] text-center">
-          <Link to={``}>
+          <Link to={`/Admin/UpdateHoaDon/${item.id}`}>
             <button type="button" className="btn btn-info">
               Update
             </button>
           </Link>
         </td>
         <td className="border border-slate-400 w-[170px] text-center">
-          <Link to={``}>
+          <Link to={`/Admin/DeleteHoaDon/${item.id}`}>
             <button type="button" className="btn btn-warning">
               Delete
             </button>
@@ -106,7 +106,7 @@ export default function QuanLyHoaDon() {
       <h1 className="text-[#f73d3d] text-[40px] w-full text-center bg-[#e2e2e2] p-[15px] rounded-xl">
         QUẢN LÝ HÓA ĐƠN
       </h1>
-      <Link to="">
+      <Link to="/Admin/AddHoaDon">
         <button className="btn btn-outline-success mx-[20px] my-4">
           Thêm mới hóa đơn
         </button>
