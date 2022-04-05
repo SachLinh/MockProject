@@ -62,6 +62,7 @@ export default function ThongTinSp(props: TypeID) {
 		}
 	};
 
+
 	const ShowLoaiSP = listTTSp.map((itemSP, indexSP) => {
 		if (itemSP.LoaiId === props.id) {
 			return (
