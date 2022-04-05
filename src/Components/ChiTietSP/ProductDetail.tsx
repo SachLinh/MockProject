@@ -9,24 +9,45 @@ import axios from "axios";
 import { DetailProduct } from "./ModelPrdDetail";
 import { Link, useParams } from "react-router-dom";
 import React from "react";
+import SimilarProduct from "./SimilarProduct";
 
 function ProductDetail() {
 	const params = useParams();
 	useEffect(() => {
 		getData();
-	}, []);
+	}, [params]);
 	const [detailProduct, setDetailProduct] = useState<DetailProduct>();
 	const keyLocal = "data"
-	var dataString = JSON.parse(localStorage.getItem(keyLocal) || '""')
-	let local = [...dataString, detailProduct]
+	if (localStorage.getItem(keyLocal) === null) {
+		localStorage.setItem(keyLocal, JSON.stringify([]))
+	}
+	var dataString: any = JSON.parse(localStorage.getItem(keyLocal) || '[]')
+
 	const getData = async () => {
 		const resDetail = await axios.get(
 			`https://6232e62e6de3467dbac2a7d6.mockapi.io/SanPham/${params.idSP}`
 		);
 		setDetailProduct(resDetail.data)
 	};
+	console.log("dataString", dataString);
+
 	const storage = () => {
-		localStorage.setItem(keyLocal, JSON.stringify(local))
+
+		if (dataString.length == 0) {
+			dataString.push(detailProduct)
+			localStorage.setItem(keyLocal, JSON.stringify(dataString))
+		} else {
+			for (let i = 0; i < dataString.length; i++) {
+				if (dataString[i].id === detailProduct?.id) {
+					console.log('san pham da ton tai');
+				} else {
+					dataString.push(detailProduct)
+					localStorage.setItem(keyLocal, JSON.stringify(dataString))
+				}
+			}
+		}
+		// dataString.push(detailProduct)
+		// localStorage.setItem(keyLocal, JSON.stringify(dataString))
 	}
 	return (
 		<div key={detailProduct?.id} className="font-sans ">
@@ -82,7 +103,7 @@ function ProductDetail() {
 						</div>
 						<div className="mt-5">
 							<Link to={"/cart"}>
-								<div className="text-center bg-red-600 rounded-xl py-2 text-white cursor-pointer" onClick={storage}> 
+								<div className="text-center bg-red-600 rounded-xl py-2 text-white cursor-pointer" onClick={storage}>
 									<h1 className="font-bold text-[18px]">
 										MUA NGAY
 									</h1>
@@ -208,7 +229,10 @@ function ProductDetail() {
 					</div>
 				</div>
 			</div>
-			<div></div>
+			<div className="mt-5 text-center">
+				<h1 className=" font-bold text-[20px] m-3">SẢN PHẨM TƯƠNG TỰ</h1>
+				<SimilarProduct id={detailProduct?.LoaiId} />
+			</div>
 		</div>
 	);
 }

@@ -47,7 +47,7 @@ interface listTTSpType {
 export default function ThongTinSp(props: TypeID) {
   useEffect(() => {
     getLoaiSp();
-  }, []);
+  }, []); 
   const [listTTSp, setListTTSp] = useState<listTTSpType[]>([]);
   const getLoaiSp = async () => {
     try {
