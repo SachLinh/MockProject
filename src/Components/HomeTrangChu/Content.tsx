@@ -7,7 +7,9 @@ import Menu from './Menu';
 export default function Content() {
 	return (
 		<div className='w-full flex flex-col justify-start items-center'>
-			<div className=' 2xl:w-[1200px] 2xl:pt-[70px] xl:w-[1200px] lg:w-[1200px] md:w-[800px] sm:w-[700px] w-full'>
+			<div className=' 2xl:w-[1200px]  xl:w-[1100px] lg:w-[900px] md:w-[700px] sm:w-[600px] w-[350px]
+			2xl:pt-[70px] xl:pt-[70px] lg:pt-[50px] md:pt-[30px] pt-[25px] 
+			'>
 				<Menu />
 				<div className='w-full h-[75px] mt-[15px] mb-[25px] flex flex-row justify-center items-center'>
 					<a target={'_blank'} href='https://cellphones.com.vn/apple'>

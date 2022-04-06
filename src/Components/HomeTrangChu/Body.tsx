@@ -34,8 +34,8 @@ export default function Body() {
 			item.name === 'XiaoMi'
 		) {
 			return (
-				<div key={index} className='relative w-full'>
-					<h4 className='inline-block m-1 no-underline 2xl:text-left xl:text-left lg:text-left md:text-left sm:text-center text-center font-bold ... hover:underline ... '>
+				<div key={index} className='w-full'>
+					<h4 className='inline-block no-underline 2xl:text-left xl:text-left lg:text-left md:text-left sm:text-center text-center font-bold ... hover:underline ... '>
 						{item.name}
 					</h4>
 					{/* Menu */}
