@@ -7,7 +7,7 @@ import Menu from './Menu';
 export default function Content() {
 	return (
 		<div className='w-full flex flex-col justify-start items-center'>
-			<div className=' 2xl:w-[1200px]  xl:w-[1100px] lg:w-[900px] md:w-[700px] sm:w-[600px] w-[350px]
+			<div className=' 2xl:w-[1200px]  xl:w-[1100px] lg:w-[950px] md:w-[750px] sm:w-[600px] w-[350px]
 			2xl:pt-[70px] xl:pt-[70px] lg:pt-[50px] md:pt-[30px] pt-[25px] 
 			'>
 				<Menu />

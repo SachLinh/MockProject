@@ -68,7 +68,7 @@ export default function ThongTinSp(props: TypeID) {
 				<div
 					key={indexSP}
 					className='text-left bg-white mt-3 
-					2xl:w-[230px] xl:w-[230px] lg:w-[200px] md:w-[180px] sm:w-[150px]
+					2xl:w-[230px] xl:w-[210px] lg:w-[210px] md:w-[180px] sm:w-[150px]
 					 w-[150px] pl-[5px] mr-[10px] 
 					 2xl:h-[340px] xl:h-[340px] lg:h-[300px] md:h-[250px] sm-[220px] h-[200px] 
 					 rounded-lg re cursor-pointer duration-500 shadow-[0_0px_4px_4px_#EAEAEA] hover:shadow-[0_0px_8px_8px_#CECECE]'>
