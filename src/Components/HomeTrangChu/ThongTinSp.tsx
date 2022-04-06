@@ -67,7 +67,11 @@ export default function ThongTinSp(props: TypeID) {
 			return (
 				<div
 					key={indexSP}
-					className='text-left bg-white mt-3 2xl:w-[230px] xl:w-[230px] lg:w-[230px] md:w-[180px] sm:w-[150px] w-[150px] pl-[5px] mr-[10px] h-[340px] rounded-lg re cursor-pointer duration-500 shadow-[0_0px_4px_4px_#EAEAEA] hover:shadow-[0_0px_8px_8px_#CECECE]'>
+					className='text-left bg-white mt-3 
+					2xl:w-[230px] xl:w-[230px] lg:w-[200px] md:w-[180px] sm:w-[150px]
+					 w-[150px] pl-[5px] mr-[10px] 
+					 2xl:h-[340px] xl:h-[340px] lg:h-[300px] md:h-[250px] sm-[220px] h-[200px] 
+					 rounded-lg re cursor-pointer duration-500 shadow-[0_0px_4px_4px_#EAEAEA] hover:shadow-[0_0px_8px_8px_#CECECE]'>
 					<Link to={`/product-detail/${itemSP.id}`}>
 						<p className='bg-red-600 h-[30px] w-[100px] mb-2 text-center rounded-lg leading-[30px] text-white font-bold right-2 bottom-1 '>
 							Giảm <span>{itemSP.promotion}%</span>

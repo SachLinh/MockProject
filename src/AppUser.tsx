@@ -81,7 +81,7 @@ function AppUser() {
 		return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
 	}, []);
 	return (
-		<div>
+		<div className='flex flex-col justify-center items-center'>
 			<div className='App w-full flex flex-col justify-start items-center'>
 				{/* <Header /> */}
 				<Routes>
