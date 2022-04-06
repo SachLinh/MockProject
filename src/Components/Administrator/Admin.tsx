@@ -8,10 +8,10 @@ import ListSanPham from "./DanhSachSP/ListSanPham";
 import UpdateProd from "./DanhSachSP/UpdateProd";
 import AddProd from "./DanhSachSP/AddProd";
 import DeleteProd from "./DanhSachSP/DeleteProd";
-import QLThongTinSp from "./ThongSoSanPham/QLThongTinSp";
-import SuaThongTinSP from "./ThongSoSanPham/SuaThongTinSP";
 
 import QuanLyHoaDon from "./QuanLyHoaDon/QuanLyHoaDon";
+
+import ManageUser from "./QuanLyUser/ManageUser";
 import UpdateHoaDon from "./QuanLyHoaDon/UpdateHoaDon";
 import DeleteHoaDon from "./QuanLyHoaDon/DeleteHoaDon";
 import AddHoaDon from "./QuanLyHoaDon/AddHoaDon";
@@ -19,6 +19,8 @@ import QuanLyLoaiSP from "./HangSX/QuanLyLoaiSP";
 import AddNewLoaiSP from "./HangSX/AddNewLoaiSP";
 import UpdateLoaiSP from "./HangSX/UpdateLoaiSP";
 import DeleteLoaiSP from "./HangSX/DeleteLoaiSP";
+import ChiTietSanPham from "./DanhSachSP/ChiTietSanPham";
+
 
 export default function Admin() {
   return (
@@ -38,17 +40,20 @@ export default function Admin() {
             {/* List sản phẩm */}
             <Route path="/QuanLySanPham" element={<ListSanPham />}></Route>
             <Route path="/QuanLySanPham/AddProd" element={<AddProd />}></Route>
-            <Route path="/Update/:idDM/Loai/:idLoai/SanPham/:idSanPham" element={<UpdateProd />}></Route>
-            <Route path="/Delete/:idDM/Loai/:idLoai/SanPham/:idSanPham" element={<DeleteProd />}></Route>
-            {/* Thông số sản phẩm */}
-            <Route path="QuanLyDanhMuc/:idDM/QuanLyLoaiSP/:idLoai/ListSanPham/:idSanPham/QLThongTinSp" element={<QLThongTinSp />}></Route>
-            <Route path="/Update/:idDM/Loai/:idLoai/SanPham/:idSanPham/QLThongTinSp/:idThongTin" element={<SuaThongTinSP />}></Route>
-
+            <Route path="/QuanLySanPham/Update/:idSanPham" element={<UpdateProd />}></Route>
+            <Route path="/QuanLySanPham/Delete/:idSanPham" element={<DeleteProd />}></Route>
+            <Route path="/QuanLySanPham/Detail/:idSanPham" element={<ChiTietSanPham />}></Route>
             {/* Hoa Don */}
             <Route path="/QuanLyHoaDon" element={<QuanLyHoaDon />}></Route>
+
+
+            {/* user */}
+            <Route path="/QuanLyUser" element={<ManageUser />}></Route>
+
             <Route path="/UpdateHoaDon/:idhoaDon" element={<UpdateHoaDon />}></Route>
             <Route path="/DeleteHoaDon/:idhoaDon" element={<DeleteHoaDon />}></Route>
             <Route path="/AddHoaDon" element={<AddHoaDon />}></Route>
+
           </Routes>
         </div>
       </div>

@@ -1,20 +1,20 @@
 export interface SanPhamType {
-	id: string;
+	id: any;
 	name: string;
 	avatar: string;
 	cost: string;
-	capacity: number;
+	capacity: string;
 	description: string;
 	color: string;
-	promotion: number;
+	promotion: string;
 	oldCost: string;
 	endow: string;
 	kichThuoc: string;
 	doPhangiai: string;
 	congNghemanhinh: string;
 	chatLieu: string;
-	thoiLuongpin: number;
-	thoiGiansac: number;
+	thoiLuongpin: string;
+	thoiGiansac: string;
 	loaiCpu: string;
 	tinhNangnoibat: string;
 	cameraSau: string;

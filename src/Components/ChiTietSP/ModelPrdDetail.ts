@@ -34,3 +34,6 @@ export interface Images {
     id: string;
     SanPhamId: string;
 }
+export interface Item {
+    item: any;
+}

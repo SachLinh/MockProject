@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { SanPhamType } from "../../../TypeState/SanPhamType";
 
-export default function DeleteProd() {
+export default function ChiTietSanPham() {
   const params = useParams();
   const [sanPham, setSanPham] = useState<SanPhamType>();
   const navigate = useNavigate();
@@ -21,50 +21,36 @@ export default function DeleteProd() {
     getSanPham();
   }, []);
 
-  const onSubmit = async (e: any) => {
-    e.preventDefault();
-
-    try {
-      const res = await axios.delete(
-        `https://6232e62e6de3467dbac2a7d6.mockapi.io/SanPham/${params.idSanPham}`
-      );
-      setSanPham(res.data);
-      alert("Xóa thành công thành công");
-      navigate(`/Admin/QuanLySanPham`);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   return (
     <div className="">
       <div className="">
         <h2 className="text-[#f73d3d] text-[40px] w-full text-center bg-[#e2e2e2] p-[15px] rounded-xl">
-          Delete Sản phẩm
+          Chi tiết Sản phẩm
         </h2>
         <Link to="/Admin/QuanLySanPham">
           <button className="my-[10px] ml-[10px] p-[10px] border-2 font-Roboto font-[500] text-[20px]">
             <i className="fa-solid fa-arrow-rotate-left"></i>Trở Lại
           </button>
         </Link>
-        <table className="p-[20px] mt-[20px]">
+        <table className="px-[20px] mt-[20px]">
           <tr>
             <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">ID</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.id}
+              {sanPham?.id}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Name</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.name}
+              {sanPham?.name}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Avatar</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
@@ -72,191 +58,184 @@ export default function DeleteProd() {
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">cost</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.cost}
+              {sanPham?.cost}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Capacity</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.capacity}
+              {sanPham?.capacity}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">description</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.description}
+              {sanPham?.description}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               {" "}
               <label htmlFor="">Color</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.color}
+              {sanPham?.color}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               {" "}
               <label htmlFor="">Promotion</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.promotion}
+              {sanPham?.promotion}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Old Cost</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.oldCost}
+              {sanPham?.oldCost}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Endow</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.endow}
+              {sanPham?.endow}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Kích thước</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.kichThuoc}
+              {sanPham?.kichThuoc}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Độ phân giải</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.doPhangiai}
+              {sanPham?.doPhangiai}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Công nghệ màn hình</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.congNghemanhinh}
+              {sanPham?.congNghemanhinh}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Chất liệu</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.chatLieu}
+              {sanPham?.chatLieu}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Thời lượng pin</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.thoiLuongpin}
+              {sanPham?.thoiLuongpin}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Thời lượng sạc</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.thoiGiansac}
+              {sanPham?.thoiGiansac}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Loại CPU</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.loaiCpu}
+              {sanPham?.loaiCpu}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Tính năng nổi bật</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.tinhNangnoibat}
+              {sanPham?.tinhNangnoibat}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Camera sau</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.cameraSau}
+              {sanPham?.cameraSau}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Camara trước</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.cameraTruoc}
+              {sanPham?.cameraTruoc}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">RAM</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.RAM}
+              {sanPham?.RAM}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">ROM</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.ROM}
+              {sanPham?.ROM}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">SIM</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.SIM}
+              {sanPham?.SIM}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">Hệ điều hành</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.heDieuHanh}
+              {sanPham?.heDieuHanh}
             </td>
           </tr>
           <tr>
-           <th className="border pl-[10px] border-slate-300">
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">ID Loại</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-            {sanPham?.LoaiId}
+              {sanPham?.LoaiId}
             </td>
           </tr>
         </table>
-        <button
-          type="button"
-          className="btn btn-outline-info"
-          onClick={onSubmit}
-        >
-          Delete
-        </button>
       </div>
     </div>
   );
