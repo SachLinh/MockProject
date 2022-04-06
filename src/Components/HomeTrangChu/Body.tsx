@@ -34,12 +34,12 @@ export default function Body() {
 			item.name === 'XiaoMi'
 		) {
 			return (
-				<div key={index} className='relative'>
-					<h4 className=' m-1 no-underline text-left font-bold ... hover:underline ... '>
+				<div key={index} className='relative w-full'>
+					<h4 className='inline-block m-1 no-underline 2xl:text-left xl:text-left lg:text-left md:text-left sm:text-center text-center font-bold ... hover:underline ... '>
 						{item.name}
 					</h4>
 					{/* Menu */}
-					<div className='mt-[15px] flex-1 text-right w-[1200px]'>
+					<div className='mt-[15px] flex-1 text-right w-full'>
 						<ul className='mb-[10px]'>
 							<ThongTinSp id={item.id} />
 						</ul>
@@ -51,10 +51,12 @@ export default function Body() {
 	});
 
 	return (
-		<div className='w-[1200px]'>
-			<div className='sanPham'>
-				<div className='dienThoai w-[1200px]'>{ShowSanPham}</div>
-				<div className='mt-[20px] w-[1200px] '>
+		<div className='w-full'>
+			<div className='sanPham w-full'>
+				<div className='dienThoai w-full flex flex-col justify-start items-start'>
+					{ShowSanPham}
+				</div>
+				<div className='mt-[20px] w-full '>
 					<h3 className='m-2 no-underline text-left font-bold ... hover:underline ... '>
 						CHUYÊN GIA THƯƠNG HIỆU
 					</h3>
