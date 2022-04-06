@@ -11,11 +11,7 @@ import "swiper/css/thumbs";
 import { DanhMucType } from "../../TypeState/DanhMucType";
 import axios from "axios";
 import MenuC2 from "./MenuC2";
-import { useDispatch, useSelector } from "react-redux";
-import DanhMucSP from "../DanhMucSP/DanhMucSP";
-import { AllDanhMucSlice } from "../../Features/MenuSlice";
-import { RootState } from "../../App/store";
-import { useAppSelector } from "../../App/hooks";
+
 export default function Menu() {
   const [thums, setThums] = useState<any>(null);
   // const listCatas = useAppSelector((state)=>state.listDanhMuc)
@@ -24,11 +20,12 @@ export default function Menu() {
 	  getListCata();
     //dispatch(AllDanhMucSlice)
   }, []);
+
   const [listCatas, setListCatas] = useState<DanhMucType[]>([]);
   const getListCata = async () => {
     try {
       const res = await axios.get(
-        "https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc"
+        "https://6232e62e6de3467dbac2a7d6.mockapi.io/Loai"
       );
       setListCatas(res.data);
     } catch (error) {
@@ -45,11 +42,11 @@ export default function Menu() {
           {item.name}
         </Link>
         <i className="fa-solid fa-angle-right pr-[15px]"></i>
-        <div className="absolute  left-[100%] top-[0%] w-full h-full bg-[#fff] -z-50 opacity-0 group-hover:z-20 group-hover:opacity-100">
+        {/* <div className="absolute  left-[100%] top-[0%] w-full h-full bg-[#fff] -z-50 opacity-0 group-hover:z-20 group-hover:opacity-100">
           <ul className="h-full flex flex-col justify-between">
             <MenuC2 id={item.id}/>
           </ul>
-        </div>
+        </div> */}
       </li>
     );
 
@@ -145,7 +142,7 @@ export default function Menu() {
             </SwiperSlide>
           </Swiper>
         </div>
-        <div className="w-[20%] flex flex-col justify-between items-start">
+        <div className="none  w-[20%] flex flex-col justify-between items-start">
           <Link to="">
             <img
               src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/13_series_right_desk.png"

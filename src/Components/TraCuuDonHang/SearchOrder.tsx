@@ -10,9 +10,9 @@ function SearchOrder() {
     const [searchOrder, setSearchOrder] = useState<any>()
     const [checkOrder, setcheckOrder] = useState<any>();
 
-    // useEffect(() => {
-    //     getSearchOrder();
-    // }, [])
+    useEffect(() => {
+        getSearchOrder();
+    }, [])
 
     const getSearchOrder = async () => {
        
@@ -60,7 +60,7 @@ function SearchOrder() {
                     <p>Người Nhận : <input value={searchOrder?.name} type="text" /></p>
                     <p>Số Điện Thoại : <input value={searchOrder?.phonenumber} type="text" /></p>
                     <p>Ngày nhận : <input value={searchOrder?.date} type="text" /></p>
-                    <p>Nhận Sản Phẩm Tại : <input value={searchOrder?.addStress + "," + searchOrder?.addCity + "," + searchOrder?.addCountry} type="text" /></p>
+                    <p>Nhận Sản Phẩm Tại : <input value={searchOrder?.address} type="text" /></p>
                     <p>Tổng Tiền : <input value={searchOrder?.totalprice} type="text" /></p>
                 </div>
                 <div className="px-2 mt-3 ">

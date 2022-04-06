@@ -4,7 +4,6 @@ import axios from "axios";
 import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import LoaiSanPham from "./LoaiSanPham";
-import LoaiSPNho from "./LoaiSPNho";
 import ThongTinSp from "./ThongTinSp";
 
 export default function Body() {
@@ -14,13 +13,16 @@ export default function Body() {
   }
   useEffect(() => {
     getListDanhMuc();
+    console.log("abc");
+    
   }, []);
+
   const [listDanhMucSp, setListDanhMucSp] = useState<listDanhMucType[]>([]);
 
   const getListDanhMuc = async () => {
     try {
       const res = await axios.get(
-        "https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc"
+        "https://6232e62e6de3467dbac2a7d6.mockapi.io/Loai"
       );
       setListDanhMucSp(res.data);
     } catch (error) {
@@ -29,71 +31,55 @@ export default function Body() {
     }
   };
   const ShowSanPham = listDanhMucSp.map((item, index) => {
-    if (item.id === "1" || item.id === "2" || item.id === "5") {
-      return (
-        <div key={index} className="relative">
-          <h4 className="absolute m-1 no-underline text-left font-bold ... hover:underline ... ">
-            {item.name}
-          </h4>
-          {/* Menu */}
-          <div className="flex-1 text-right w-[1200px]">
-            <ul className="">
-              <LoaiSanPham id={item.id} />
-            </ul>
-            {/* List Điện thoại 1 */}
-          </div>
+   if(item.name === "Apple" || item.name === "SamSung" || item.name === "Oppo" || item.name === "XiaoMi"){
+    return (
+      <div key={index} className="relative">
+        <h4 className=" m-1 no-underline text-left font-bold ... hover:underline ... ">
+          {item.name}
+        </h4>
+        {/* Menu */}
+        <div className="mt-[15px] flex-1 text-right w-[1200px]">
+          <ul className="mb-[10px]">
+            <ThongTinSp id={item.id}/>
+          </ul>
+          {/* List Điện thoại 1 */}
         </div>
-      );
-    }
-    if (item.id === "6" || item.id === "7") {
-      return (
-        <div key={index} className="relative">
-          <h4 className=" absolute m-1 no-underline text-left font-bold ... hover:underline ... ">
-            {item.name}
-          </h4>
-          {/* Menu */}
-          <div className="flex-1 text-right w-[1200px]">
-            <ul className="">
-              <LoaiSPNho id={item.id} />
-            </ul>
-            {/* List Điện thoại 1 */}
-          </div>
-        </div>
-      );
-    }
+      </div>
+    )
+   }
   });
 
   return (
-    <div className="w-[1200px]">
-      <div className="sanPham">
-          <div className="dienThoai w-[1200px]">{ShowSanPham}</div>
-          <div className="mt-[20px] w-[1200px] ">
-            <h3 className="m-2 no-underline text-left font-bold ... hover:underline ... ">
+    <div className="text-center justify-start">
+      <div className="sanPham text-center justify-start">
+          {/* <div className="dienThoai text-center justify-start">{ShowSanPham}</div> */}
+          <div className="mt-[100px] text-center justify-start">
+            <h3 className=" m-2 no-underline text-left font-bold ... hover:underline ... ">
               CHUYÊN GIA THƯƠNG HIỆU
             </h3>
-            <div className="flex flex-row">
-              <div className="w-1/4 m-2  ">
+            <div className=" md:flex flex-row text-center justify-start items-center ">
+              <div className="md: mt-[15px] m-[5px]">
                 <img
                   alt=""
                   src="https://cellphones.com.vn/media/icons/banner/banner-sis-apple-homepage.png"
-                  className="rounded-lg"
+                  className="rounded-lg w-full"
                 ></img>
               </div>
-              <div className="w-1/4 m-2  ">
+              <div className="md: mt-[15px]">
                 <img
                   alt=""
                   src="https://cellphones.com.vn/media/icons/banner/banner-sis-samsung-homepage.png"
                   className="rounded-lg"
                 ></img>
               </div>
-              <div className="w-1/4 m-2  ">
+              <div className="md: mt-[15px]">
                 <img
                   alt=""
                   src="https://cellphones.com.vn/media/icons/banner/banner-sis-asus-homepage.png"
                   className="rounded-lg"
                 ></img>
               </div>
-              <div className="w-1/4 m-2  ">
+              <div className="md: mt-[15px]">
                 <img
                   alt=""
                   src="https://cellphones.com.vn/media/icons/banner/banner-sis-xiaomi-homepage.png"

@@ -3,9 +3,12 @@ import { useParams } from "react-router-dom";
 import { Autoplay, FreeMode, Navigation, Thumbs } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import LoaiSanPham from "../HomeTrangChu/LoaiSanPham";
+import ThongTinSp from "../HomeTrangChu/ThongTinSp";
+import ThongTinSpCon from "../HomeTrangChu/ThongTinSpCon";
 
 export default function DanhMucSP() {
   const params = useParams();
+
   return (
     <div className="w-full flex flex-row justify-center items-start mt-[100px]">
       <div className="w-[1200px]">
@@ -131,8 +134,9 @@ export default function DanhMucSP() {
             </SwiperSlide>
           </Swiper>
         </div>
+       
         <div className="mt-[50px]">
-            <LoaiSanPham id={params.idDM}/>
+          <ThongTinSpCon idLoai={params.idLoai}/>
         </div>
       </div>
     </div>

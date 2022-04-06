@@ -11,7 +11,7 @@ export default function Content() {
     <div className="w-full flex flex-col justify-center items-center">
       <div className="pt-[70px] w-[1200px] ">
         <Menu />
-        <div className="w-full h-[75px] mt-[15px] mb-[25px] flex flex-row justify-center items-center">
+        {/* <div className="md:shrink xl:w-full h-[75px] mt-[15px] mb-[25px] flex flex-row justify-center items-center">
           <a target={"_blank"} href="https://cellphones.com.vn/apple">
             <img
               src="https://cdn.cellphones.com.vn/media/wysiwyg/Banner/1200-75-max.png"
@@ -19,7 +19,7 @@ export default function Content() {
               className="w-full"
             />
           </a>
-        </div>
+        </div> */}
         <Body />
       </div>
     </div>

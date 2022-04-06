@@ -30,14 +30,21 @@ export default function NavbarAdmin() {
               </Link>{" "}
             </li>
             <li className="w-full my-[20px]  h-[70px] leading-[70px] hover:bg-[#fa9f9f] hover:text-[#3956fd]">
-              <Link className="inline-block w-full h-full pl-[20px]" to="/Admin/QuanLyDanhMuc">
+              <Link className="inline-block w-full h-full pl-[20px]" to="/Admin/QuanLyHangSX">
+
+                <i className="fa-solid fa-computer mr-[10px]"></i>
+                Quản lý Hãng SX
+              </Link>
+            </li>
+            <li className="w-full my-[20px]  h-[70px] leading-[70px] hover:bg-[#fa9f9f] hover:text-[#3956fd]">
+              <Link className="inline-block w-full h-full pl-[20px]" to="/Admin/QuanLySanPham">
 
                 <i className="fa-solid fa-computer mr-[10px]"></i>
                 Quản lý Sản Phẩm
               </Link>
             </li>
             <li className="w-full my-[20px]  h-[70px] leading-[70px] mb-[0px] hover:bg-[#fa9f9f] hover:text-[#3956fd]">
-              <Link className="inline-block w-full h-full pl-[20px]" to="">
+              <Link className="inline-block w-full h-full pl-[20px]" to="/Admin/QuanLyHoaDon">
 
                 <i className="fa-solid fa-address-card mr-[10px]"></i>
                 Quản lý Hóa Đơn
