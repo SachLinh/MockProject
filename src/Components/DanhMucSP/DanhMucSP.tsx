@@ -10,11 +10,12 @@ export default function DanhMucSP() {
   const params = useParams();
 
   return (
-    <div className="w-full flex flex-row justify-center items-start mt-[100px]">
-      <div className="w-[1200px]">
-        <div className="w-full flex flex-row justify-between items-start">
+    <div className="2xl:w-[1200px]  xl:w-[1100px] lg:w-[950px] md:w-[750px] sm:w-[600px] w-[350px] flex flex-row justify-center items-start mt-[100px]">
+      <div className="w-full">
+        <div className="w-full flex md:flex-row md:justify-between md:items-start flex-col justify-center items-start">
           <Swiper
-            className="w-[595px] h-[100px] rounded-xl shadow-[0_0px_5px_2px_#9b9a9a]"
+            className="md:w-[48%] w-[100%] md:mb-[0px] mb-[10px] 2xl:h-[100px] xl:h-[100px] lg:h-[80px] md:h-[60px] sm:h-[50px]
+            2xl:rounded-xl xl:rounded-xl lg:rounded-lg md:rounded-md rounded-sm shadow-[0_0px_5px_2px_#9b9a9a]"
             loop={true}
             spaceBetween={10}
             autoplay={{
@@ -74,7 +75,8 @@ export default function DanhMucSP() {
             </SwiperSlide>
           </Swiper>
           <Swiper
-            className="w-[595px] h-[100px]   rounded-xl shadow-[0_0px_5px_2px_#9b9a9a]"
+            className="md:w-[48%] w-[100%] 2xl:h-[100px] xl:h-[100px] lg:h-[80px] md:h-[60px] sm:h-[50px] 
+             2xl:rounded-xl xl:rounded-xl lg:rounded-lg md:rounded-md rounded-sm shadow-[0_0px_5px_2px_#9b9a9a]"
             loop={true}
             spaceBetween={10}
             autoplay={{
@@ -87,7 +89,7 @@ export default function DanhMucSP() {
               <img
                 src="https://cdn.cellphones.com.vn/media/resized//ltsoft/promotioncategory/xiaomi-595-100-max.png"
                 alt=""
-                className="w-full h-full rounded-t-2xl"
+                className="w-full h-full"
               />
             </SwiperSlide>
             <SwiperSlide>
@@ -134,8 +136,7 @@ export default function DanhMucSP() {
             </SwiperSlide>
           </Swiper>
         </div>
-       
-        <div className="mt-[50px]">
+        <div className="w-full lg:mt-[30px] mt-[20px]">
           <ThongTinSpCon idLoai={params.idLoai}/>
         </div>
       </div>
