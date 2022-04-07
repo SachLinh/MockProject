@@ -1,24 +1,73 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { BsHandIndexThumbFill } from 'react-icons/bs';
+import {
+    atom,
+    DefaultValue,
+    isRecoilValue,
+    selector,
+    useRecoilState,
+    useRecoilValue,
+    useSetRecoilState
+} from 'recoil';
+import { cartProductState } from '../../Recoil/RecoilState';
+import { CartProduct } from '../../TypeState/CartProduct';
+import { SanPhamType } from '../../TypeState/SanPhamType';
+import { totalPriceState } from './Cart';
 
-type Props = {}
+type Props = {
+    value: SanPhamType,
+    index: number
+}
 
-export default function CartItem({ }: Props) {
+export default function CartItem({ value, index }: Props) {
+    const [productCount, setProductCount] = useState<number>(1);
+    const setTotalPrice = useSetRecoilState(totalPriceState);
+    const [cartProduct, setCartProduct] = useRecoilState(cartProductState);
+    useEffect(() => {
+        setTotalPrice(prev => productCount * parseInt(value.cost) * 1000000);
+    },[])
+
+    const increaseProductCount = () => {
+        // const cartProductList = [...cartProduct];
+        // setProductCount(prev => prev+1);
+        // cartProductList.map((value, key) => {
+        //     if(key === index){
+        //         value.count = productCount
+        //     }
+        // })
+        // setCartProduct(cartProductList);
+        setTotalPrice(prev => prev + parseInt(value.cost) * 1000000);
+    }
+    const decreaseProductCount = () => {
+        if(productCount > 1){
+            // const cartProductList = [...cartProduct];
+            // setProductCount(prev => prev-1);
+            // cartProductList.map((value, key) => {
+            //     if(key === index){
+            //         value.count = productCount
+            //     }
+            // })
+            // setCartProduct(cartProductList);
+            setTotalPrice(prev => prev - parseInt(value.cost) * 1000000);
+        }
+    }
+
     return (
         <div className='mt-3 px-2 py-3 grid grid-flow-row grid-cols-3 border border-solid rounded-xl  relative shadow-lg'>
             <div className=''>
                 <img
-                    src='https://image.cellphones.com.vn/200x/media/catalog/product/s/m/sm-f926_zfold3_5g_openback_phantomsilver_210611_2.jpg'
+                    src={value.avatar}
                     alt='product in cart'
                 />
             </div>
             <div className='col-start-2 col-span-2'>
-                <p className='font-bold'>Samsung Galaxy Z Fold3 5G-Bạc</p>
+                <p className='font-bold'>{value.name}</p>
                 <div className='grid grid-flow-row grid-cols-4'>
                     <p className='text-sm text-red-600 font-semibold pt-1'>
-                        35.990.000 ₫
+                        {value.cost + " ₫"}
                     </p>
                     <p className='text-sm text-[#777] line-through font-light pt-1'>
-                        41.990.000 ₫
+                        {value.oldCost + " ₫"}
                     </p>
                     <div className='bg-red-600 w-10/12 p-1 rounded-lg'>
                         <p className='text-sm text-white font-semibold'>
@@ -26,8 +75,17 @@ export default function CartItem({ }: Props) {
                         </p>
                     </div>
                 </div>
-                <div>
+                <div className="inline-flex">
                     <span>Chọn số lượng:</span>
+                    <div className="inline-flex border-[1px] border-[#777] rounded-md ml-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" onClick={decreaseProductCount} className="h-5 w-5 my-auto cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                        </svg>
+                        <input className="w-8 text-center" value={productCount} type="text" readOnly={true} />
+                        <svg xmlns="http://www.w3.org/2000/svg" onClick={increaseProductCount} className="h-5 w-5 my-auto cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </div>
                 </div>
                 <div className='bg-[#f6f6f6] mt-2 pt-2 pb-4 pl-2 rounded-lg'>
                     <p className=''>- Chương trình khuyến mại:</p>

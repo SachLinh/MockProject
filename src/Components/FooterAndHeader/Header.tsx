@@ -1,9 +1,14 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import {
+    useRecoilValue,
+} from 'recoil';
+import { isSignedInState } from "../../Recoil/RecoilState";
 
 export default function Header() {
+  const isSignedIn = useRecoilValue<boolean>(isSignedInState);
   return (
     <div className="w-full bg-[#d70018] h-[64px] fixed flex flex-col justify-center items-center z-50">
       <div className="w-[1200px] z-50">
@@ -73,7 +78,7 @@ export default function Header() {
               <span className="h-[50px] leading-[50px]">Giỏ hàng</span>
             </div>
           </Link>
-          <Link to="/Smember"
+          <Link to={isSignedIn ? '/Smember-info' : 'Smember'}
             className="h-[50px] flex flex-col justify-start items-center text-white p-[5px] hover:bg-[#eb4a4a] px-1 rounded-xl"
           >
             <i className="fa-solid fa-user text-[20px] mr-2 h-[25px]"></i>

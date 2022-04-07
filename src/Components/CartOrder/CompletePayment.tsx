@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { billInfoState } from '../../Recoil/RecoilState';
 
 function CompletePayment() {
+
+    const billInfo = useRecoilValue(billInfoState);
+
     return (
         <div className="w-5/12 mx-auto mt-16">
             <div className="grid grid-flow-row grid-cols-2 place-content-center">
@@ -16,30 +21,34 @@ function CompletePayment() {
             <div className="px-2 border border-solid shadow-lg rounded-xl">
                 <div className="mx-1 my-3 px-3 pb-5 text-lg text-red-600 bg-[#f6f6f6] grid grid-flow-row grid-cols-1 gap-y-3 border border-solid shadow-lg rounded-xl">
                     <h2 className="text-center font-bold">ĐẶT HÀNH THÀNH CÔNG</h2>
-                    <p>Mã Đơn Hàng: <b>300070800</b></p>
-                    <p>Người Nhận: <b>Tuan Anh</b></p>
-                    <p>Số Điện Thoại: <b>0987654321</b></p>
-                    <p>Email: <b>anh@gmail.com</b></p>
-                    <p>Nhận Sản Phẩm Tại: <b>458 - 460 Hậu Giang, Phường 12, Quận 6, Quận 6, Thành Phố Hồ Chí Minh</b></p>
-                    <p>Tổng Tiền: <b>35.990.000 ₫</b></p>
+                    <p>Mã Đơn Hàng: <b>{billInfo.id}</b></p>
+                    <p>Người Nhận: <b>{billInfo.customerName}</b></p>
+                    <p>Số Điện Thoại: <b>{billInfo.customerPhoneNumber}</b></p>
+                    <p>Email: <b>{billInfo.customerEmail}</b></p>
+                    <p>Nhận Sản Phẩm Tại: <b>{billInfo.cutomerAddress}</b></p>
+                    <p>Tổng Tiền: <b>{billInfo.totalPrice}</b></p>
                 </div>
-                <div className="px-2 mt-3 border border-solid shadow-lg rounded-xl">
-                    <div className="p-3 m-2 grid grid-flow-col grid-cols-3 border border-solid rounded-lg">
-                        <div className="">
-                            <img src="https://image.cellphones.com.vn/200x/media/catalog/product/s/m/sm-f926_zfold3_5g_openback_phantomsilver_210611_2.jpg" className="w-3/4" alt="product in cart" />
-                        </div>
-                        <div className="col-start-2 col-span-2">
-                            <p className="font-bold">Samsung Galaxy Z Fold3 5G-Bạc</p>
-                            <div className="grid grid-flow-row grid-cols-4">
-                                <p className="text-sm text-red-600 font-semibold pt-1">35.990.000 ₫</p>
-                                <p className="text-sm text-[#777] line-through font-light pt-1">41.990.000 ₫</p>
+                {
+                    billInfo.productLists.map((product, key) => {
+                        <div className="px-2 mt-3 border border-solid shadow-lg rounded-xl">
+                            <div className="p-3 m-2 grid grid-flow-col grid-cols-3 border border-solid rounded-lg">
+                                <div className="">
+                                    <img src={product.image} className="w-3/4" alt="product in cart" />
+                                </div>
+                                <div className="col-start-2 col-span-2">
+                                    <p className="font-bold">{product.name}</p>
+                                    <div className="grid grid-flow-row grid-cols-4">
+                                        <p className="text-sm text-red-600 font-semibold pt-1">{product.price} ₫</p>
+                                        <p className="text-sm text-[#777] line-through font-light pt-1">{product.oldPrice} ₫</p>
+                                    </div>
+                                    <p>Giá: {product.price} ₫</p>
+                                    <p>Số Lượng: 1</p>
+                                    <p>Tổng tiền: {product.oldPrice} ₫</p>
+                                </div>
                             </div>
-                            <p>Giá: 35.990.000 ₫</p>
-                            <p>Số Lượng: 1</p>
-                            <p>Tổng tiền: 35.990.000 ₫</p>
                         </div>
-                    </div>
-                </div>
+                    })
+                }
                 <div className="my-3 grid grid-flow-col grid-cols-2 gap-x-3 text-sm">
                     <div className="text-center bg-blue-600 text-white font-bold py-2 rounded-xl cursor-pointer">
                         <p>KIỂM TRA ĐƠN HÀNG</p>

@@ -3,6 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { Route, Routes, useInRouterContext } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import {
+    atom,
+    selector,
+    useRecoilState,
+    useRecoilValue,
+    useSetRecoilState
+} from 'recoil';
 
 import ProductDetail from './Components/ChiTietSP/ProductDetail';
 import Cart from './Components/CartOrder/Cart';
@@ -18,6 +25,9 @@ import SmemberMain from './Components/Smember/SmemberMain';
 import Smember from './Components/SignIn/Smember';
 import CuaHang from './Components/CuaHang/CuaHang';
 
+import {UserType} from './TypeState/UserType';
+import { isSignedInState, userInfoState } from './Recoil/RecoilState';
+
 // Configure Firebase.
 const config = {
   apiKey: 'AIzaSyAHi4Jo0pqiI5hzX_F-hXbO2pecfQKA8Uk',
@@ -25,21 +35,10 @@ const config = {
 };
 firebase.initializeApp(config);
 
-interface userData {
-  uid: string,
-  displayName: string,
-  email: string,
-  photoURL: string,
-  phoneNumber: string,
-  createdAt: string,
-  creationTime: string,
-  lastLoginAt: string,
-  lastSignInTime: string
-}
-
 function AppUser() {
 
-  const [isSignedIn, setIsSignedIn] = useState<boolean>(false); // Local signed-in state.
+  const setIsSignedIn = useSetRecoilState<boolean>(isSignedInState); // Local signed-in state.
+  const setUserData = useSetRecoilState<UserType>(userInfoState);
 
   // Listen to the Firebase Auth state and set the local state.
   useEffect(() => {
@@ -47,7 +46,7 @@ function AppUser() {
       if (user !== null) {
         setIsSignedIn(!!user);
         console.log(user)
-        const userInfo: userData = {
+        const userInfo: UserType = {
           uid: user._delegate.uid,
           displayName: user._delegate.displayName,
           email: user._delegate.email,
@@ -58,12 +57,12 @@ function AppUser() {
           lastLoginAt: user._delegate.metadata.lastLoginAt,
           lastSignInTime: user._delegate.metadata.lastSignInTime
         }
-        localStorage.setItem('mock-project-signed-in', JSON.stringify(!!user));
-        localStorage.setItem('mock-project-smember', JSON.stringify(userInfo));
+        setIsSignedIn(!!user);
+        setUserData(userInfo);
       }
       else {
-        localStorage.setItem('mock-project-signed-in', JSON.stringify(!!user));
-        localStorage.setItem('mock-project-smember', JSON.stringify(user));
+        setIsSignedIn(!!user);
+        setUserData(user);
       }
     });
     return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
