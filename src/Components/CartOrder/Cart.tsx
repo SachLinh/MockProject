@@ -1,11 +1,51 @@
 /** @format */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import {
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+  useSetRecoilState,
+} from 'recoil';
+import { cartProductState } from '../../Recoil/RecoilState';
+import { CartProduct } from '../../TypeState/CartProduct';
+import { SanPhamType } from '../../TypeState/SanPhamType';
 
 import CartItem from './CartItem';
 
+export const totalPriceState = atom({
+	key: "totalPrice",
+	default : 0
+})
+
 function Cart() {
+	const [productList, setProductList] = useState<SanPhamType[]>([]);
+	const totalPrice = useRecoilValue(totalPriceState);
+	const setCartProduct = useSetRecoilState(cartProductState);
+
+	useEffect(() => {
+		getProductInCart();
+	}, [])
+
+	const getProductInCart = () => {
+		setProductList(JSON.parse(localStorage.getItem('data') + ""));
+		const cartProduct: CartProduct[] = [];
+		JSON.parse(localStorage.getItem('data') + "").map((value: SanPhamType) => {
+			const product: CartProduct = {
+				id: value.id,
+				image: value.avatar,
+				name: value.name,
+				price: parseInt(value.cost) * 1000000,
+				oldPrice: parseInt(value.oldCost) * 1000000,
+				count: 1
+			}
+			cartProduct.push(product);
+		});
+		setCartProduct(cartProduct);
+	}
+
 	return (
 		<div className='w-5/12 mx-auto mt-16'>
 			<div className='grid grid-flow-row grid-cols-2 place-content-center'>
@@ -27,13 +67,16 @@ function Cart() {
 				</div>
 				<h3 className='text-lg font-bold text-red-600'>Giỏ hàng</h3>
 			</div>
-			<CartItem />
-			<CartItem />
+			{
+				productList.map((value, key) => {
+					return <CartItem value={value} index={key} key={key} />
+				})
+			}
 			<div className='border border-solid rounded-xl p-2 mt-3 shadow-lg'>
 				<div className='grid grid-flow-row grid-cols-2 pb-2'>
 					<p className='text-md font-bold'>Tổng tiền tạm tính:</p>
 					<p className='text-md text-red-600 font-semibold text-right'>
-						35.990.000 ₫
+						{totalPrice} ₫
 					</p>
 				</div>
 				<Link to="/payment-info">

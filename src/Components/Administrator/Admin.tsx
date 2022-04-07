@@ -10,7 +10,6 @@ import AddProd from "./DanhSachSP/AddProd";
 import DeleteProd from "./DanhSachSP/DeleteProd";
 
 import QuanLyHoaDon from "./QuanLyHoaDon/QuanLyHoaDon";
-
 import ManageUser from "./QuanLyUser/ManageUser";
 import UpdateHoaDon from "./QuanLyHoaDon/UpdateHoaDon";
 import DeleteHoaDon from "./QuanLyHoaDon/DeleteHoaDon";
@@ -20,7 +19,6 @@ import AddNewLoaiSP from "./HangSX/AddNewLoaiSP";
 import UpdateLoaiSP from "./HangSX/UpdateLoaiSP";
 import DeleteLoaiSP from "./HangSX/DeleteLoaiSP";
 import ChiTietSanPham from "./DanhSachSP/ChiTietSanPham";
-
 
 export default function Admin() {
   return (
