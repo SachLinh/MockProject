@@ -23,7 +23,8 @@ function SearchOrder() {
     console.log("checkOrder", checkOrder);
     
     return(
-        <div className="w-[1180px] h-[200px] pt-[80px] mx-auto mb-[700px]">
+        <div className="2xl:w-[1200px]  xl:w-[1100px] lg:w-[950px] md:w-[750px] sm:w-[600px] w-[350px]">
+             <div className="w-[1180px] h-[200px] pt-[80px] mx-auto mb-[700px]">
             <div className="bg-[#eeeeee] text-[#444444] h-36 pt-[10px]">
                 <div>
                     <h3 className="text-[22px] font-[700] leading-[26.4px] p-[10px 0] text-center">
@@ -82,6 +83,8 @@ function SearchOrder() {
                 </div>
             </div>
         </div>
+        </div>
+       
     );
 }
 

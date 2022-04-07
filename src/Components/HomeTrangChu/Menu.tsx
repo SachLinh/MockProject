@@ -10,14 +10,13 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { DanhMucType } from "../../TypeState/DanhMucType";
 import axios from "axios";
-import MenuC2 from "./MenuC2";
 
 export default function Menu() {
   const [thums, setThums] = useState<any>(null);
   // const listCatas = useAppSelector((state)=>state.listDanhMuc)
   // const dispatch = useDispatch()
   useEffect(() => {
-	  getListCata();
+    getListCata();
     //dispatch(AllDanhMucSlice)
   }, []);
 
@@ -42,27 +41,20 @@ export default function Menu() {
           {item.name}
         </Link>
         <i className="fa-solid fa-angle-right pr-[15px]"></i>
-        {/* <div className="absolute  left-[100%] top-[0%] w-full h-full bg-[#fff] -z-50 opacity-0 group-hover:z-20 group-hover:opacity-100">
-          <ul className="h-full flex flex-col justify-between">
-            <MenuC2 id={item.id}/>
-          </ul>
-        </div> */}
       </li>
     );
-
   });
-
 
   //// render
   return (
-    <div className="w-full mt-[10px] mb-[20px] font-Roboto text-[14px] h-[376px]">
+    <div className="w-full lg:mt-[25px] xl:mt-[10px] sm:mt-[40px] mb-[20px] font-Roboto text-[14px] h-[376px]">
       <div className="flex flex-row justify-between w-full h-full">
-        <div className="w-[20%] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]">
+        <div className="w-[15%] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]">
           <ul className="relative w-full h-full flex flex-col justify-between font-[500]">
             {showListCata}
           </ul>
         </div>
-        <div className="rounded-2xl shadow-[#9e9c9c] w-[55%] shadow-[0_0px_5px_2px_#9b9a9a] -z-10">
+        <div className="rounded-2xl shadow-[#9e9c9c] w-[68%] shadow-[0_0px_5px_2px_#9b9a9a] -z-10">
           <Swiper
             className="w-full"
             loop={true}
@@ -74,6 +66,7 @@ export default function Menu() {
             thumbs={{ swiper: thums }}
             modules={[FreeMode, Navigation, Thumbs, Autoplay]}
           >
+            
             <SwiperSlide>
               <img
                 src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/A53.png"
@@ -142,26 +135,26 @@ export default function Menu() {
             </SwiperSlide>
           </Swiper>
         </div>
-        <div className="w-[20%] flex flex-col justify-between items-start">
-          <Link to="">
+        <div className="w-[15%] flex flex-col justify-between items-start">
+          <Link to="" className="w-full">
             <img
-              src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/13_series_right_desk.png"
+              src={require(`./Images/banner1.png`)}
               alt=""
-              className="w-[265px] h-[115px] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]"
+              className="w-full h-[115px] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]"
             />
           </Link>
-          <Link to="">
+          <Link to="" className="w-full">
             <img
-              src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/RightBanner_Desktop_S22.png"
+              src={require(`./Images/banner2.png`)}
               alt=""
-              className="w-[265px] h-[115px] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]"
+              className="w-full h-[115px] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]"
             />
           </Link>
-          <Link to="">
+          <Link to="" className="w-full">
             <img
-              src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/dell_latitude.png"
-              alt=""
-              className="w-[265px] h-[115px] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]"
+              src={require(`./Images/Right_banner_AW.png`)}
+              alt="hinh anh"
+              className="w-full h-[115px] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]"
             />
           </Link>
         </div>

@@ -1,6 +1,6 @@
 /** @format */
 import React, { useEffect, useState } from 'react';
-import { Route, Routes, useInRouterContext } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import {
@@ -30,8 +30,8 @@ import { isSignedInState, userInfoState } from './Recoil/RecoilState';
 
 // Configure Firebase.
 const config = {
-  apiKey: 'AIzaSyAHi4Jo0pqiI5hzX_F-hXbO2pecfQKA8Uk',
-  authDomain: 'mock-project-936ca.firebaseapp.com',
+	apiKey: 'AIzaSyAHi4Jo0pqiI5hzX_F-hXbO2pecfQKA8Uk',
+	authDomain: 'mock-project-936ca.firebaseapp.com',
 };
 firebase.initializeApp(config);
 
