@@ -83,7 +83,7 @@ function AppUser() {
 	return (
 		<div className='flex flex-col justify-center items-center'>
 			<div className='App w-full flex flex-col justify-start items-center'>
-				{/* <Header /> */}
+				<Header />
 				<Routes>
 					<Route path='/' element={<Content />}></Route>
 					<Route path='/cart' element={<Cart />}></Route>
