@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <div className="w-full bg-[#d70018] h-[64px] fixed flex flex-col justify-center items-center z-50">
-      <div className="w-[1200px] z-50">
+      <div className="2xl:w-[1200px]  xl:w-[1100px] lg:w-[950px] md:w-[750px] sm:w-[600px] w-[350px] z-50">
         <div className="flex flex-row justify-around items-center text-white w-full text-[12px] h-full leading-[64px]">
           <h2 className="text-[18px] font-extrabold text-[rgb(255,255,255)]">
             <i className="fa-solid fa-bars"></i>

@@ -10,7 +10,7 @@ export default function DanhMucSP() {
   const params = useParams();
 
   return (
-    <div className="2xl:w-[1200px]  xl:w-[1100px] lg:w-[950px] md:w-[750px] sm:w-[600px] w-[350px] flex flex-row justify-center items-start mt-[100px]">
+    <div className="2xl:w-[1200px]  xl:w-[1100px] lg:w-[950px] md:w-[750px] sm:w-[600px] w-[350px] flex flex-row justify-center items-start mt-[100px] mb-[5px]">
       <div className="w-full">
         <div className="w-full flex md:flex-row md:justify-between md:items-start flex-col justify-center items-start">
           <Swiper
@@ -136,7 +136,7 @@ export default function DanhMucSP() {
             </SwiperSlide>
           </Swiper>
         </div>
-        <div className="w-full lg:mt-[30px] mt-[20px]">
+        <div className="w-full lg:mt-[20px] mt-[10px]">
           <ThongTinSpCon idLoai={params.idLoai}/>
         </div>
       </div>
