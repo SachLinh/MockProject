@@ -1,11 +1,8 @@
 /** @format */
 
-import React, { Component, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Autoplay, FreeMode, Navigation, Thumbs } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import LoaiSanPham from '../HomeTrangChu/LoaiSanPham';
-import ThongTinSp from '../HomeTrangChu/ThongTinSp';
 import ThongTinSpCon from '../HomeTrangChu/ThongTinSpCon';
 
 export default function DanhMucSP() {
