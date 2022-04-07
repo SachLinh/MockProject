@@ -47,14 +47,14 @@ export default function Menu() {
 
   //// render
   return (
-    <div className="w-full mt-[10px] mb-[20px] font-Roboto text-[14px] h-[376px]">
+    <div className="w-full lg:mt-[25px] xl:mt-[10px] sm:mt-[40px] mb-[20px] font-Roboto text-[14px] h-[376px]">
       <div className="flex flex-row justify-between w-full h-full">
-        <div className="w-[20%] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]">
+        <div className="w-[15%] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]">
           <ul className="relative w-full h-full flex flex-col justify-between font-[500]">
             {showListCata}
           </ul>
         </div>
-        <div className="rounded-2xl shadow-[#9e9c9c] w-[55%] shadow-[0_0px_5px_2px_#9b9a9a] -z-10">
+        <div className="rounded-2xl shadow-[#9e9c9c] w-[68%] shadow-[0_0px_5px_2px_#9b9a9a] -z-10">
           <Swiper
             className="w-full"
             loop={true}
@@ -135,26 +135,26 @@ export default function Menu() {
             </SwiperSlide>
           </Swiper>
         </div>
-        <div className="w-[20%] flex flex-col justify-between items-start">
-          <Link to="">
+        <div className="w-[15%] flex flex-col justify-between items-start">
+          <Link to="" className="w-full">
             <img
               src={require(`./Images/banner1.png`)}
               alt=""
-              className="w-[265px] h-[115px] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]"
+              className="w-full h-[115px] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]"
             />
           </Link>
-          <Link to="">
+          <Link to="" className="w-full">
             <img
               src={require(`./Images/banner2.png`)}
               alt=""
-              className="w-[265px] h-[115px] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]"
+              className="w-full h-[115px] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]"
             />
           </Link>
-          <Link to="">
+          <Link to="" className="w-full">
             <img
               src={require(`./Images/Right_banner_AW.png`)}
               alt="hinh anh"
-              className="w-[265px] h-[115px] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]"
+              className="w-full h-[115px] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]"
             />
           </Link>
         </div>
