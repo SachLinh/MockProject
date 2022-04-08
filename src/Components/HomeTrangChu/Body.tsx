@@ -55,34 +55,54 @@ export default function Body() {
 				<div className='dienThoai w-full flex flex-col justify-start items-start'>
 					{ShowSanPham}
 				</div>
-				<div className='mt-[20px] w-full '>
+				<div className='mt-[20px] flex flex-col justify-start 
+				    2xl:w-[1500px]
+					xl:w-[1200px]
+					lg:w-[1000px] 
+					md:w-[700px] 
+					sm:w-[600px] 
+					w-[400px]'>
 					<h3 className='m-2 no-underline text-left font-bold ... hover:underline ... '>
 						CHUYÊN GIA THƯƠNG HIỆU
 					</h3>
-					<div className='flex flex-row'>
-						<div className='w-1/4 m-2  '>
+					<div className=' w-full 
+					justify-start items-center flex-col m-auto 
+					lg:flex lg:flex-row lg:flex-nowrap
+					sm:flex sm:flex-row  sm:flex-wrap sm:justify-center sm:items-center 
+					'>
+						<div className='m-1 flex justify-center
+						 '>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/banner/banner-sis-apple-homepage.png'
-								className='rounded-lg'></img>
+								className='rounded-lg
+								2xl:w-[300px] xl:w-[270px] lg:w-[240px] md:w-[300px] sm:w-[270px] w-[250px]'></img>
 						</div>
-						<div className='w-1/4 m-2  '>
+						<div className=' m-1 flex justify-center
+						 '>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/banner/banner-sis-samsung-homepage.png'
-								className='rounded-lg'></img>
+								className='rounded-lg 
+								2xl:w-[300px] xl:w-[270px] lg:w-[240px] md:w-[300px] sm:w-[270px] w-[250px] '></img>
 						</div>
-						<div className='w-1/4 m-2  '>
+						<div className='m-1 flex justify-center
+						 '>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/banner/banner-sis-asus-homepage.png'
-								className='rounded-lg'></img>
+								className='rounded-lg
+								2xl:w-[300px] xl:w-[270px] lg:w-[240px] md:w-[300px] sm:w-[270px] w-[250px]
+								'></img>
 						</div>
-						<div className='w-1/4 m-2  '>
+						<div className='m-1 flex justify-center
+						'>
 							<img
 								alt=''
 								src='https://cellphones.com.vn/media/icons/banner/banner-sis-xiaomi-homepage.png'
-								className='rounded-lg'></img>
+								className='rounded-lg
+								2xl:w-[300px] xl:w-[270px] lg:w-[240px] md:w-[300px] sm:w-[270px] w-[250px]
+								'></img>
 						</div>
 					</div>
 				</div>

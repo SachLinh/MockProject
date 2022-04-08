@@ -147,7 +147,7 @@ export default function Menu() {
 					</Link>
 					<Link to=''>
 						<img
-							src='https://cdn.cellphones.com.vn/media/ltsoft/promotion/RightBanner_Desktop_S22.png'
+							src='https://cdn.cellphones.com.vn/media/ltsoft/promotion/Right_banner_AW.png'
 							alt=''
 							className='w-[265px] h-[115px] rounded-2xl shadow-[0_0px_5px_2px_#9b9a9a]'
 						/>
