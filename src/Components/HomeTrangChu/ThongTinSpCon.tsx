@@ -168,14 +168,14 @@ export default function ThongTinSpCon(props: TypeID) {
   });
   return (
     <div className="w-full flex flex-col justify-start items-start">
-      <div className="w-full mt-[30px]">
-        <h2 className="mb-[20px] text-[30px] font-Roboto font-[400]">
+      <div className="w-full mt-[10px]">
+        <h2 className="mb-[20px] md:text-[30px] text-[20px] font-Roboto font-[400]">
           Sắp xếp theo
         </h2>
-        <div className="lg:w-[50%] md:w-[70%] w-[80%] flex 2xl:flex-row xl:flex-row justify-between items-start">
+        <div className="lg:w-[50%] md:w-[70%] w-[80%] flex 2xl:flex-row xl:flex-row sm:justify-between justify-start flex-wrap items-start">
           <button
             type="button"
-            className="btn btn-primary btn-sm text-[#fc3737] rounded-xl"
+            className="btn btn-primary btn-sm text-[#fc3737] sm:mb-[0px] mb-[5px] rounded-xl mr-[5px] md:mr-[0px] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[15px]"
             onClick={() => {
               handleSort(SORT.upPrice);
             }}
@@ -185,7 +185,7 @@ export default function ThongTinSpCon(props: TypeID) {
           </button>
           <button
             type="button"
-            className="btn btn-primary btn-sm text-[#fc3737]  rounded-xl"
+            className="btn btn-primary btn-sm text-[#fc3737] sm:mb-[0px] mb-[5px] rounded-xl mr-[5px] md:mr-[0px] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[15px]"
             onClick={() => {
               handleSort(SORT.downPrice);
             }}
@@ -195,7 +195,7 @@ export default function ThongTinSpCon(props: TypeID) {
           </button>
           <button
             type="button"
-            className="btn btn-primary btn-sm text-[#fc3737]  rounded-xl"
+            className="btn btn-primary btn-sm text-[#fc3737] sm:mb-[0px] mb-[5px] rounded-xl mr-[5px] md:mr-[0px] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[15px]"
             onClick={() => {
               handleSort(SORT.upname);
             }}
@@ -205,7 +205,7 @@ export default function ThongTinSpCon(props: TypeID) {
           </button>
           <button
             type="button"
-            className="btn btn-primary btn-sm  text-[#fc3737]  rounded-xl"
+            className="btn btn-primary btn-sm  text-[#fc3737] sm:mb-[0px] mb-[5px] rounded-xl mr-[5px] md:mr-[0px] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[15px]"
             onClick={() => {
               handleSort(SORT.downName);
             }}

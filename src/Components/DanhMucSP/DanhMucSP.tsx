@@ -11,11 +11,14 @@ export default function DanhMucSP() {
 
   return (
     <div className="w-full flex flex-row justify-center">
-      <div className="2xl:w-[1300px]  xl:w-[1200px] lg:w-[1000px] md:w-[700px] sm:w-[600px] w-[350px] flex flex-row justify-center items-start mt-[100px]">
+      <div className="2xl:w-[1300px]  xl:w-[1200px] lg:w-[1000px] md:w-[700px] sm:w-[600px] w-full sm:px-0 px-3
+      flex flex-row justify-center items-start mt-[70px] lg:mt-[80px] xl:mt-[100px]">
         <div className="w-full flex flex-col justify-center">
-          <div className="w-full flex sm:flex-row md:justify-between md:items-start flex-col justify-center items-start">
+          <div className="w-full flex md:flex-row md:justify-between 
+          md:items-start flex-col justify-center items-start">
             <Swiper
-              className="md:w-[48%] w-[100%] md:mb-[0px] mb-[10px] 2xl:h-[100px] xl:h-[100px] lg:h-[80px] md:h-[60px] sm:h-[50px]
+              className="md:w-[48%] w-[80%] md:mb-[0px] mb-[10px] 
+              2xl:h-[100px] xl:h-[100px] lg:h-[80px] md:h-[60px] h-[50px]
             2xl:rounded-xl xl:rounded-xl lg:rounded-lg md:rounded-md rounded-sm shadow-[0_0px_5px_2px_#9b9a9a]"
               loop={true}
               spaceBetween={10}
@@ -76,7 +79,7 @@ export default function DanhMucSP() {
               </SwiperSlide>
             </Swiper>
             <Swiper
-              className="md:w-[48%] w-[100%] 2xl:h-[100px] xl:h-[100px] lg:h-[80px] md:h-[60px] sm:h-[50px] 
+              className="md:w-[48%] w-[80%] 2xl:h-[100px] xl:h-[100px] lg:h-[80px] md:h-[60px] h-[50px] 
              2xl:rounded-xl xl:rounded-xl lg:rounded-lg md:rounded-md rounded-sm shadow-[0_0px_5px_2px_#9b9a9a]"
               loop={true}
               spaceBetween={10}

@@ -71,7 +71,6 @@ function AppUser() {
     <div>
       <div className="App w-full flex flex-col">
         <Header />
-
         <Routes>
           <Route path="/" element={<Content />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
