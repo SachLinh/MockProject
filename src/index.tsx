@@ -7,10 +7,13 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
+import { RecoilRoot } from "recoil";
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
   </BrowserRouter>,
 
   document.getElementById("root")

@@ -72,6 +72,7 @@ export default function ThongTinSp(props: TypeID) {
 					 w-[150px] pl-[5px] mr-[10px] 
 					 2xl:h-[370px] xl:h-[340px] lg:h-[320px] md:h-[300px] sm:h-[250px] h-[220px] 
 					 rounded-lg re cursor-pointer duration-500 shadow-[0_0px_4px_4px_#EAEAEA] hover:shadow-[0_0px_8px_8px_#CECECE]"
+
         >
           <Link to={`/product-detail/${itemSP.id}`}>
             <p
@@ -89,21 +90,21 @@ export default function ThongTinSp(props: TypeID) {
               alt=""
               src={itemSP.avatar}
               className="2xl:w-[160px] 2xl:h-[160px] 2xl:mt-[15px]
-							xl:w-[150px] xl:h-[150px] xl:mt-[14px]
-							lg:w-[140px] lg:h-[140px] lg:mt-[14px]
-							md:w-[130px] md:h-[130px] md:mt-[12px]
-							sm:w-[110px] sm:h-[110px] sm:mt-[10px]
-							text-center m-auto w-[95px] h-[95px] mt-[5px]
-							"
+                            xl:w-[150px] xl:h-[150px] xl:mt-[14px]
+                            lg:w-[140px] lg:h-[140px] lg:mt-[14px]
+                            md:w-[130px] md:h-[130px] md:mt-[12px]
+                            sm:w-[110px] sm:h-[110px] sm:mt-[10px]
+                            text-center m-auto w-[95px] h-[95px] mt-[5px]
+                            "
             ></img>
             <h4
               className="font-bold m-[5px] text-gray-800 text-[9px]
-						2xl:text-[18px]
-						xl:text-[16px]
-						lg:text-[14px]
-						md:text-[12px]
-						sm:text-[10px]
-						"
+                        2xl:text-[18px]
+                        xl:text-[16px]
+                        lg:text-[14px]
+                        md:text-[12px]
+                        sm:text-[10px]
+                        "
             >
               {itemSP.name}
             </h4>
@@ -123,15 +124,21 @@ export default function ThongTinSp(props: TypeID) {
                 <span>đ</span>
               </p>
             </div>
-            <div className="text-black my-1 mr-1 bg-gray-200 rounded-md
-			">
-              <p className="p-2 text-[7px]
-			  2xl:text-[12px]
-			  xl:text-[11px]
-			  lg:text-[10px]
-			  md:text-[9px]
-			  sm:text-[8px]
-			  ">{itemSP.endow}</p>
+            <div
+              className="text-black my-1 mr-1 bg-gray-200 rounded-md
+            "
+            >
+              <p
+                className="p-2 text-[7px]
+              2xl:text-[12px]
+              xl:text-[11px]
+              lg:text-[10px]
+              md:text-[9px]
+              sm:text-[8px]
+              "
+              >
+                {itemSP.endow}
+              </p>
             </div>
           </Link>
         </div>

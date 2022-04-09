@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { Link, useParams } from 'react-router-dom';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import MemberInfo from './MemberInfo';
 import PaymentHistory from './PaymentHistory';
 import YourAccount from './YourAccount';
@@ -14,7 +14,6 @@ function SmemberMain({ }: Props) {
 
     const navList = document.getElementsByClassName('nav');
     const url = useParams();
-    const navigate = useNavigate();
 
     const setActiveNav = () => {
         for (let i = 0; i < navList.length; i++) {
@@ -41,11 +40,6 @@ function SmemberMain({ }: Props) {
     useEffect(() => {
         setActiveNav();
     })
-    useEffect(() => {
-        if(localStorage.getItem('mock-project-signed-in') === 'false'){
-            navigate('/Smember');
-        }
-    }, [])
 
     return (
         <div className="mt-20 w-11/12 mx-auto grid grid-flow-row grid-cols-4 gap-3">

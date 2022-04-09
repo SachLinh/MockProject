@@ -21,7 +21,7 @@ export default function ImgProduct() {
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
     const [img, setImg] = useState<Images[]>([]);
     const getImg = async () => {
-        const resImg = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/DanhMuc/${params.idDM}//Loai/${params.idLoai}/SanPham/${params.idSP}/ThongTinAnh`)
+        const resImg = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/SanPham/${params.idSP}/ThongTinAnh`)
         setImg(resImg.data)
     }
     return (

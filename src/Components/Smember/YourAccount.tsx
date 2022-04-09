@@ -1,36 +1,30 @@
 import React, { useEffect, useState } from 'react';
+import {
+    atom,
+    selector,
+    useRecoilState,
+    useRecoilValue,
+    useSetRecoilState
+} from 'recoil';
+import { userInfoState } from '../../Recoil/RecoilState';
+import { UserType } from '../../TypeState/UserType';
 
 type Props = {}
 
-interface userdata {
-  uid: string,
-  displayName: string,
-  email: string,
-  photoURL: string,
-  phoneNumber: string,
-  createdAt: string,
-  creationTime: string,
-  lastLoginAt: string,
-  lastSignInTime: string
-}
-
 function YourAccount({ }: Props) {
-  const [user, setUser] = useState<userdata>();
-  useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem('mock-project-smember') + ""));
-  }, [])
+  const userInfo = useRecoilValue<UserType>(userInfoState);
   return (
     <div className="col-start-2 col-span-3 border-[1px] border-gray-300 rounded-xl text-center">
-      <img className="mx-auto mt-4 w-12 h-12 m-1 border-slate-800 border-1 rounded-full" src={user?.photoURL} />
+      <img className="mx-auto mt-4 w-12 h-12 m-1 border-slate-800 border-1 rounded-full" src={userInfo.photoURL} />
       <p>Xin chào</p>
-      <h2 className="font-semibold text-red-600 text-3xl">{user?.displayName}</h2>
+      <h2 className="font-semibold text-red-600 text-3xl">{userInfo.displayName}</h2>
       <div className="grid grid-flow-row grid-cols-5 mt-4">
         <div className="">
           <p className="text-lg">Ngày tham gia</p>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
-          <p className="font-semibold text-lg">{user?.creationTime}</p>
+          <p className="font-semibold text-lg">{userInfo.creationTime}</p>
         </div>
         <div className="">
           <p className="text-lg">Ngày đăng nhập</p>
@@ -44,14 +38,14 @@ function YourAccount({ }: Props) {
           <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
           </svg>
-          <p className="font-semibold text-lg break-words">{user?.email}</p>
+          <p className="font-semibold text-lg break-words">{userInfo.email}</p>
         </div>
         <div className="">
           <p className="text-lg">Số điện thoại</p>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
           </svg>
-          <p className="font-semibold text-lg">{user?.phoneNumber || "Chưa cập nhật"}</p>
+          <p className="font-semibold text-lg">{userInfo.phoneNumber || "Chưa cập nhật"}</p>
         </div>
         <div className="">
           <p className="text-lg">Sinh nhật</p>

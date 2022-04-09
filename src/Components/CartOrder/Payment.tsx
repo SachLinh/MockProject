@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import {
+    atom,
+    selector,
+    useRecoilState,
+    useRecoilValue,
+    useSetRecoilState
+} from 'recoil';
+import { totalPriceState } from './Cart';
+import { billInfoState, cartProductState } from '../../Recoil/RecoilState';
+import axios from 'axios';
 
 function Payment() {
+
+    const totalPrice = useRecoilValue(totalPriceState);
+    const billInfo = useRecoilValue(billInfoState);
+    useEffect(() => {
+        console.log(billInfo)
+    }, [])
+
+    const postBill = () => {
+        axios.post('https://6232e62e6de3467dbac2a7d6.mockapi.io/HoaDon', { billInfo })
+            .then(res => {
+                console.log(res);
+            })
+    }
+
     return (
         <div className="w-5/12 mx-auto mt-16">
             <div className="text-center">
@@ -48,12 +72,12 @@ function Payment() {
             <div className="px-2 border border-solid shadow-lg rounded-xl">
                 <div className="mx-1 my-3 px-3 pb-5 text-lg grid grid-flow-row grid-cols-1 gap-y-3 border border-solid shadow-lg rounded-xl">
                     <h2 className="text-center font-bold">THÔNG TIN ĐẶT HÀNG</h2>
-                    <p>Mã Đơn Hàng: <b>300070800</b></p>
-                    <p>Người Nhận: <b>Tuan Anh</b></p>
-                    <p>Số Điện Thoại: <b>0987654321</b></p>
-                    <p>Email: <b>anh@gmail.com</b></p>
-                    <p>Nhận Sản Phẩm Tại: <b>458 - 460 Hậu Giang, Phường 12, Quận 6, Quận 6, Thành Phố Hồ Chí Minh</b></p>
-                    <p>Tổng Tiền: <b>35.990.000 ₫</b></p>
+                    <p>Mã Đơn Hàng: <b>{billInfo.id}</b></p>
+                    <p>Người Nhận: <b>{billInfo.customerName}</b></p>
+                    <p>Số Điện Thoại: <b>{billInfo.customerPhoneNumber}</b></p>
+                    <p>Email: <b>{billInfo.customerEmail}</b></p>
+                    <p>Nhận Sản Phẩm Tại: <b>{billInfo.cutomerAddress}</b></p>
+                    <p>Tổng Tiền: <b>{totalPrice} ₫</b></p>
                 </div>
                 <div className="mb-3">
                     <h3 className="text-lg font-semibold pl-2 m-3">Chọn hình thức thanh toán</h3>
@@ -76,10 +100,10 @@ function Payment() {
             <div className="border border-solid rounded-xl p-2 mt-3 shadow-lg">
                 <div className="grid grid-flow-row grid-cols-2 pb-2">
                     <p className="text-md font-bold">Tổng tiền tạm tính:</p>
-                    <p className="text-md text-red-600 font-semibold text-right">35.990.000 ₫</p>
+                    <p className="text-md text-red-600 font-semibold text-right">{totalPrice} ₫</p>
                 </div>
                 <Link to="/complete-payment">
-                    <div className="text-center bg-red-600 text-white font-bold py-4 rounded-md mb-2 cursor-pointer">
+                    <div onClick={postBill} className="text-center bg-red-600 text-white font-bold py-4 rounded-md mb-2 cursor-pointer">
                         <p>TIẾP TỤC</p>
                     </div>
                 </Link>
