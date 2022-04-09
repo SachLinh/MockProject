@@ -51,14 +51,14 @@ export default function LoaiSanPham(props: TypeID) {
         }
     };
     return (
-        <div className="flex justify-center ">
-            <div className="w-[1200px]  grid grid-cols-5 gap-5">
+        <div className="flex ">
+            <div className="2xl:w-[1300px] relative xl:w-[1200px] lg:w-[1000px] md:w-[700px] sm:w-[600px]  grid grid-cols-1 gap-3 lg:grid-cols-4 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 sm:grid-cols-2 ">
                 {similar.map(item => {
                     if (item.LoaiId === props.id) {
                         return (
                             <div
                                 key={item.id}
-                                className="text-left bg-white mt-3 w-[230px] pl-[5px] mr-[10px] h-[340px] rounded-lg re cursor-pointer duration-500 shadow-[0_0px_4px_4px_#EAEAEA] hover:shadow-[0_0px_8px_8px_#CECECE]"
+                                className=" text-left bg-white mt-3 w-full pl-[5px] mr-[10px] h-[340px] rounded-lg re cursor-pointer duration-500 shadow-[0_0px_4px_4px_#EAEAEA] hover:shadow-[0_0px_8px_8px_#CECECE]"
                             >
                                 <Link to={`/product-detail/${item.id}`}>
                                     <p className="bg-red-600 h-[30px] w-[100px] mb-2 text-center rounded-lg leading-[30px] text-white font-bold right-2 bottom-1 ">
