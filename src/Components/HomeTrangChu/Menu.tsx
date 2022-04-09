@@ -11,12 +11,13 @@ import "swiper/css/thumbs";
 import { DanhMucType } from "../../TypeState/DanhMucType";
 import axios from "axios";
 
+
 export default function Menu() {
   const [thums, setThums] = useState<any>(null);
   // const listCatas = useAppSelector((state)=>state.listDanhMuc)
   // const dispatch = useDispatch()
   useEffect(() => {
-    getListCata();
+	  getListCata();
     //dispatch(AllDanhMucSlice)
   }, []);
 

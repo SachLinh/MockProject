@@ -68,20 +68,21 @@ export default function ThongTinSp(props: TypeID) {
         <div
           key={indexSP}
           className="text-left bg-white mt-3 
-		  2xl:w-[230px] xl:w-[210px] lg:w-[210px] md:w-[180px] sm:w-[150px] w-[150px]
-		  2xl:h-[370px] xl:h-[340px] lg:h-[320px] md:h-[300px] sm:h-[250px] h-[220px]
-		 pl-[5px] 
-		 mr-[10px] rounded-lg re cursor-pointer duration-500 shadow-[0_0px_4px_4px_#EAEAEA] hover:shadow-[0_0px_8px_8px_#CECECE]"
+					2xl:w-[230px] xl:w-[210px] lg:w-[210px] md:w-[180px] sm:w-[150px]
+					 w-[150px] pl-[5px] mr-[10px] 
+					 2xl:h-[370px] xl:h-[340px] lg:h-[320px] md:h-[300px] sm:h-[250px] h-[220px] 
+					 rounded-lg re cursor-pointer duration-500 shadow-[0_0px_4px_4px_#EAEAEA] hover:shadow-[0_0px_8px_8px_#CECECE]"
+
         >
           <Link to={`/product-detail/${itemSP.id}`}>
             <p
               className="bg-red-600 
-                         2xl:h-[30px] 2xl:w-[100px] 2xl:leading-[30px] 2xl:text-[17px]
-                         xl:h-[30px] xl:w-[100px] xl:leading-[30px] xl:text-[15px]
-                         lg:h-[30px] lg:w-[100px] lg:leading-[30px] lg:text-[15px]
-                         md:h-[30px] md:w-[100px] md:leading-[30px] md:text-[14px]
-                         sm:h-[25px] sm:w-[70px] sm:leading-[25px] sm:text-[12px]
-                         mb-2 text-center rounded-lg  text-white font-bold right-2 bottom-1 text-[10px] w-[60px] mt-[5px]  "
+						 2xl:h-[30px] 2xl:w-[100px] 2xl:leading-[30px] 2xl:text-[17px]
+						 xl:h-[30px] xl:w-[100px] xl:leading-[30px] xl:text-[15px]
+						 lg:h-[30px] lg:w-[100px] lg:leading-[30px] lg:text-[15px]
+						 md:h-[30px] md:w-[100px] md:leading-[30px] md:text-[14px]
+						 sm:h-[25px] sm:w-[70px] sm:leading-[25px] sm:text-[12px]
+						 mb-2 text-center rounded-lg  text-white font-bold right-2 bottom-1 text-[10px] w-[60px] mt-[5px]  "
             >
               Giảm <span>{itemSP.promotion}%</span>
             </p>
@@ -109,10 +110,10 @@ export default function ThongTinSp(props: TypeID) {
             </h4>
             <div
               className="flex text-[9px]
-                        2xl:text-[17px]
-                        xl:text-[15px]
-                        md:text-[13px]
-                        sm:text-11px]"
+						2xl:text-[17px]
+						xl:text-[15px]
+						md:text-[13px]
+						sm:text-11px]"
             >
               <p className="text-red-600 font-bold  m-1 ">
                 {itemSP.cost}
