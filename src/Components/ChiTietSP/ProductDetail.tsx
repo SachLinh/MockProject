@@ -52,8 +52,10 @@ function ProductDetail() {
 	return (
 		<div className="w-full">
 			<div className="flex justify-center items-center text-center">
-				<div key={detailProduct?.id} className='font-sans 2xl:w-[1300px] relative xl:w-[1200px] lg:w-[1000px] md:w-[700px] sm:w-[600px] w-[350px]'>
-					<div className='py-[10px] border-solid ml-2 mt-[65px] flex lg:flex-row flex-col justify-start lg:justify-between lg:items-center items-start w-full'>
+				<div key={detailProduct?.id} className='font-sans 2xl:w-[1300px] relative xl:w-[1200px] 
+				lg:w-[1000px] md:w-[700px] sm:w-[600px] w-[350px]'>
+					<div className='py-[10px] border-solid ml-2 mt-[65px] 
+					flex lg:flex-row flex-col justify-start lg:justify-between lg:items-center items-start w-full'>
 						<h3 className='font-bold text-[14px] lg:text-[18px] md:text-[17px] '>
 							{detailProduct?.name}
 						</h3>
@@ -246,9 +248,12 @@ function ProductDetail() {
 							</div>
 						</div>
 					</div>
-					<div className='mt-5 text-center items-center'>
+					<div className='w-full flex flex-col justify-center items-center mt-5'>
 						<h1 className=' font-bold text-[20px] m-3'>SẢN PHẨM TƯƠNG TỰ</h1>
-						<SimilarProduct id={detailProduct?.LoaiId} />
+						<div className="flex flex-row justify-center items-center flex-wrap w-full">
+							<SimilarProduct id={detailProduct?.LoaiId} />
+						</div>
+						
 					</div>
 				</div>
 			</div>
