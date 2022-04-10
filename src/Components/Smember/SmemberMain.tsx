@@ -40,7 +40,7 @@ function SmemberMain({}: Props) {
   return (
     <div
       className="mt-20 w-11/12 mx-auto
-        2xl:w-[1500px]
+        2xl:w-[1500px] 
 		xl:w-[1200px]
 		lg:w-[1000px] 
 		md:w-[700px] 
