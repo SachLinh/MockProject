@@ -10,7 +10,6 @@ import AddProd from "./DanhSachSP/AddProd";
 import DeleteProd from "./DanhSachSP/DeleteProd";
 
 import QuanLyHoaDon from "./QuanLyHoaDon/QuanLyHoaDon";
-
 import ManageUser from "./QuanLyUser/ManageUser";
 import UpdateHoaDon from "./QuanLyHoaDon/UpdateHoaDon";
 import DeleteHoaDon from "./QuanLyHoaDon/DeleteHoaDon";
@@ -21,11 +20,10 @@ import UpdateLoaiSP from "./HangSX/UpdateLoaiSP";
 import DeleteLoaiSP from "./HangSX/DeleteLoaiSP";
 import ChiTietSanPham from "./DanhSachSP/ChiTietSanPham";
 
-
 export default function Admin() {
   return (
     <div className="mt-[30px] w-full flex flex-col justify-center items-center">
-      <div className="w-[1200px] flex flex-row justify-between items-start">
+      <div className="2xl:w-[1200px]  xl:w-[1100px] lg:w-[950px] md:w-[750px] sm:w-[600px] w-[350px] flex flex-row justify-between items-start">
         <NavbarAdmin />
         <div className="w-[78%] rounded-xl shadow-[0_0px_14px_1px_#80bfff] ">
           {/* <QuanLyDanhMuc /> */}

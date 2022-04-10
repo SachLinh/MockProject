@@ -1,16 +1,95 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import {
+    atom,
+    selector,
+    useRecoilState,
+    useRecoilValue,
+    useSetRecoilState
+} from 'recoil';
+import { SubmitHandler, useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import { totalPriceState } from './Cart';
+import { BillType } from '../../TypeState/BillType';
+import { billInfoState, userInfoState, cartProductState } from '../../Recoil/RecoilState';
+import { CartProduct } from '../../TypeState/CartProduct';
 
 function PaymentInfo() {
+    const userInfo = useRecoilValue(userInfoState);
+    const totalPrice = useRecoilValue(totalPriceState);
+    const billInfo = useSetRecoilState(billInfoState);
+    const listProduct = useRecoilValue(cartProductState);
+
+    const [customerName, setCusotmerName] = useState<string>();
+    const [customerPhoneNumber, setCusotmerPhoneNumber] = useState<string>();
+    const [customerEmail, setCusotmerEmail] = useState<string>();
+    const [city, setCity] = useState<string>();
+    const [district, setDisrict] = useState<string>();
+    const [commune, setCommune] = useState<string>();
+    const [address, setAddress] = useState<string>();
+
+    const setName = (e: any) => {
+        setCusotmerName(e.target.value);
+    }
+    const setPhone = (e: any) => {
+        setCusotmerPhoneNumber(e.target.value)
+    }
+    const setEmail = (e: any) => {
+        setCusotmerEmail(e.target.value)
+    }
+    const setCityData = (e: any) => {
+        const ct: string = e.target.value;
+        setCity(ct);
+    }
+    const setDistrictData = (e: any) => {
+        setDisrict(e.target.value);
+    }
+    const setCommuneData = (e: any) => {
+        setCommune(e.target.value);
+    }
+    const setAddressData = (e: any) => {
+        setAddress(e.target.value);
+    }
+    const setBillData = () => {
+        const uid = userInfo ? userInfo.uid : "null";
+        const d = new Date();
+        const productList: CartProduct[] = [];
+        listProduct.map(value => {
+            const product: CartProduct = {
+                id: value.id,
+                image: value.image,
+                name: value.name,
+                price: value.price,
+                oldPrice: value.oldPrice,
+                count: value.count
+            }
+            productList.push(product);
+        })
+        const bill: BillType = {
+            id: d.getDate() + "" + (d.getMonth() + 1) + d.getFullYear() + d.getHours() + d.getMinutes() + d.getSeconds(),
+            productLists: productList,
+            customerName: customerName,
+            customerPhoneNumber: customerPhoneNumber,
+            customerEmail: customerEmail,
+            cutomerAddress: city + "" + district + commune + address,
+            uid: uid,
+            date: d.getDate() +"/" + (d.getMonth() + 1) + "/" + d.getFullYear(),
+            totalPrice: totalPrice
+        }
+        billInfo(bill);
+    }
+
+
     return (
         <div className="w-5/12 mx-auto mt-16">
             <div className="grid grid-flow-row grid-cols-2 place-content-center">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline text-red-600" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-lg font-semibold text-red-600 cursor-pointer hover:underline">Trở về</span>
-                </div>
+                <Link to="/cart">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline text-red-600" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-lg font-semibold text-red-600 cursor-pointer hover:underline">Trở về</span>
+                    </div>
+                </Link>
                 <h3 className="text-lg font-bold text-red-600">Thông tin đặt hàng</h3>
             </div>
             <div className="grid grid-flow-row grid-cols-4 bg-[#f6f6f6] px-4 py-4 text-red-600 text-center">
@@ -53,48 +132,36 @@ function PaymentInfo() {
                 <div className="pt-2">
                     <h3 className="text-md font-bold mb-2">Thông tin khách hàng</h3>
                     <div className="grid grid-flow-row grid-cols-1 gap-y-2">
-                        <input type="text" placeholder="Họ và tên (bắt buộc)" className="border border-gray-400 py-1 pl-2 rounded-lg" />
-                        <input type="text" placeholder="Số điện thoại (bắt buộc)" className="border border-gray-400 py-1 pl-2 rounded-lg" />
-                        <input type="text" placeholder="Email (Vuui long nhập email để nhận háo đơn)" className="border border-gray-400 py-1 pl-2 rounded-lg" />
+                        <input onChange={setName} placeholder="Họ và tên (bắt buộc)" className="border border-gray-400 py-1 pl-2 rounded-lg" ></input>
+                        <input onChange={setPhone} placeholder="Số điện thoại (bắt buộc)" className="border border-gray-400 py-1 pl-2 rounded-lg" />
+                        <input onChange={setEmail} placeholder="Email (Vui long nhập email để nhận hóa đơn)" className="border border-gray-400 py-1 pl-2 rounded-lg" />
                     </div>
                 </div>
                 <div className="pt-2">
-                    <h3 className="text-md font-bold mb-2">Chọn cách thức giao hàng</h3>
-                    <form className="text-md mb-3">
-                        <input type="radio" id="store" name="place" defaultValue="HTML" className="mr-2 checked:bg-red-500" />
-                        <label htmlFor="store" className="mr-2">Nhận tại cửa hàng</label>
-                        <input type="radio" id="home" name="place" defaultValue="CSS" className="mr-2" />
-                        <label htmlFor="home">Giao hàng tận nơi</label>
-                    </form>
+                    <h3 className="text-md font-bold mb-2">Địa chỉ nhận hàng</h3>
                     <div className="grid grid-flow-row grid-cols-2 gap-x-2 gap-y-2 p-3 bg-[#f0ebeb] rounded-lg">
-                        <select className="border border-gray-400 py-1 pl-2 rounded-lg">
-                            <option value="nam">Miền Nam</option>
-                            <option value="bac">Miền Bắc</option>
-                        </select>
-                        <select className="border border-gray-400 py-1 pl-2 rounded-lg">
-                            <option value="nam">Hà Nội</option>
-                            <option value="bac">Bình Dương</option>
-                        </select>
-                        <input type="text" placeholder="Quận/Huyện" className="border border-gray-400 py-1 pl-2 rounded-lg col-start-1 col-span-2" />
-                        <input type="text" placeholder="Chọn địa chỉ cửa hàng" className="border border-gray-400 py-1 pl-2 rounded-lg col-start-1 col-span-2" />
+                        <input onChange={setCityData} placeholder="Thành phố" className="border border-gray-400 py-1 pl-2 rounded-lg" />
+                        <input onChange={setDistrictData} placeholder="Quận/Huyện" className="border border-gray-400 py-1 pl-2 rounded-lg" />
+                        <input onChange={setCommuneData} placeholder="Xã/Phường" className="border border-gray-400 py-1 pl-2 rounded-lg col-start-1 col-span-2" />
+                        <input onChange={setAddressData} placeholder="Địa chỉ chi tiết" className="border border-gray-400 py-1 pl-2 rounded-lg col-start-1 col-span-2" />
                     </div>
-                    <div className="mt-3">
-                        <input type="text" placeholder="Yêu cầu khác" className="w-full border border-gray-400 py-1 pl-2 rounded-lg" />
+                    <div className="my-3">
+                        <input placeholder="Yêu cầu khác" className="w-full border border-gray-400 py-1 pl-2 rounded-lg" />
                     </div>
                 </div>
             </div>
             <div className="border border-solid rounded-xl p-2 mt-3 shadow-lg">
                 <div className="grid grid-flow-row grid-cols-2 pb-2">
                     <p className="text-md font-bold">Tổng tiền tạm tính:</p>
-                    <p className="text-md text-red-600 font-semibold text-right">35.990.000 ₫</p>
+                    <p className="text-md text-red-600 font-semibold text-right">{totalPrice} ₫</p>
                 </div>
                 <Link to="/payment">
-                    <div className="text-center bg-red-600 text-white font-bold py-4 rounded-md mb-2 cursor-pointer">
-                        <p>TIẾP TỤC</p>
+                    <div onClick={setBillData} className="text-center bg-red-600 text-white font-bold py-4 rounded-md mb-2 cursor-pointer w-full">
+                        <p>Tiếp tục</p>
                     </div>
                 </Link>
                 <Link to="/">
-                    <div className="border border-solid border-red-600 py-4 text-center text-red-600  font-bold rounded-md hover:bg-red-500 hover:text-white cursor-pointer transition-all">
+                    <div className="border border-solid border-red-600 py-4 text-center text-red-600 font-bold rounded-md hover:bg-red-500 hover:text-white cursor-pointer transition-all">
                         <p>CHỌN THÊM SẢN PHẨM KHÁC</p>
                     </div>
                 </Link>
