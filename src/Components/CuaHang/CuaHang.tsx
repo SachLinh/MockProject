@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 
 export default function CuaHang() {
   return (
-    <div
+    <div className="w-full flex flex-row justify-center">
+      <div
       className="mt-[100px] 
-        2xl:w-[1500px] 
+        2xl:w-[1300px] 
         xl:w-[1200px] 
         lg:w-[1000px]
         md:w-[700px]
@@ -265,6 +266,7 @@ export default function CuaHang() {
         </div>
       </div>
       
+    </div>
     </div>
   );
 }

@@ -10,11 +10,11 @@ export default function Header() {
 	return (
 		<nav className='w-full bg-[#d70018] fixed flex flex-col lg:justify-center justify-start items-center z-50'>
 			<div
-				className='2xl:w-[1300px] relative xl:w-[1200px] lg:w-[1000px] md:w-[700px] sm:w-[600px] w-[350px]
+				className='2xl:w-[1300px] lg:px-4 relative xl:w-[1200px] lg:w-[1000px] md:w-[700px] sm:w-[600px] w-full sm:px-0 px-[15px]
        z-50'>
 				<div className='flex lg:flex-row flex-col justify-start lg:justify-between lg:items-center items-start
 				 sm:py-3 lg:py-[0px]  text-white w-full text-[12px]'>
-					<h2 className='lg:w-[15%] sm:w-[30%] w-[40%] lg:mt-[0px]  lg:mb-[0px] sm:text-[16px] xl:text-[18px] text-[16px] py-[6px] sm:py-[3px] xl:py-[0px] font-extrabold text-[rgb(255,255,255)]'>
+					<h2 className='lg:w-[15%] sm:w-[30%] w-[40%] lg:mt-[0px]  lg:mb-[0px] sm:text-[16px] xl:text-[18px] text-[16px] py-[10px] sm:py-[3px] xl:py-[0px] font-extrabold text-[rgb(255,255,255)]'>
 						<i className='fa-solid fa-bars'></i>
 						<Link to=''> G1-UlTr Phone</Link>
 					</h2>
@@ -22,14 +22,14 @@ export default function Header() {
 						onClick={() => {
 							setOpen(!open);
 						}}
-						className=' sm:text-2xl text-xl cursor-pointer absolute sm:top-[9px] md:top-[8px] top-[2px] right-4 lg:hidden'>
+						className=' sm:text-2xl text-xl cursor-pointer absolute sm:top-[9px] md:top-[8px] top-[6px] right-4 lg:hidden'>
 						<i
 							className={
 								open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'
 							}></i>
 					</div>
 					<ul
-						className={`lg:w-[85%] absolute bg-[#d70018] xl:pt-0 h-auto lg:static transition-all duration-500 
+						className={`lg:w-[85%] absolute  bg-[#d70018] xl:pt-0 h-auto lg:static transition-all duration-500 
 						lg:bg-inherit w-full lg:h-full flex lg:flex-row flex-col justify-starts lg:justify-between lg:items-center items-start 
 						${
 							open ? 'sm:top-[50px] opacity-100 px-2 py-3 top-[32px]' : 'top-[-490px]'
