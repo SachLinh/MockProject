@@ -24,7 +24,8 @@ export default function Header() {
           className="flex lg:flex-row flex-col justify-start lg:justify-between lg:items-center items-start
 				 sm:py-3 lg:py-[0px]  text-white w-full text-[12px]"
         >
-          <h2 className="lg:w-[15%] sm:w-[30%] w-[40%] lg:mt-[0px]  lg:mb-[0px] sm:text-[16px] xl:text-[18px] text-[16px] py-[10px] sm:py-[3px] xl:py-[0px] font-extrabold text-[rgb(255,255,255)]">
+          <h2 className="lg:w-[15%] sm:w-[30%] w-[40%] lg:mt-[0px]  
+          lg:mb-[0px] sm:text-[16px] xl:text-[18px] text-[16px] py-[10px] sm:py-[3px] xl:py-[0px] font-extrabold text-[rgb(255,255,255)]">
             
             <Link to=""> G1-UlTr Phone</Link>
           </h2>
@@ -39,9 +40,11 @@ export default function Header() {
           <ul
             className={`lg:w-[85%] absolute  bg-[#d70018] xl:pt-0 h-auto lg:static transition-all duration-500 
 						lg:bg-inherit w-full lg:h-full flex lg:flex-row flex-col justify-starts lg:justify-between lg:items-center items-start 
-						${open ? "sm:top-[50px] opacity-100 px-2 py-3 top-[32px]" : "top-[-490px]"}`}
+            ${open ? "sm:top-[50px] opacity-100 px-2 py-3 top-[32px]" : "top-[-490px]"}`}
           >
-            <li className="h-full leading-[64px] flex flex-col justify-around items-center">
+            <li className="h-full leading-[64px] flex flex-col justify-around items-center
+             md:first:mb-[3px] first:mb-[0px]
+             ">
               <div className="flex flex-row justify-around items-center bg-[#eb4a4a] rounded-xl">
                 <i className="fa-solid fa-location-dot pl-[5px] text-base"></i>
                 <div className=" h-[40px] w-[100px] flex flex-col justify-center items-center">
@@ -59,12 +62,13 @@ export default function Header() {
                 </div>
               </div>
             </li>
-            <li className="w-[400px] h-full leading-[64px] input-group">
+            <li className="xl:w-[400px] lg:w-[250px] w-[300px] h-full leading-[64px] input-group">
               <span className="input-group-text cursor-pointer" id="basic-addon1" onClick={()=>{find(search)}}>
                 <i className="fa-solid fa-magnifying-glass"></i>
               </span>
               <input
-                className="form-control h-[40px] pl-3 rounded-xl p-[5px] outline-none text-[#020000] text-[14px] xl:w-[300px] w-[200px]"
+                className="form-control h-[40px] pl-3 rounded-xl p-[5px] outline-none
+                 text-[#020000] text-[14px] w-full"
                 placeholder="Bạn cần tìm gì?"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
@@ -77,12 +81,13 @@ export default function Header() {
             <li className="h-full leading-[64px] flex flex-col justify-around items-center">
               <Link
                 to=""
-                className="flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
+                className="flex flex-row justify-around items-center
+                 text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
               >
-                <i className="fa-solid fa-phone text-[15px] lg:text-[20px] xl:text-[25px] mr-2"></i>
+                <i className="fa-solid fa-phone text-[15px] lg:text-[18px] xl:text-[25px] mr-2"></i>
                 <div className="h-[50px] w-auto flex flex-col justify-start items-start">
-                  <span className="h-[23px] leading-5">Gọi mua hàng</span>
-                  <span className="h-[23px] leading-5">1234.5678</span>
+                  <span className="h-[25px] leading-5">Gọi mua hàng</span>
+                  <span className="h-[25px] leading-5">1234.5678</span>
                 </div>
               </Link>
             </li>
@@ -91,7 +96,7 @@ export default function Header() {
                 to="/CuaHang"
                 className="flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
               >
-                <i className="fa-solid fa-location-dot text-[15px] lg:text-[20px] xl:text-[25px] mr-2"></i>
+                <i className="fa-solid fa-location-dot text-[15px] lg:text-[18px] xl:text-[25px] mr-2"></i>
                 <div className="h-[50px] w-auto flex flex-col justify-start items-start">
                   <span className="h-[25px] leading-6">Cửa hàng</span>
                   <span className="h-[25px] leading-6">gần bạn</span>
@@ -103,7 +108,7 @@ export default function Header() {
                 to="/SearchOrder"
                 className="flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
               >
-                <i className="fa-solid fa-truck text-[15px] lg:text-[20px] xl:text-[25px] mr-2"></i>
+                <i className="fa-solid fa-truck text-[15px] lg:text-[18px] xl:text-[25px] mr-2"></i>
                 <div className="h-[50px] w-auto flex flex-col justify-start items-start">
                   <span className="h-[25px] leading-6">Tra cứu</span>
                   <span className="h-[25px] leading-6">đơn hàng</span>
@@ -115,7 +120,7 @@ export default function Header() {
                 to="/cart"
                 className="flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
               >
-                <i className="fa-solid fa-bag-shopping text-[15px] lg:text-[20px] xl:text-[25px] mr-2"></i>
+                <i className="fa-solid fa-bag-shopping text-[15px] lg:text-[18px] xl:text-[25px] mr-2"></i>
                 <div className="h-[50px] w-auto flex flex-col justify-start items-start">
                   <span className="h-[50px] leading-[50px]">Giỏ hàng</span>
                 </div>
