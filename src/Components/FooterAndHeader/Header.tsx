@@ -15,7 +15,7 @@ export default function Header() {
 				<div className='flex lg:flex-row flex-col justify-start lg:justify-between lg:items-center items-start
 				 sm:py-3 lg:py-[0px]  text-white w-full text-[12px]'>
 					<h2 className='lg:w-[15%] sm:w-[30%] w-[40%] lg:mt-[0px]  lg:mb-[0px] sm:text-[16px] xl:text-[18px] text-[16px] py-[10px] sm:py-[3px] xl:py-[0px] font-extrabold text-[rgb(255,255,255)]'>
-						<i className='fa-solid fa-bars'></i>
+						
 						<Link to=''> G1-UlTr Phone</Link>
 					</h2>
 					<div
