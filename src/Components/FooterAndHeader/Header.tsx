@@ -25,7 +25,7 @@ export default function Header() {
 				 sm:py-3 lg:py-[0px]  text-white w-full text-[12px]"
         >
           <h2 className="lg:w-[15%] sm:w-[30%] w-[40%] lg:mt-[0px]  lg:mb-[0px] sm:text-[16px] xl:text-[18px] text-[16px] py-[10px] sm:py-[3px] xl:py-[0px] font-extrabold text-[rgb(255,255,255)]">
-            <i className="fa-solid fa-bars"></i>
+            
             <Link to=""> G1-UlTr Phone</Link>
           </h2>
           <div
@@ -81,8 +81,8 @@ export default function Header() {
               >
                 <i className="fa-solid fa-phone text-[15px] lg:text-[20px] xl:text-[25px] mr-2"></i>
                 <div className="h-[50px] w-auto flex flex-col justify-start items-start">
-                  <span className="h-[25px] leading-6">Gọi mua hàng</span>
-                  <span className="h-[25px] leading-6">1234.5678</span>
+                  <span className="h-[23px] leading-5">Gọi mua hàng</span>
+                  <span className="h-[23px] leading-5">1234.5678</span>
                 </div>
               </Link>
             </li>
