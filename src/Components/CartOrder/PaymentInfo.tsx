@@ -7,49 +7,31 @@ import {
     useSetRecoilState
 } from 'recoil';
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
-import { totalPriceState } from './Cart';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { BillType } from '../../TypeState/BillType';
-import { billInfoState, userInfoState, cartProductState } from '../../Recoil/RecoilState';
+import { billInfoState, userInfoState, cartProductState, totalPriceState } from '../../Recoil/RecoilState';
 import { CartProduct } from '../../TypeState/CartProduct';
 
+type Inputs = {
+    name: string,
+    phoneNumber: string,
+    email: string,
+    city: string,
+    district: string,
+    commune: string,
+    detailAddress: string
+};
+
 function PaymentInfo() {
+
+    const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
     const userInfo = useRecoilValue(userInfoState);
-    const totalPrice = useRecoilValue(totalPriceState);
+    const [totalPrice, setTotalPrice] = useRecoilState(totalPriceState);
     const billInfo = useSetRecoilState(billInfoState);
     const listProduct = useRecoilValue(cartProductState);
+    const nav = useNavigate();
 
-    const [customerName, setCusotmerName] = useState<string>();
-    const [customerPhoneNumber, setCusotmerPhoneNumber] = useState<string>();
-    const [customerEmail, setCusotmerEmail] = useState<string>();
-    const [city, setCity] = useState<string>();
-    const [district, setDisrict] = useState<string>();
-    const [commune, setCommune] = useState<string>();
-    const [address, setAddress] = useState<string>();
-
-    const setName = (e: any) => {
-        setCusotmerName(e.target.value);
-    }
-    const setPhone = (e: any) => {
-        setCusotmerPhoneNumber(e.target.value)
-    }
-    const setEmail = (e: any) => {
-        setCusotmerEmail(e.target.value)
-    }
-    const setCityData = (e: any) => {
-        const ct: string = e.target.value;
-        setCity(ct);
-    }
-    const setDistrictData = (e: any) => {
-        setDisrict(e.target.value);
-    }
-    const setCommuneData = (e: any) => {
-        setCommune(e.target.value);
-    }
-    const setAddressData = (e: any) => {
-        setAddress(e.target.value);
-    }
-    const setBillData = () => {
+    const onSubmit: SubmitHandler<Inputs> = data => {
         const uid = userInfo ? userInfo.uid : "null";
         const d = new Date();
         const productList: CartProduct[] = [];
@@ -67,23 +49,23 @@ function PaymentInfo() {
         const bill: BillType = {
             id: d.getDate() + "" + (d.getMonth() + 1) + d.getFullYear() + d.getHours() + d.getMinutes() + d.getSeconds(),
             productLists: productList,
-            customerName: customerName,
-            customerPhoneNumber: customerPhoneNumber,
-            customerEmail: customerEmail,
-            cutomerAddress: city + "" + district + commune + address,
+            customerName: data.name,
+            customerPhoneNumber: data.phoneNumber,
+            customerEmail: data.email,
+            cutomerAddress: data.detailAddress + "" + data.commune + " " +  data.district + " " + data.city,
             uid: uid,
-            date: d.getDate() +"/" + (d.getMonth() + 1) + "/" + d.getFullYear(),
+            date: d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear(),
             totalPrice: totalPrice
         }
         billInfo(bill);
+        nav('/payment')
     }
-
 
     return (
         <div className="w-5/12 mx-auto mt-16">
             <div className="grid grid-flow-row grid-cols-2 place-content-center">
                 <Link to="/cart">
-                    <div>
+                    <div onClick={() => setTotalPrice(0)}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline text-red-600" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
@@ -128,44 +110,53 @@ function PaymentInfo() {
                     <p className="text-sm">Hoàn tất đặt hàng</p>
                 </div>
             </div>
-            <div className="px-2 border border-solid shadow-lg rounded-xl">
-                <div className="pt-2">
-                    <h3 className="text-md font-bold mb-2">Thông tin khách hàng</h3>
-                    <div className="grid grid-flow-row grid-cols-1 gap-y-2">
-                        <input onChange={setName} placeholder="Họ và tên (bắt buộc)" className="border border-gray-400 py-1 pl-2 rounded-lg" ></input>
-                        <input onChange={setPhone} placeholder="Số điện thoại (bắt buộc)" className="border border-gray-400 py-1 pl-2 rounded-lg" />
-                        <input onChange={setEmail} placeholder="Email (Vui long nhập email để nhận hóa đơn)" className="border border-gray-400 py-1 pl-2 rounded-lg" />
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="px-2 border border-solid shadow-lg rounded-xl">
+                    <div className="pt-2">
+                        <h3 className="text-md font-bold mb-2">Thông tin khách hàng</h3>
+                        <div className="grid grid-flow-row grid-cols-1 gap-y-2">
+                            <input {...register("name", { required: true })} type="text" placeholder="Họ và tên (bắt buộc)" className="border border-gray-400 py-1 pl-2 rounded-lg" />
+                            {errors.name && <span className='text-red-600 text-xs'>This field is not valid</span>}
+                            <input {...register("phoneNumber", { required: true, pattern: /(\+84|0)\d{9,10}/i })} placeholder="Số điện thoại (bắt buộc)" className="border border-gray-400 py-1 pl-2 rounded-lg" />
+                            {errors.phoneNumber && <span className='text-red-600 text-xs'>This field is not valid</span>}
+                            <input {...register("email", { required: true, pattern: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i })} placeholder="Email (Vui long nhập email để nhận hóa đơn)" className="border border-gray-400 py-1 pl-2 rounded-lg" />
+                            {errors.email && <span className='text-red-600 text-xs'>This field is not valid</span>}
+                        </div>
+                    </div>
+                    <div className="pt-2">
+                        <h3 className="text-md font-bold mb-2">Địa chỉ nhận hàng</h3>
+                        <div className="grid grid-flow-row grid-cols-2 gap-x-2 gap-y-2 p-3 bg-[#f0ebeb] rounded-lg">
+                            <input {...register("city", { required: true })} placeholder="Thành phố" className="border border-gray-400 py-1 pl-2 rounded-lg" />
+                            <input {...register("district", { required: true })} placeholder="Quận/Huyện" className="border border-gray-400 py-1 pl-2 rounded-lg" />
+                            {errors.city && <span className='text-red-600 text-xs'>This field is not valid</span>}
+                            {errors.district && <span className='text-red-600 text-xs'>This field is not valid</span>}
+                            <input {...register("commune", { required: true })} placeholder="Xã/Phường" className="border border-gray-400 py-1 pl-2 rounded-lg col-start-1 col-span-2" />
+                            {errors.commune && <span className='text-red-600 text-xs'>This field is not valid</span>}
+                            <input {...register("detailAddress", { required: true })} placeholder="Địa chỉ chi tiết" className="border border-gray-400 py-1 pl-2 rounded-lg col-start-1 col-span-2" />
+                            {errors.detailAddress && <span className='text-red-600 text-xs'>This field is not valid</span>}
+                        </div>
+                        <div className="my-3">
+                            <input placeholder="Yêu cầu khác" className="w-full border border-gray-400 py-1 pl-2 rounded-lg" />
+                        </div>
                     </div>
                 </div>
-                <div className="pt-2">
-                    <h3 className="text-md font-bold mb-2">Địa chỉ nhận hàng</h3>
-                    <div className="grid grid-flow-row grid-cols-2 gap-x-2 gap-y-2 p-3 bg-[#f0ebeb] rounded-lg">
-                        <input onChange={setCityData} placeholder="Thành phố" className="border border-gray-400 py-1 pl-2 rounded-lg" />
-                        <input onChange={setDistrictData} placeholder="Quận/Huyện" className="border border-gray-400 py-1 pl-2 rounded-lg" />
-                        <input onChange={setCommuneData} placeholder="Xã/Phường" className="border border-gray-400 py-1 pl-2 rounded-lg col-start-1 col-span-2" />
-                        <input onChange={setAddressData} placeholder="Địa chỉ chi tiết" className="border border-gray-400 py-1 pl-2 rounded-lg col-start-1 col-span-2" />
+                <div className="border border-solid rounded-xl p-2 mt-3 shadow-lg">
+                    <div className="grid grid-flow-row grid-cols-2 pb-2">
+                        <p className="text-md font-bold">Tổng tiền tạm tính:</p>
+                        <p className="text-md text-red-600 font-semibold text-right">{totalPrice} ₫</p>
                     </div>
-                    <div className="my-3">
-                        <input placeholder="Yêu cầu khác" className="w-full border border-gray-400 py-1 pl-2 rounded-lg" />
-                    </div>
+                    {/* <Link to="/payment"> */}
+                        <button type='submit' className="text-center bg-red-600 text-white font-bold py-4 rounded-md mb-2 cursor-pointer w-full">
+                            <p>Tiếp tục</p>
+                        </button>
+                    {/* </Link> */}
+                    <Link to="/">
+                        <div className="border border-solid border-red-600 py-4 text-center text-red-600 font-bold rounded-md hover:bg-red-500 hover:text-white cursor-pointer transition-all">
+                            <p>CHỌN THÊM SẢN PHẨM KHÁC</p>
+                        </div>
+                    </Link>
                 </div>
-            </div>
-            <div className="border border-solid rounded-xl p-2 mt-3 shadow-lg">
-                <div className="grid grid-flow-row grid-cols-2 pb-2">
-                    <p className="text-md font-bold">Tổng tiền tạm tính:</p>
-                    <p className="text-md text-red-600 font-semibold text-right">{totalPrice} ₫</p>
-                </div>
-                <Link to="/payment">
-                    <div onClick={setBillData} className="text-center bg-red-600 text-white font-bold py-4 rounded-md mb-2 cursor-pointer w-full">
-                        <p>Tiếp tục</p>
-                    </div>
-                </Link>
-                <Link to="/">
-                    <div className="border border-solid border-red-600 py-4 text-center text-red-600 font-bold rounded-md hover:bg-red-500 hover:text-white cursor-pointer transition-all">
-                        <p>CHỌN THÊM SẢN PHẨM KHÁC</p>
-                    </div>
-                </Link>
-            </div>
+            </form>
         </div>
     );
 }

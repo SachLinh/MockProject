@@ -3,47 +3,57 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-  useSetRecoilState,
+	atom,
+	selector,
+	useRecoilState,
+	useRecoilValue,
+	useSetRecoilState,
 } from 'recoil';
-import { cartProductState } from '../../Recoil/RecoilState';
+import { cartProductState, totalPriceState } from '../../Recoil/RecoilState';
 import { CartProduct } from '../../TypeState/CartProduct';
 import { SanPhamType } from '../../TypeState/SanPhamType';
+import CartEmpty from './CartEmpty';
 
 import CartItem from './CartItem';
 
-export const totalPriceState = atom({
-	key: "totalPrice",
-	default : 0
-})
 
 function Cart() {
-	const [productList, setProductList] = useState<SanPhamType[]>([]);
-	const totalPrice = useRecoilValue(totalPriceState);
-	const setCartProduct = useSetRecoilState(cartProductState);
+	const [totalPrice, setTotalPrice] = useRecoilState(totalPriceState);
+	const [cartProductList, setCartProductList] = useRecoilState(cartProductState);
 
 	useEffect(() => {
-		getProductInCart();
+		setProductInCart();
 	}, [])
 
-	const getProductInCart = () => {
-		setProductList(JSON.parse(localStorage.getItem('data') + ""));
+	const setProductInCart = () => {
+		let price: number = 0;
 		const cartProduct: CartProduct[] = [];
-		JSON.parse(localStorage.getItem('data') + "").map((value: SanPhamType) => {
-			const product: CartProduct = {
-				id: value.id,
-				image: value.avatar,
-				name: value.name,
-				price: parseInt(value.cost) * 1000000,
-				oldPrice: parseInt(value.oldCost) * 1000000,
-				count: 1
-			}
-			cartProduct.push(product);
-		});
-		setCartProduct(cartProduct);
+		if (JSON.parse(localStorage.getItem('data') + "") !== null) {
+			JSON.parse(localStorage.getItem('data') + "").map((value: SanPhamType) => {
+				const product: CartProduct = {
+					id: value.id,
+					image: value.avatar,
+					name: value.name,
+					price: parseInt(value.cost) * 1000000,
+					oldPrice: parseInt(value.oldCost) * 1000000,
+					count: 1
+				}
+				price += product.price * product.count;
+				cartProduct.push(product);
+			});
+			setCartProductList(cartProduct);
+			setTotalPrice(price);
+		}
+	}
+
+	const deleteProductInCart = (index: number) => {
+		const listProduct = [...cartProductList];
+		listProduct.splice(index, 1);
+		setCartProductList(listProduct);
+
+		const localProductList = JSON.parse(localStorage.getItem('data') + "");
+		localProductList.splice(index, 1)
+		localStorage.setItem('data', JSON.stringify(localProductList));
 	}
 
 	return (
@@ -67,29 +77,31 @@ function Cart() {
 				</div>
 				<h3 className='text-lg font-bold text-red-600'>Giỏ hàng</h3>
 			</div>
-			{
-				productList.map((value, key) => {
-					return <CartItem value={value} index={key} key={key} />
-				})
-			}
-			<div className='border border-solid rounded-xl p-2 mt-3 shadow-lg'>
-				<div className='grid grid-flow-row grid-cols-2 pb-2'>
-					<p className='text-md font-bold'>Tổng tiền tạm tính:</p>
-					<p className='text-md text-red-600 font-semibold text-right'>
-						{totalPrice} ₫
-					</p>
+			{(cartProductList.length === 0 && <CartEmpty />) || <div>
+				{
+					cartProductList.map((value, key) => {
+						return <CartItem value={value} index={key} key={key} deleteProductInCart={(index: number) => deleteProductInCart(index)} />
+					})
+				}
+				<div className='border border-solid rounded-xl p-2 mt-3 shadow-lg'>
+					<div className='grid grid-flow-row grid-cols-2 pb-2'>
+						<p className='text-md font-bold'>Tổng tiền tạm tính:</p>
+						<p className='text-md text-red-600 font-semibold text-right'>
+							{totalPrice} ₫
+						</p>
+					</div>
+					<Link to="/payment-info">
+						<div className='text-center bg-red-600 text-white font-bold py-4 rounded-md mb-2 cursor-pointer'>
+							<p>TIẾN HÀNH ĐẶT HÀNG</p>
+						</div>
+					</Link>
+					<Link to="/">
+						<div className='border border-solid border-red-600 py-4 text-center text-red-600  font-bold rounded-md hover:bg-red-500 hover:text-white cursor-pointer transition-all'>
+							<p>CHỌN THÊM SẢN PHẨM KHÁC</p>
+						</div>
+					</Link>
 				</div>
-				<Link to="/payment-info">
-					<div className='text-center bg-red-600 text-white font-bold py-4 rounded-md mb-2 cursor-pointer'>
-						<p>TIẾN HÀNH ĐẶT HÀNG</p>
-					</div>
-				</Link>
-				<Link to="/">
-					<div className='border border-solid border-red-600 py-4 text-center text-red-600  font-bold rounded-md hover:bg-red-500 hover:text-white cursor-pointer transition-all'>
-						<p>CHỌN THÊM SẢN PHẨM KHÁC</p>
-					</div>
-				</Link>
-			</div>
+			</div>}
 		</div>
 	);
 }
