@@ -28,7 +28,7 @@ export default function ImgProduct() {
         <div>
             {img.map(item => {
                 return (
-                    <div key={item.SanPhamId}><Swiper className="w-[370px] border-[1px] rounded-xl text-center items-center"
+                    <div key={item.SanPhamId}><Swiper className="lg:w-[370px] w-[300px] border-[1px] rounded-xl text-center items-center"
                         loop={true}
                         spaceBetween={10}
                         autoplay={{

@@ -24,14 +24,30 @@ function SearchOrder() {
     console.log("checkOrder", checkOrder);
     
     return(
-        <div className="w-[1180px] h-[200px] pt-[80px] mx-auto mb-[700px]">
-        <div className="bg-[#eeeeee] text-[#444444] h-36 pt-[10px]">
+        <div className="
+            2xl:w-[1180px] 2xl:h-[200px]
+            xl:w-[1180px] xl:h-[200px]
+            lg:w-[700px] lg:h-[200px]
+            md:w-[500px] md:h-[200px]
+            sm:w-[300px] sm:h-[200px]
+        w-[1180px] h-[200px] pt-[80px] mx-auto mb-[700px]">
+        <div className="
+            2xl:w-[1180px] 2xl:h-[144px]
+            xl:w-[1180px] xl:h-[144px]
+            lg:w-[700px] lg:h-[190px]
+            md:w-[450px] md:h-[270px]
+            sm:w-[300px] sm:h-[420px]
+        bg-[#eeeeee] text-[#444444] h-36 pt-[10px]">
             <div>
                 <h3 className="text-[22px] font-[700] leading-[26.4px] p-[10px 0] text-center">
                     KIỂM TRA THÔNG TIN ĐƠN HÀNG & TÌNH TRẠNG VẬN CHUYỂN
                 </h3>
             </div>
-            <div className="text-center flex justify-center">
+            <div className="
+                lg:flex-wrap
+                md:flex-wrap md:flex-col
+                sm:flex-wrap sm:flex-col
+            box-border flex flex-row justify-center">
                 <label
                     className="mt-[30px] px-[10px] font-bold" id="madonhang">
                         Mã đơn hàng:  </label> 
