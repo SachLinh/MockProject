@@ -74,7 +74,7 @@ export default function Body() {
 						 '>
 							<img
 								alt=''
-								src='https://cellphones.com.vn/media/icons/banner/banner-sis-apple-homepage.png'
+								src={require(`./Images/CGTH1.png`)}
 								className='rounded-lg
 								2xl:w-[300px] xl:w-[270px] lg:w-[240px] md:w-[300px] sm:w-[270px] w-[250px]'></img>
 						</div>
@@ -82,7 +82,7 @@ export default function Body() {
 						 '>
 							<img
 								alt=''
-								src='https://cellphones.com.vn/media/icons/banner/banner-sis-samsung-homepage.png'
+								src={require(`./Images/CGTH2.png`)}
 								className='rounded-lg 
 								2xl:w-[300px] xl:w-[270px] lg:w-[240px] md:w-[300px] sm:w-[270px] w-[250px] '></img>
 						</div>
@@ -90,7 +90,7 @@ export default function Body() {
 						 '>
 							<img
 								alt=''
-								src='https://cellphones.com.vn/media/icons/banner/banner-sis-asus-homepage.png'
+								src={require(`./Images/CGTH3.png`)}
 								className='rounded-lg
 								2xl:w-[300px] xl:w-[270px] lg:w-[240px] md:w-[300px] sm:w-[270px] w-[250px]
 								'></img>
@@ -99,7 +99,7 @@ export default function Body() {
 						'>
 							<img
 								alt=''
-								src='https://cellphones.com.vn/media/icons/banner/banner-sis-xiaomi-homepage.png'
+								src={require(`./Images/CGTH4.png`)}
 								className='rounded-lg
 								2xl:w-[300px] xl:w-[270px] lg:w-[240px] md:w-[300px] sm:w-[270px] w-[250px]
 								'></img>

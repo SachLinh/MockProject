@@ -12,10 +12,10 @@ export default function Content() {
 			2xl:pt-[70px] xl:pt-[70px] lg:pt-[50px] md:pt-[30px] pt-[25px] 
 			'>
 				<Menu />
-				<div className='w-full h-[40px] sm:h-[60px] md:h-[]75px mt-[15px] sm:mb-[10px] md:mb-[25px]'>
+				<div className='w-full h-[40px] sm:h-[60px] md:h-[80px] mt-[15px] sm:mb-[10px] md:mb-[25px]'>
 					<a target={'_blank'} href='https://cellphones.com.vn/apple'>
 						<img
-							src='https://cdn.cellphones.com.vn/media/wysiwyg/Banner/1200-75-max.png'
+							src={require(`./Images/banner4.png`)}
 							alt=''
 							className='w-full h-full'
 						/>
