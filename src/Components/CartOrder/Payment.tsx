@@ -7,8 +7,7 @@ import {
     useRecoilValue,
     useSetRecoilState
 } from 'recoil';
-import { totalPriceState } from './Cart';
-import { billInfoState, cartProductState } from '../../Recoil/RecoilState';
+import { billInfoState, cartProductState, totalPriceState } from '../../Recoil/RecoilState';
 import axios from 'axios';
 
 function Payment() {
@@ -24,6 +23,7 @@ function Payment() {
             .then(res => {
                 console.log(res);
             })
+        localStorage.removeItem('data');
     }
 
     return (

@@ -1,28 +1,29 @@
 import React from 'react'
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-// Import the functions you need from the SDKs you need
-// import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp, applicationDefault  } from 'firebase-admin/app';
+// initializeApp({
+//     credential: applicationDefault(),
+//     databaseURL: 'https://mock-project-936ca-default-rtdb.asia-southeast1.firebasedatabase.app'
+// });
+// var admin = require("firebase-admin");
 
-// // Your web app's Firebase configuration
-// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// const firebaseConfig = {
-//   apiKey: "AIzaSyAHi4Jo0pqiI5hzX_F-hXbO2pecfQKA8Uk",
-//   authDomain: "mock-project-936ca.firebaseapp.com",
-//   databaseURL: "https://mock-project-936ca-default-rtdb.asia-southeast1.firebasedatabase.app",
-//   projectId: "mock-project-936ca",
-//   storageBucket: "mock-project-936ca.appspot.com",
-//   messagingSenderId: "252923459397",
-//   appId: "1:252923459397:web:b59d0dcd3749e68e23b02c",
-//   measurementId: "G-JLW7ESYFBH"
-// };
+// // Fetch the service account key JSON file contents
+// var serviceAccount = require("./mock-project-936ca-firebase-adminsdk-zxf5a-2964f86b0c.json");
 
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
+// // Initialize the app with a service account, granting admin privileges
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   // The database URL depends on the location of the database
+//   databaseURL: "https://mock-project-936ca-default-rtdb.asia-southeast1.firebasedatabase.app"
+// });
+
+// // As an admin, the app has access to read and write all data, regardless of Security Rules
+// var db = admin.database();
+// var ref = db.ref("restricted_access/secret_document");
+// ref.once("value", function(snapshot: any) {
+//   console.log(snapshot.val());
+// });
 
 type Props = {}
 
