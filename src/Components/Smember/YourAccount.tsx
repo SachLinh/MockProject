@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
-    atom,
-    selector,
-    useRecoilState,
     useRecoilValue,
-    useSetRecoilState
 } from 'recoil';
 import { userInfoState } from '../../Recoil/RecoilState';
 import { UserType } from '../../TypeState/UserType';

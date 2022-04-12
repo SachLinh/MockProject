@@ -10,7 +10,7 @@ export interface BillType {
     totalPrice: number
 }
 
-interface Product {
+export interface Product {
     id: string;
     image: string;
     name: string;

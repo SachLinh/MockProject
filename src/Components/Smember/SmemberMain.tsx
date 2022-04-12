@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import { Link, useParams } from "react-router-dom";

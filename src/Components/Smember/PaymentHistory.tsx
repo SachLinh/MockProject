@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { list } from 'postcss';
 import React, { useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil';
 import { userInfoState } from '../../Recoil/RecoilState';
@@ -29,6 +28,9 @@ function PaymentHistory({ }: Props) {
       })
       .catch(error => console.log(error));
   }
+  const formatPrice = (price: number): string => {
+    return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)
+  }
 
   return (
     <div className="col-start-2 col-span-3 bg-[#eee] rounded-3xl py-3 px-2 md:mt-[0px] mt-[15px]">
@@ -51,7 +53,7 @@ function PaymentHistory({ }: Props) {
                   <td>{bill.id}</td>
                   <td>{bill.date}</td>
                   <td>{bill.customerName}</td>
-                  <td>{bill.totalPrice}</td>
+                  <td>{formatPrice(bill.totalPrice)}</td>
                 </tr>
               )
             })

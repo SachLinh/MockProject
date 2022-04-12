@@ -4,5 +4,7 @@ export interface CartProduct {
     name: string;
     price: number;
     oldPrice: number;
+    promotion: number;
+    endow: string;
     count: number;
 }

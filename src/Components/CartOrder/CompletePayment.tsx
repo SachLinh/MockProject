@@ -6,9 +6,12 @@ import { billInfoState } from '../../Recoil/RecoilState';
 function CompletePayment() {
 
     const billInfo = useRecoilValue(billInfoState);
+    const formatPrice = (price: number): string => {
+		return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)
+	}
 
     return (
-        <div className="w-5/12 mx-auto mt-16">
+        <div className="sm:w-5/6 md:w-7/12 lg:w-1/2 xl:w-5/12 mx-auto mt-16">
             <div className="grid grid-flow-row grid-cols-2 place-content-center">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline text-red-600" viewBox="0 0 20 20" fill="currentColor">
@@ -26,7 +29,7 @@ function CompletePayment() {
                     <p>Số Điện Thoại: <b>{billInfo.customerPhoneNumber}</b></p>
                     <p>Email: <b>{billInfo.customerEmail}</b></p>
                     <p>Nhận Sản Phẩm Tại: <b>{billInfo.cutomerAddress}</b></p>
-                    <p>Tổng Tiền: <b>{billInfo.totalPrice}</b></p>
+                    <p>Tổng Tiền: <b>{formatPrice(billInfo.totalPrice)}</b></p>
                 </div>
                 {
                     billInfo.productLists.map((product, key) => {

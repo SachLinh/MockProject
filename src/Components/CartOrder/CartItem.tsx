@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { BsHandIndexThumbFill } from 'react-icons/bs';
+import React from 'react';
 import {
-    atom,
-    DefaultValue,
-    isRecoilValue,
-    selector,
     useRecoilState,
-    useRecoilValue,
     useSetRecoilState
 } from 'recoil';
 import { cartProductState, totalPriceState } from '../../Recoil/RecoilState';
@@ -21,9 +15,6 @@ type Props = {
 export default function CartItem({ value, index, deleteProductInCart }: Props) {
     const setTotalPrice = useSetRecoilState(totalPriceState);
     const [cartProductList, setCartProductList] = useRecoilState<CartProduct[]>(cartProductState);
-    useEffect(() => {
-        // setTotalPrice(prev => prev + productCount * value.price);
-    },[])
 
     const increaseProductCount = () => {
         const cartProducts = [...cartProductList];
@@ -50,6 +41,9 @@ export default function CartItem({ value, index, deleteProductInCart }: Props) {
     const decreaseTotalPrice = () => {
         setTotalPrice(prev => prev - value.price * value.count)
     }
+    const formatPrice = (price: number): string => {
+		return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)
+	}
 
     return (
         <div className='mt-3 px-2 py-3 grid grid-flow-row grid-cols-3 border border-solid rounded-xl  relative shadow-lg'>
@@ -63,14 +57,14 @@ export default function CartItem({ value, index, deleteProductInCart }: Props) {
                 <p className='font-bold'>{value.name}</p>
                 <div className='grid grid-flow-row grid-cols-4'>
                     <p className='text-sm text-red-600 font-semibold pt-1'>
-                        {value.price + " ₫"}
+                        {formatPrice(value.price)}
                     </p>
                     <p className='text-sm text-[#777] line-through font-light pt-1'>
-                        {value.oldPrice + " ₫"}
+                        {formatPrice(value.oldPrice)}
                     </p>
                     <div className='bg-red-600 w-10/12 p-1 rounded-lg'>
-                        <p className='text-sm text-white font-semibold'>
-                            Giảm 14%
+                        <p className='text-xs text-white font-semibold'>
+                            Giảm {value.promotion} %
                         </p>
                     </div>
                 </div>
@@ -90,7 +84,7 @@ export default function CartItem({ value, index, deleteProductInCart }: Props) {
                     <p className=''>- Chương trình khuyến mại:</p>
                     <ul className='pl-4 text-red-500'>
                         <li className='list-disc text-[15px] text-black'>
-                            Gói dịch vụ ưu tiên cao cấp và phòng chờ hạng thương gia
+                            {value.endow}
                         </li>
                     </ul>
                 </div>
