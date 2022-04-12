@@ -17,9 +17,9 @@ function MemberInfo({ }: Props) {
   const userInfo = useRecoilValue<UserType>(userInfoState);
   
   return (
-    <div className="col-start-2 col-span-3">
+    <div className="col-start-2 col-span-3 md:mt-[0px] mt-[15px]">
       <div>
-        <div className="grid grid-flow-row grid-cols-2">
+        <div className="grid grid-flow-row ">
           <div className="border-[1px] border-gray-300 rounded-xl text-center">
             <img className="mx-auto mt-4 w-12 h-12 m-1 border-slate-800 border-1 rounded-full" src={userInfo.photoURL} />
             <p>Xin chào</p>

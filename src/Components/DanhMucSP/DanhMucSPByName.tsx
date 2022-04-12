@@ -2,13 +2,12 @@ import React, { Component, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Autoplay, FreeMode, Navigation, Thumbs } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import LoaiSanPham from "../HomeTrangChu/LoaiSanPham";
-import ThongTinSp from "../HomeTrangChu/ThongTinSp";
-import ThongTinSpCon from "../HomeTrangChu/ThongTinSpCon";
+import FindProduct from "../HomeTrangChu/FindProduct";
 
-export default function DanhMucSP() {
+
+export default function DanhMucSPByName() {
   const params = useParams();
-
+ 
   return (
     <div className="w-full flex flex-row justify-center">
       <div className="2xl:w-[1300px]  xl:w-[1200px] lg:w-[1000px] md:w-[700px] sm:w-[600px] w-full sm:px-0 px-3
@@ -141,7 +140,7 @@ export default function DanhMucSP() {
             </Swiper>
           </div>
           <div className="w-full lg:mt-[15px] mt-[5px]">
-            <ThongTinSpCon idLoai={params.idLoai} />
+            <FindProduct name={params.name} />
           </div>
         </div>
       </div>

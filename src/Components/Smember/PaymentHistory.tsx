@@ -31,12 +31,12 @@ function PaymentHistory({ }: Props) {
   }
 
   return (
-    <div className="col-start-2 col-span-3 bg-[#eee] rounded-3xl py-3 px-2">
-      <h2 className="text-red-600 text-center font-semibold text-2xl">QUẢN LÝ ĐƠN HÀNG</h2>
-      <p className="text-red-600 font-semibold text-lg border-b-[3px] border-red-600 w-max">Tất cả</p>
+    <div className="col-start-2 col-span-3 bg-[#eee] rounded-3xl py-3 px-2 md:mt-[0px] mt-[15px]">
+      <h2 className="text-red-600 text-center font-semibold  text-[20px] md:text-[24px]">QUẢN LÝ ĐƠN HÀNG</h2>
+      <p className="text-red-600 font-semibold lg:text-lg md:text-md border-b-[3px] border-red-600 w-max text-sm">Tất cả</p>
       <table className="table-fixed w-full mx-auto mt-2">
         <thead>
-          <tr className='text-red-600'>
+          <tr className='text-red-600 lg:text-lg md:text-md text-sm'>
             <th>Mã đơn hàng</th>
             <th>Ngày đặt</th>
             <th>Người nhận</th>

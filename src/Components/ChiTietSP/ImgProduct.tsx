@@ -21,14 +21,14 @@ export default function ImgProduct() {
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
     const [img, setImg] = useState<Images[]>([]);
     const getImg = async () => {
-        const resImg = await axios.get(`https://6238109d0a54d2ceab702909.mockapi.io/SanPham/${params.idSP}/ThongTinAnh`)
+        const resImg = await axios.get(`https://6232e62e6de3467dbac2a7d6.mockapi.io/SanPham/${params.idSP}/ImgProd`)
         setImg(resImg.data)
     }
     return (
         <div>
             {img.map(item => {
                 return (
-                    <div key={item.SanPhamId}><Swiper className="w-[370px] border-[1px] rounded-xl text-center items-center"
+                    <div key={item.SanPhamId}><Swiper className="lg:w-[370px] w-[300px] border-[1px] rounded-xl text-center items-center"
                         loop={true}
                         spaceBetween={10}
                         autoplay={{
