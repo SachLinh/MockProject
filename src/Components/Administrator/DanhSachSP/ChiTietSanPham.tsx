@@ -32,7 +32,9 @@ export default function ChiTietSanPham() {
             <i className="fa-solid fa-arrow-rotate-left"></i>Trở Lại
           </button>
         </Link>
-        <table className="px-[20px] mt-[20px]">
+        <div className="p-[20px] w-full">
+
+        <table className="px-[20px] mt-[20px] w-full">
           <tr>
             <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">ID</label>
@@ -276,6 +278,7 @@ export default function ChiTietSanPham() {
             </td>
           </tr>
         </table>
+        </div>
       </div>
     </div>
   );

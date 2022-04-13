@@ -3,7 +3,7 @@ import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { HoaDonType } from "./HoaDonType";
+import { HoaDonType } from "../../../TypeState/HoaDonType";
 
 
 
