@@ -1,13 +1,10 @@
 /** @format */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
-	atom,
-	selector,
 	useRecoilState,
-	useRecoilValue,
-	useSetRecoilState,
+
 } from 'recoil';
 import { cartProductState, totalPriceState } from '../../Recoil/RecoilState';
 import { CartProduct } from '../../TypeState/CartProduct';
@@ -25,6 +22,13 @@ function Cart() {
 		setProductInCart();
 	}, [])
 
+	const convertPrice = (price: string): number => {
+		const prices = price.split('.');
+		return parseInt(prices[0]) * 1000000 + parseInt(prices[1]) * 1000 + parseInt(prices[2]);
+	}
+	const formatPrice = (price: number): string => {
+		return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)
+	}
 	const setProductInCart = () => {
 		let price: number = 0;
 		const cartProduct: CartProduct[] = [];
@@ -34,8 +38,10 @@ function Cart() {
 					id: value.id,
 					image: value.avatar,
 					name: value.name,
-					price: parseInt(value.cost) * 1000000,
-					oldPrice: parseInt(value.oldCost) * 1000000,
+					price: convertPrice(value.cost),
+					oldPrice: convertPrice(value.oldCost),
+					promotion: parseInt(value.promotion),
+					endow: value.endow,
 					count: 1
 				}
 				price += product.price * product.count;
@@ -57,7 +63,7 @@ function Cart() {
 	}
 
 	return (
-		<div className='w-5/12 mx-auto mt-16'>
+		<div className='sm:w-5/6 md:w-2/3 lg:w-1/2 xl:w-5/12 mx-auto mt-16'>
 			<div className='grid grid-flow-row grid-cols-2 place-content-center'>
 				<div>
 					<svg
@@ -87,7 +93,9 @@ function Cart() {
 					<div className='grid grid-flow-row grid-cols-2 pb-2'>
 						<p className='text-md font-bold'>Tổng tiền tạm tính:</p>
 						<p className='text-md text-red-600 font-semibold text-right'>
-							{totalPrice} ₫
+
+							{formatPrice(totalPrice)}
+
 						</p>
 					</div>
 					<Link to="/payment-info">

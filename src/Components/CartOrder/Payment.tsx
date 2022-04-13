@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
-    atom,
-    selector,
-    useRecoilState,
     useRecoilValue,
     useSetRecoilState
 } from 'recoil';
@@ -14,6 +11,7 @@ function Payment() {
 
     const totalPrice = useRecoilValue(totalPriceState);
     const billInfo = useRecoilValue(billInfoState);
+    const setCartProductList = useSetRecoilState(cartProductState);
     useEffect(() => {
         console.log(billInfo)
     }, [])
@@ -24,10 +22,16 @@ function Payment() {
                 console.log(res);
             })
         localStorage.removeItem('data');
+
+        setCartProductList([]);
+
     }
+    const formatPrice = (price: number): string => {
+		return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)
+	}
 
     return (
-        <div className="w-5/12 mx-auto mt-16">
+        <div className="sm:w-5/6 md:w-7/12 lg:w-1/2 xl:w-5/12 mx-auto mt-16">
             <div className="text-center">
                 <h3 className="text-lg font-bold text-red-600">Thanh toán</h3>
             </div>
@@ -77,7 +81,7 @@ function Payment() {
                     <p>Số Điện Thoại: <b>{billInfo.customerPhoneNumber}</b></p>
                     <p>Email: <b>{billInfo.customerEmail}</b></p>
                     <p>Nhận Sản Phẩm Tại: <b>{billInfo.cutomerAddress}</b></p>
-                    <p>Tổng Tiền: <b>{totalPrice} ₫</b></p>
+                    <p>Tổng Tiền: <b>{formatPrice(totalPrice)}</b></p>
                 </div>
                 <div className="mb-3">
                     <h3 className="text-lg font-semibold pl-2 m-3">Chọn hình thức thanh toán</h3>
@@ -100,7 +104,7 @@ function Payment() {
             <div className="border border-solid rounded-xl p-2 mt-3 shadow-lg">
                 <div className="grid grid-flow-row grid-cols-2 pb-2">
                     <p className="text-md font-bold">Tổng tiền tạm tính:</p>
-                    <p className="text-md text-red-600 font-semibold text-right">{totalPrice} ₫</p>
+                    <p className="text-md text-red-600 font-semibold text-right">{formatPrice(totalPrice)}</p>
                 </div>
                 <Link to="/complete-payment">
                     <div onClick={postBill} className="text-center bg-red-600 text-white font-bold py-4 rounded-md mb-2 cursor-pointer">
