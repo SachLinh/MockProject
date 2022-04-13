@@ -17,7 +17,7 @@
         cutomerAddress: string;
         uid: string;
         date: string;
-        totalPrice: number;
+        totalPrice: string;
     }
 
     export interface HoaDonType {
