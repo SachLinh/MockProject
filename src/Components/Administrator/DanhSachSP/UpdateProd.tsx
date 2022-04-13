@@ -5,7 +5,7 @@ import React, { Component, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { LoaiSPType } from '../../../TypeState/LoaiSP';
+import { DanhMucType } from '../../../TypeState/DanhMucType';
 import { SanPhamType } from '../../../TypeState/SanPhamType';
 
 const initState = {
@@ -38,7 +38,7 @@ const initState = {
 
 export default function UpdateProd() {
 	const [sanPham, setsanPham] = useState<SanPhamType>();
-	const [ListLoai, setLoai] = useState<LoaiSPType[]>([]);
+	const [ListLoai, setLoai] = useState<DanhMucType[]>([]);
 
 	const navigate = useNavigate();
 	const params = useParams();

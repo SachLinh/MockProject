@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { Component, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { listLoaiSpType } from "./listLoaiSpType";
+import { DanhMucType } from "../../../TypeState/DanhMucType";
 
 export default function DeleteLoaiSP() {
     const params = useParams();
-    const [deleteLoaiSP, setDeleteLoaiSP] = useState<listLoaiSpType>();
+    const [deleteLoaiSP, setDeleteLoaiSP] = useState<DanhMucType>();
     const navigate = useNavigate();
     const getDanhMuc = async () => {
         try {

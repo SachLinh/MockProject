@@ -9,30 +9,21 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { DanhMucType } from "../../TypeState/DanhMucType";
-import axios from "axios";
+import { useAppDispatch, useAppSelector } from "../../App/hooks";
+import { getAllDanhMuc } from "../../Features/MenuSlice";
 
 
 export default function Menu() {
   const [thums, setThums] = useState<any>(null);
-  // const listCatas = useAppSelector((state)=>state.listDanhMuc)
-  // const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   useEffect(() => {
-	  getListCata();
-    //dispatch(AllDanhMucSlice)
+    dispatch(getAllDanhMuc())
   }, []);
 
-  const [listCatas, setListCatas] = useState<DanhMucType[]>([]);
-  const getListCata = async () => {
-    try {
-      const res = await axios.get(
-        "https://6232e62e6de3467dbac2a7d6.mockapi.io/Loai"
-      );
-      setListCatas(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  const showListCata = listCatas.map((item, index) => {
+  const listLoai= useAppSelector(state =>state.listDanhMuc)
+  const listCata:DanhMucType[] = listLoai.listCata;
+  
+  const showListCata = listCata.map((item, index) => {
     return (
       <li
         className="w-full h-full hover:bg-[#d6d3d3] p-[4px] lg:p-[6px] first:rounded-t-2xl last:rounded-b-2xl 

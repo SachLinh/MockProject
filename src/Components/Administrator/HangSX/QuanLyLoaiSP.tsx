@@ -1,26 +1,20 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { listLoaiSpType } from "./listLoaiSpType";
 import PageProd from "../Pagination/PageProd";
+import { useAppDispatch, useAppSelector } from "../../../App/hooks";
+import { getAllDanhMuc } from "../../../Features/MenuSlice";
+import { DanhMucType } from "../../../TypeState/DanhMucType";
 
 export default function QuanLyLoaiSP() {
+  const dispatch = useAppDispatch()
+  const listLoai = useAppSelector(state => state.listDanhMuc)
   useEffect(() => {
-    getLoaiSP()
+    dispatch(getAllDanhMuc())
   }, []);
-  const [loaiSP, setLoaiSP] = useState<listLoaiSpType[]>([])
+  const loaiSP:DanhMucType[] = listLoai.listCata
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
-  const getLoaiSP = async () => {
-    try {
-      const res = await axios.get(
-        `https://6232e62e6de3467dbac2a7d6.mockapi.io/Loai`
-      );
-      setLoaiSP(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   
   // Giá trị sắp xếp
   const SORT = {
@@ -50,8 +44,8 @@ export default function QuanLyLoaiSP() {
 
   const [searchName, setSearchName] = useState("");
   // Tìm kiếm
-  const findName = function (list: listLoaiSpType[]) {
-    let res: listLoaiSpType[] = [...list];
+  const findName = function (list: DanhMucType[]) {
+    let res: DanhMucType[] = [...list];
     if (searchName) {
       res = res.filter((el) =>
         el.name.toLowerCase().includes(searchName.toLowerCase())
