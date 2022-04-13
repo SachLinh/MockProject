@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
-import { listLoaiSpType } from "./listLoaiSpType";
+import { useAppDispatch } from "../../../App/hooks";
+import { AddNewLoai } from "../../../Features/MenuSlice";
+import { DanhMucType } from "../../../TypeState/DanhMucType";
 
 
 const initState = {
@@ -9,10 +11,11 @@ const initState = {
     name: "",
 };
 export default function AddNewLoaiSP() {
-    const [addLoaiSP, setAddLoaiSP] = useState<listLoaiSpType[]>([]);
+    const [addLoaiSP, setAddLoaiSP] = useState<DanhMucType[]>([]);
     const navigate = useNavigate();
     const [data, setData] = useState(initState);
     const { id, name } = data;
+    const dispatch = useAppDispatch()
     const onChangeText = (e: any) => {
         setData({
            id:"",
@@ -25,11 +28,7 @@ export default function AddNewLoaiSP() {
             if (data.name === "") {
                 alert("Vui lòng nhập Id, Name cần thêm mới");
             } else {
-                const res = await axios.post(
-                    `https://6232e62e6de3467dbac2a7d6.mockapi.io/Loai`,
-                    data
-                );
-                setAddLoaiSP(res.data);
+                dispatch(AddNewLoai({data}))
                 setData({
                     id: "",
                     name: "",

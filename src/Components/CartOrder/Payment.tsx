@@ -32,7 +32,9 @@ function Payment() {
                 console.log(res);
             })
         localStorage.removeItem('data');
+
         setCartProductList([]);
+
     }
     const formatPrice = (price: number): string => {
 		return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)

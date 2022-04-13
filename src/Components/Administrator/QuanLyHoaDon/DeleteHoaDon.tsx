@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { HoaDonType } from './HoaDonType';
+import { HoaDonType } from "../../../TypeState/HoaDonType";
 
 export default function DeleteHoaDon() {
   const params = useParams();
@@ -10,7 +10,7 @@ export default function DeleteHoaDon() {
   const gethoaDon = async ()=>{
     try{
       const res= await axios.get(
-        `https://6238109d0a54d2ceab702909.mockapi.io/HoaDon/${params.idhoaDon}`
+        `https://6232e62e6de3467dbac2a7d6.mockapi.io/HoaDon/${params.idhoaDon}`
       );
       sethoaDon(res.data);
     }
@@ -27,7 +27,7 @@ export default function DeleteHoaDon() {
 
     try {
       const res = await axios.delete(
-        `https://6238109d0a54d2ceab702909.mockapi.io/HoaDon/${hoaDon?.id}`
+        `https://6232e62e6de3467dbac2a7d6.mockapi.io/HoaDon/${hoaDon?.id}`
       );
       sethoaDon(res.data);
       alert("Xóa thành công thành công");
@@ -55,8 +55,8 @@ export default function DeleteHoaDon() {
           <input
             type="text"
             name="name"
-            placeholder={hoaDon?.name}
-            value={hoaDon?.name}
+            placeholder={hoaDon?.billInfo.customerName}
+            value={hoaDon?.billInfo.customerName}
             className="border p-[10px] mr-[20px] outline-none"
           />
           <button

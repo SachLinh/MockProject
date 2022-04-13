@@ -8,11 +8,15 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { RecoilRoot } from "recoil";
+import {store} from './App/store'
 
 ReactDOM.render(
   <BrowserRouter>
     <RecoilRoot>
-      <App />
+      <Provider store={store}>
+         <App />
+      </Provider>
+     
     </RecoilRoot>
   </BrowserRouter>,
 

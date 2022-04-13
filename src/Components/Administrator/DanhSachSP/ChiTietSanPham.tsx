@@ -32,7 +32,9 @@ export default function ChiTietSanPham() {
             <i className="fa-solid fa-arrow-rotate-left"></i>Trở Lại
           </button>
         </Link>
-        <table className="px-[20px] mt-[20px]">
+        <div className="p-[20px] w-full">
+
+        <table className="px-[20px] mt-[20px] w-full">
           <tr>
             <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">ID</label>
@@ -229,6 +231,46 @@ export default function ChiTietSanPham() {
           </tr>
           <tr>
             <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Ảnh 1</label>
+            </th>
+            <td className="w-5/6 h-[50px] border border-slate-300">
+              {sanPham?.img1}
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Ảnh 2</label>
+            </th>
+            <td className="w-5/6 h-[50px] border border-slate-300">
+              {sanPham?.img2}
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Ảnh 3</label>
+            </th>
+            <td className="w-5/6 h-[50px] border border-slate-300">
+              {sanPham?.img3}
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Ảnh 4</label>
+            </th>
+            <td className="w-5/6 h-[50px] border border-slate-300">
+              {sanPham?.img4}
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
+              <label htmlFor="">Ảnh 5</label>
+            </th>
+            <td className="w-5/6 h-[50px] border border-slate-300">
+              {sanPham?.img5}
+            </td>
+          </tr>
+          <tr>
+            <th className="border pl-[10px] border-slate-300">
               <label htmlFor="">ID Loại</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
@@ -236,6 +278,7 @@ export default function ChiTietSanPham() {
             </td>
           </tr>
         </table>
+        </div>
       </div>
     </div>
   );

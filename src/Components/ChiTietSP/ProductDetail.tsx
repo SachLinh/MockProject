@@ -64,7 +64,7 @@ function ProductDetail() {
 						<div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5 text-center items-center '>
 							<div className='mt-3'>
 								<div className='flex justify-center '>
-									<ImgProduct />
+									<ImgProduct/>
 								</div>
 								<div className='flex justify-center'>
 									<img

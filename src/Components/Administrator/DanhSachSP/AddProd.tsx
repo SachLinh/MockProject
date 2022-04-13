@@ -5,7 +5,7 @@ import React, { Component, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { LoaiSPType } from '../../../TypeState/LoaiSP';
+import { DanhMucType } from '../../../TypeState/DanhMucType';
 import { SanPhamType } from '../../../TypeState/SanPhamType';
 
 const initState = {
@@ -33,12 +33,18 @@ const initState = {
 	ROM: '',
 	SIM: '',
 	heDieuHanh: '',
+	img1: '',
+	img2: '',
+	img3: '',
+	img4: '',
+	img5: '',
 	LoaiId: '',
+
 };
 
 export default function AddProd() {
 	const [sanPham, setsanPham] = useState<SanPhamType>();
-	const [ListLoai, setLoai] = useState<LoaiSPType[]>([]);
+	const [ListLoai, setLoai] = useState<DanhMucType[]>([]);
 	const navigate = useNavigate();
 	const params = useParams();
 
@@ -94,6 +100,11 @@ export default function AddProd() {
 		ROM,
 		SIM,
 		heDieuHanh,
+		img1,
+		img2,
+		img3,
+		img4,
+		img5,
 		LoaiId,
 	} = data;
 	const onChangeText = (e: any) => {
@@ -175,6 +186,21 @@ export default function AddProd() {
 			if (data.heDieuHanh === '') {
 				alert('Vui lòng nhập heDieuHanh');
 			}
+			if (data.img1 === '') {
+				alert('Vui lòng nhập Ảnh 1');
+			}
+			if (data.img2 === '') {
+				alert('Vui lòng nhập Ảnh 2');
+			}
+			if (data.img3 === '') {
+				alert('Vui lòng nhập Ảnh 3');
+			}
+			if (data.img4 === '') {
+				alert('Vui lòng nhập Ảnh 4');
+			}
+			if (data.img5 === '') {
+				alert('Vui lòng nhập Ảnh 5');
+			}
 			if (data.LoaiId === '') {
 				alert('Vui lòng nhập LoaiId');
 			} else {
@@ -208,6 +234,11 @@ export default function AddProd() {
 					ROM: '',
 					SIM: '',
 					heDieuHanh: '',
+					img1: '',
+					img2: '',
+					img3: '',
+					img4: '',
+					img5: '',
 					LoaiId: '',
 				});
 				alert('Thêm mới thành công');
@@ -570,6 +601,81 @@ export default function AddProd() {
 								type='text'
 								name='heDieuHanh'
 								placeholder={sanPham?.heDieuHanh}
+								value={heDieuHanh}
+								className='border p-[10px] mr-[20px] outline-none w-full'
+								onChange={onChangeText}
+							/>
+						</td>
+					</tr>
+					<tr>
+						<th className='border pl-[10px] border-slate-300'>
+							<label htmlFor=''>Ảnh 1</label>
+						</th>
+						<td className='w-5/6 border border-slate-300'>
+							<input
+								type='text'
+								name='heDieuHanh'
+								placeholder={sanPham?.img1}
+								value={heDieuHanh}
+								className='border p-[10px] mr-[20px] outline-none w-full'
+								onChange={onChangeText}
+							/>
+						</td>
+					</tr>
+					<tr>
+						<th className='border pl-[10px] border-slate-300'>
+							<label htmlFor=''>Ảnh 2</label>
+						</th>
+						<td className='w-5/6 border border-slate-300'>
+							<input
+								type='text'
+								name='heDieuHanh'
+								placeholder={sanPham?.img2}
+								value={heDieuHanh}
+								className='border p-[10px] mr-[20px] outline-none w-full'
+								onChange={onChangeText}
+							/>
+						</td>
+					</tr>
+					<tr>
+						<th className='border pl-[10px] border-slate-300'>
+							<label htmlFor=''>Ảnh 3</label>
+						</th>
+						<td className='w-5/6 border border-slate-300'>
+							<input
+								type='text'
+								name='heDieuHanh'
+								placeholder={sanPham?.img3}
+								value={heDieuHanh}
+								className='border p-[10px] mr-[20px] outline-none w-full'
+								onChange={onChangeText}
+							/>
+						</td>
+					</tr>
+					<tr>
+						<th className='border pl-[10px] border-slate-300'>
+							<label htmlFor=''>Ảnh 4</label>
+						</th>
+						<td className='w-5/6 border border-slate-300'>
+							<input
+								type='text'
+								name='heDieuHanh'
+								placeholder={sanPham?.img4}
+								value={heDieuHanh}
+								className='border p-[10px] mr-[20px] outline-none w-full'
+								onChange={onChangeText}
+							/>
+						</td>
+					</tr>
+					<tr>
+						<th className='border pl-[10px] border-slate-300'>
+							<label htmlFor=''>Ảnh 5</label>
+						</th>
+						<td className='w-5/6 border border-slate-300'>
+							<input
+								type='text'
+								name='heDieuHanh'
+								placeholder={sanPham?.img5}
 								value={heDieuHanh}
 								className='border p-[10px] mr-[20px] outline-none w-full'
 								onChange={onChangeText}

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function NavbarAdmin() {
   return (
-    <div className="w-[20%] rounded-xl shadow-[0_0px_9px_1px_#ffb3b3]">
+    <div className="w-[18%] rounded-xl shadow-[0_0px_9px_1px_#ffb3b3]">
       <div className="w-full flex flex-col justify-start items-start bg-[#FBEAEB] rounded-xl">
         <div className="w-full">
           {" "}
@@ -23,12 +23,12 @@ export default function NavbarAdmin() {
                 Dashboard
               </Link>{" "}
             </li>
-            <li className="w-full my-[20px]  h-[70px] leading-[70px] hover:bg-[#fa9f9f] hover:text-[#3956fd]">
+            {/* <li className="w-full my-[20px]  h-[70px] leading-[70px] hover:bg-[#fa9f9f] hover:text-[#3956fd]">
               <Link className="inline-block w-full h-full pl-[20px]" to="QuanLyUser">
               <i className="fa-solid fa-users mr-[10px]"></i>
                 Tài khoản User
               </Link>{" "}
-            </li>
+            </li> */}
             <li className="w-full my-[20px]  h-[70px] leading-[70px] hover:bg-[#fa9f9f] hover:text-[#3956fd]">
               <Link className="inline-block w-full h-full pl-[20px]" to="/Admin/QuanLyHangSX">
 

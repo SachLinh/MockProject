@@ -32,16 +32,10 @@ function PaymentInfo() {
     const onSubmit: SubmitHandler<Inputs> = data => {
         const uid = userInfo ? userInfo.uid : "null";
         const d = new Date();
-        const productList: CartProduct[] = [];
+        const productList:any[] = [];
         listProduct.map(value => {
-            const product: CartProduct = {
+            const product:any = {
                 id: value.id,
-                image: value.image,
-                name: value.name,
-                price: value.price,
-                oldPrice: value.oldPrice,
-                promotion: value.promotion,
-                endow: value.endow,
                 count: value.count
             }
             productList.push(product);
@@ -60,9 +54,11 @@ function PaymentInfo() {
         billInfo(bill);
         nav('/payment')
     }
+
     const formatPrice = (price: number): string => {
 		return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)
 	}
+
 
     return (
         <div className="sm:5/6 md:w-7/12 lg:w-1/2 xl:w-5/12 mx-auto mt-16">
@@ -146,7 +142,9 @@ function PaymentInfo() {
                 <div className="border border-solid rounded-xl p-2 mt-3 shadow-lg">
                     <div className="grid grid-flow-row grid-cols-2 pb-2">
                         <p className="text-md font-bold">Tổng tiền tạm tính:</p>
+
                         <p className="text-md text-red-600 font-semibold text-right">{formatPrice(totalPrice)}</p>
+
                     </div>
                     {/* <Link to="/payment"> */}
                         <button type='submit' className="text-center bg-red-600 text-white font-bold py-4 rounded-md mb-2 cursor-pointer w-full">

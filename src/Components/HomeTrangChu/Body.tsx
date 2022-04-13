@@ -56,12 +56,7 @@ export default function Body() {
 					{ShowSanPham}
 				</div>
 				<div className='mt-[20px] flex flex-col justify-start 
-				    2xl:w-[1500px]
-					xl:w-[1200px]
-					lg:w-[1000px] 
-					md:w-[700px] 
-					sm:w-[600px] 
-					w-[400px]'>
+				   2xl:w-[1300px]  xl:w-[1200px] lg:w-[1000px] md:w-[700px] sm:w-[600px] w-full'>
 					<h3 className='m-2 no-underline text-left font-bold ... hover:underline ... '>
 						CHUYÊN GIA THƯƠNG HIỆU
 					</h3>
