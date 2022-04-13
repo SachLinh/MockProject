@@ -28,11 +28,7 @@ export default function AddNewLoaiSP() {
             if (data.name === "") {
                 alert("Vui lòng nhập Id, Name cần thêm mới");
             } else {
-                // const res = await axios.post(
-                //     `https://6232e62e6de3467dbac2a7d6.mockapi.io/Loai`,
-                //     data
-                // );
-                dispatch(AddNewLoai(data))
+                dispatch(AddNewLoai({data}))
                 setData({
                     id: "",
                     name: "",

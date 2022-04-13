@@ -1,25 +1,19 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../../App/hooks";
+import { getDanhMucByID, updateDanhMucByID } from "../../../Features/MenuSlice";
 import { DanhMucType } from "../../../TypeState/DanhMucType";
 
 
 export default function UpdateLoaiSP() {
     const params = useParams();
-    const [editLoaiSP, setEditLoaiSP] = useState<DanhMucType>();
+    const DetailLoaiSP = useAppSelector((state) => state.listDanhMuc);
+    const editLoaiSP: any = DetailLoaiSP.detaildele;
     const navigate = useNavigate();
-    const getDanhMuc = async () => {
-        try {
-            const res = await axios.get(
-                `https://6232e62e6de3467dbac2a7d6.mockapi.io/Loai/${params.idLoai}`
-            );
-            setEditLoaiSP(res.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    const dispatch = useAppDispatch();
     useEffect(() => {
-        getDanhMuc();
+        dispatch(getDanhMucByID(params.idLoai))
     }, []);
     const initState = {
         id: "",
@@ -40,11 +34,7 @@ export default function UpdateLoaiSP() {
             if (data.name === "") {
                 alert("Vui lòng nhập tên cần thay đổi");
             } else {
-                const res = await axios.put(
-                    `https://6232e62e6de3467dbac2a7d6.mockapi.io/Loai/${params.idLoai}`,
-                    data
-                );
-                setEditLoaiSP(res.data);
+                dispatch(updateDanhMucByID(data))
                 setData({
                     id: "",
                     name: "",
