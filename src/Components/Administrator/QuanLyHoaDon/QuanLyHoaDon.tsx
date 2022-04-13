@@ -1,30 +1,23 @@
 import axios from "axios";
 import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { HoaDonType } from "./HoaDonType";
+import { useAppDispatch, useAppSelector } from "../../../App/hooks";
+import { getAllHoaDon } from "../../../Features/HoaDonSlice";
+import { HoaDonType } from "../../../TypeState/HoaDonType";
 import PageHoaDon from "./PageHoaDon";
 
 
 export default function QuanLyHoaDon() {
+  const dispatch = useAppDispatch()
   useEffect(() => {
-    getListHoaDon();
+    dispatch(getAllHoaDon())
   }, []);
-  const [listHoaDon, setlistHoaDon] = useState<HoaDonType[]>([]);
+  const listData = useAppSelector(state => state.listHoaDon)
+  const listHoaDon:HoaDonType[] = listData.listHoaDon;
+  
   // page
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
-  // Lấy dữ liệu
-  const getListHoaDon = async () => {
-    try {
-      const res = await axios.get(
-        "https://6238109d0a54d2ceab702909.mockapi.io/HoaDon"
-      );
-      setlistHoaDon(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   // Giá trị sắp xếp
   const SORT = {
     up: "2",
@@ -51,14 +44,14 @@ export default function QuanLyHoaDon() {
     }
   };
 
-  const [searchName, setSearchName] = useState("");
+  const [searchSDT, setsearchSDT] = useState("");
   // Tìm kiếm
-  const findName = function (list: HoaDonType[]) {
+  const findSDT = function (list: HoaDonType[]) {
     let res: HoaDonType[] = [...list];
-    if (searchName) {
+    if (searchSDT) {
       res = res.filter((el) =>
-        el.name.toLowerCase().includes(searchName.toLowerCase())
-      );
+      el.id.toLowerCase().includes(searchSDT.toLowerCase()),
+    );
     }
     if (sortId !== SORT.down) {
       res.sort((a, b) => (parseInt(a.id) > parseInt(b.id) ? 1 : -1));
@@ -70,20 +63,22 @@ export default function QuanLyHoaDon() {
   // get ccurrent Page
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = listHoaDon.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = findSDT(listHoaDon
+	);
   // function paginate
   const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
 
   // Render map data
-  const getlistHoaDon = findName(currentPosts).map((item, index) => {
+  const getlistHoaDon = findSDT(currentPosts.slice(indexOfFirstPost, indexOfLastPost)).map((item, index) => {
     return (
       <tr key={index}>
         <td className="border border-slate-400 text-center">{item.id}</td>
-        <td className="border border-slate-400">{item.name}</td>
-        <td className="border border-slate-400">{item.totalprice}</td>
-        <td className="border border-slate-400">{item.phonenumber}</td>
-        <td className="border border-slate-400">{item.date}</td>
-        <td className="border border-slate-400">{item.address}</td>
+        <td className="border border-slate-400 text-center">{item.billInfo.id}</td>
+        <td className="border border-slate-400">{item.billInfo.customerName}</td>
+        <td className="border border-slate-400">{item.billInfo.customerPhoneNumber}</td>
+        <td className="border border-slate-400">{item.billInfo.totalPrice}</td>
+        <td className="border border-slate-400">{item.billInfo.date}</td>
+        <td className="border border-slate-400">{item.billInfo.cutomerAddress}</td>
         <td className="border border-slate-400  w-[170px] text-center">
           <Link to={`/Admin/UpdateHoaDon/${item.id}`}>
             <button type="button" className="btn btn-info">
@@ -95,6 +90,13 @@ export default function QuanLyHoaDon() {
           <Link to={`/Admin/DeleteHoaDon/${item.id}`}>
             <button type="button" className="btn btn-warning">
               Delete
+            </button>
+          </Link>
+        </td>
+        <td className="border border-slate-400 w-[170px] text-center">
+          <Link to={`/Admin/ChiTietHoaDon/${item.id}`}>
+            <button type="button" className="btn btn-warning">
+              Chi tiết
             </button>
           </Link>
         </td>
@@ -111,8 +113,8 @@ export default function QuanLyHoaDon() {
           Thêm mới hóa đơn
         </button>
       </Link>
-      <div className="flex flex-row justify-start items-center px-[20px] mb-[20px]">
-        <label className="mr-[30px] w-32">Tên tìm kiếm</label>
+      {/* <div className="flex flex-row justify-start items-center px-[20px] mb-[20px]">
+        <label className="mr-[30px] w-32">Số DT tìm kiếm</label>
         <div className="input-group mb-3">
           <span className="input-group-text" id="basic-addon1">
             <i className="fa-solid fa-magnifying-glass"></i>
@@ -121,28 +123,30 @@ export default function QuanLyHoaDon() {
             type="text"
             name=""
             id=""
-            placeholder="Tên cần tìm"
-            value={searchName}
-            onChange={(e) => setSearchName(e.target.value)}
+            placeholder="Số ĐT cần tìm"
+            value={searchSDT}
+            onChange={(e) => setsearchSDT(e.target.value)}
             className="p-[15px] border outline-none form-control"
           />
         </div>
-      </div>
+      </div> */}
       <table className="table table-hover leading-[40px]">
         <thead>
           <tr className="text-center">
             <th className="border border-slate-400">
               <button className="btn btn-outline-success" onClick={handleSort}>
-                Mã ID {getSortAge()}
+                STT {getSortAge()}
               </button>
             </th>
-            <th className="border border-slate-400">Tên Hóa Đơn</th>
-            <th className="border border-slate-400">Tổng tiền</th>
+            <th className="border border-slate-400">ID Hoa Don</th>
+            <th className="border border-slate-400">Khách hàng</th>
             <th className="border border-slate-400">Số điện thoại</th>
+            <th className="border border-slate-400">Tổng tiền</th>
             <th className="border border-slate-400">Ngày đặt hàng</th>
             <th className="border border-slate-400">Địa chỉ</th>
             <th className="border border-slate-400">Sửa</th>
             <th className="border border-slate-400">Xóa</th>
+            <th className="border border-slate-400">Chi tiết</th>
           </tr>
         </thead>
         <tbody className="font-Roboto font-[500px]">{getlistHoaDon}</tbody>

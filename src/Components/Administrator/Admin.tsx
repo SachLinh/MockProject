@@ -19,13 +19,14 @@ import AddNewLoaiSP from "./HangSX/AddNewLoaiSP";
 import UpdateLoaiSP from "./HangSX/UpdateLoaiSP";
 import DeleteLoaiSP from "./HangSX/DeleteLoaiSP";
 import ChiTietSanPham from "./DanhSachSP/ChiTietSanPham";
+import ChiTietHoaDon from "./QuanLyHoaDon/ChiTietHoaDon";
 
 export default function Admin() {
   return (
     <div className="mt-[30px] w-full flex flex-col justify-center items-center">
-      <div className="2xl:w-[1200px]  xl:w-[1100px] lg:w-[950px] md:w-[750px] sm:w-[600px] w-[350px] flex flex-row justify-between items-start">
+      <div className="w-[1500px] flex flex-row justify-between items-start">
         <NavbarAdmin />
-        <div className="w-[78%] rounded-xl shadow-[0_0px_14px_1px_#80bfff] ">
+        <div className="w-[80%] rounded-xl shadow-[0_0px_14px_1px_#80bfff] ">
           {/* <QuanLyDanhMuc /> */}
           {Outlet}
           <Routes>
@@ -43,11 +44,7 @@ export default function Admin() {
             <Route path="/QuanLySanPham/Detail/:idSanPham" element={<ChiTietSanPham />}></Route>
             {/* Hoa Don */}
             <Route path="/QuanLyHoaDon" element={<QuanLyHoaDon />}></Route>
-
-
-            {/* user */}
-            <Route path="/QuanLyUser" element={<ManageUser />}></Route>
-
+            <Route path="/ChiTietHoaDon/:idhoadon" element={<ChiTietHoaDon />}></Route>
             <Route path="/UpdateHoaDon/:idhoaDon" element={<UpdateHoaDon />}></Route>
             <Route path="/DeleteHoaDon/:idhoaDon" element={<DeleteHoaDon />}></Route>
             <Route path="/AddHoaDon" element={<AddHoaDon />}></Route>

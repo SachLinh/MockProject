@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { HoaDonType } from './HoaDonType';
+import { HoaDonType } from "../../../TypeState/HoaDonType";
 
 export default function DeleteHoaDon() {
   const params = useParams();
@@ -55,8 +55,8 @@ export default function DeleteHoaDon() {
           <input
             type="text"
             name="name"
-            placeholder={hoaDon?.name}
-            value={hoaDon?.name}
+            // placeholder={hoaDon?.name}
+            // value={hoaDon?.name}
             className="border p-[10px] mr-[20px] outline-none"
           />
           <button

@@ -1,12 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { listLoaiSpType } from "./listLoaiSpType";
+import { DanhMucType } from "../../../TypeState/DanhMucType";
 
 
 export default function UpdateLoaiSP() {
     const params = useParams();
-    const [editLoaiSP, setEditLoaiSP] = useState<listLoaiSpType>();
+    const [editLoaiSP, setEditLoaiSP] = useState<DanhMucType>();
     const navigate = useNavigate();
     const getDanhMuc = async () => {
         try {
