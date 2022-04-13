@@ -32,16 +32,10 @@ function PaymentInfo() {
     const onSubmit: SubmitHandler<Inputs> = data => {
         const uid = userInfo ? userInfo.uid : "null";
         const d = new Date();
-        const productList: CartProduct[] = [];
+        const productList:any[] = [];
         listProduct.map(value => {
-            const product: CartProduct = {
+            const product:any = {
                 id: value.id,
-                image: value.image,
-                name: value.name,
-                price: value.price,
-                oldPrice: value.oldPrice,
-                promotion: value.promotion,
-                endow: value.endow,
                 count: value.count
             }
             productList.push(product);

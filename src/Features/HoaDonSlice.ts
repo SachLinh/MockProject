@@ -28,7 +28,7 @@ export const getChiTietHoaDon= createAsyncThunk('/AllChiTietHD',
 
   export const AllHoaDon = createSlice(
     {
-        name:"Loai",
+        name:"Hoadon",
         initialState,
         reducers:{
 

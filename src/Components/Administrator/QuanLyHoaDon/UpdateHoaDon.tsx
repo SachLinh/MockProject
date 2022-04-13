@@ -4,29 +4,32 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { HoaDonType } from "../../../TypeState/HoaDonType";
-import { BillInfo } from "../../../TypeState/HoaDonType";
-
-const initState = {
-    id: "",
-    customerName: "",
-    customerPhoneNumber: "",
-    cutomerAddress: "",
-    date: "",
-    totalPrice:"",
-};
 
 export default function UpdateHoaDon() {
   const [hoaDon, sethoaDon] = useState<HoaDonType>();
   const navigate = useNavigate();
   const params = useParams();
-
+  const [data, setData] = useState<any>({});
   const gethoaDon = async () => {
     try {
       const res = await axios.get(
         `https://6232e62e6de3467dbac2a7d6.mockapi.io/HoaDon/${params.idhoaDon}`
       );
       sethoaDon(res.data);
-      console.log(hoaDon);
+      const initState = {
+        id:res.data.id,
+        billInfo:{
+        id: res.data.billInfo?.id,
+        customerName: "",
+        customerPhoneNumber: "",
+        cutomerAddress: "",
+        date: res.data.billInfo?.date,
+        totalPrice: res.data.billInfo?.totalPrice,
+        uid: res.data.billInfo?.uid,
+        productLists:res.data.billInfo?.productLists
+        }
+      };
+      setData(initState);
     } catch (error) {
       console.log(error);
     }
@@ -35,27 +38,36 @@ export default function UpdateHoaDon() {
   useEffect(() => {
     gethoaDon();
   }, []);
-  const [data, setData] = useState(initState);
-  const {
-    id,
-    customerName,
-    customerPhoneNumber,
-    cutomerAddress,
-    date,
-    totalPrice,
+  
+  const {billInfo
   } = data;
+
   const onChangeText = (e: any) => {
+    // const bill = {
+    //   id: e.data.billInfo?.id,
+    //     customerName: "",
+    //     customerPhoneNumber: "",
+    //     cutomerAddes: "",
+    //     date: e.data.billInfo?.date,
+    //     totalPrice: e.data.billInfo?.totalPrice,
+    //     uid: e.data.billInfo?.uid,
+    //     productLists:e.data.billInfo?.productLists
+    // }
     setData({
       ...data,
       [e.target.name]: e.target.value,
-    });
+    })
   };
-
+  console.log('data', data);
+  
   const onSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      if (data.id === "" || data.customerName === "" || data.customerPhoneNumber === "" || data.cutomerAddress === "" ||
-      data.date === "" ) {
+      if (
+        data.customerName === "" ||
+        data.customerPhoneNumber === "" ||
+        data.cutomerAddress === ""
+      ) {
         alert("Vui lòng nhập thay đổi");
       } else {
         const res = await axios.put(
@@ -63,18 +75,8 @@ export default function UpdateHoaDon() {
           data
         );
         sethoaDon(res.data);
-        setData({
-          id: "",
-          customerName: "",
-          customerPhoneNumber: "",
-          cutomerAddress: "",
-          date: "",
-          totalPrice:"",
-        });
         alert("Thay đổi thành công");
-        navigate(
-          `/Admin/QuanLyHoaDon`
-        );
+        navigate(`/Admin/QuanLyHoaDon`);
       }
     } catch (error) {
       console.log(error);
@@ -95,8 +97,8 @@ export default function UpdateHoaDon() {
               <input
                 type="text"
                 name="id"
-               placeholder={hoaDon?.billInfo.id}
-                value={hoaDon?.billInfo.id}
+                placeholder={hoaDon?.billInfo.id}
+                value={hoaDon?.billInfo?.id}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -110,8 +112,8 @@ export default function UpdateHoaDon() {
               <input
                 type="text"
                 name="customerName"
-               placeholder={hoaDon?.billInfo.customerName}
-                value={customerName}
+                placeholder={hoaDon?.billInfo.customerName}
+                //value={billi}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -125,38 +127,8 @@ export default function UpdateHoaDon() {
               <input
                 type="text"
                 name="customerPhoneNumber"
-                value={customerPhoneNumber}
-               placeholder={hoaDon?.billInfo.customerPhoneNumber}
-                className="border p-[10px] mr-[20px] outline-none w-full"
-                onChange={onChangeText}
-              />
-            </td>
-          </tr>
-          <tr>
-            <th className="border border-slate-300">
-              <label htmlFor="">Tổng tiền</label>
-            </th>
-            <td className="w-5/6 border border-slate-300">
-              <input
-                type="text"
-                name="totalPrice"
-                value={totalPrice}
-               placeholder={hoaDon?.billInfo.totalPrice}
-                className="border p-[10px] mr-[20px] outline-none w-full"
-                onChange={onChangeText}
-              />
-            </td>
-          </tr>
-          <tr>
-            <th className="border border-slate-300">
-              <label htmlFor="">Ngày giao hàng</label>
-            </th>
-            <td className="w-5/6 border border-slate-300">
-              <input
-                type="text"
-                name="date"
-                value={date}
-               placeholder={hoaDon?.billInfo.date}
+                //value={customerPhoneNumber}
+                placeholder={hoaDon?.billInfo.customerPhoneNumber}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -170,28 +142,13 @@ export default function UpdateHoaDon() {
               <input
                 type="text"
                 name="cutomerAddress"
-                value={cutomerAddress}
-               placeholder={hoaDon?.billInfo.cutomerAddress}
+                //value={cutomerAddress}
+                placeholder={hoaDon?.billInfo.cutomerAddress}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
             </td>
           </tr>
-          {/* <tr>
-            <th className="border border-slate-300">
-              <label htmlFor="">ID</label>
-            </th>
-            <td className="w-5/6 border border-slate-300">
-              <input
-                type="text"
-                name="id"
-                placeholder={hoaDon?.id}
-                value={id}
-                className="border p-[10px] mr-[20px] outline-none w-full"
-                onChange={onChangeText}
-              />
-            </td>
-          </tr> */}
         </table>
         <button
           type="button"

@@ -182,7 +182,7 @@ export default function ListSanPham() {
 					/>
 				</div>
 			</div>
-			<div className='w-full flex flex-row justify-between items-center'>
+			<div className='w-full flex flex-row justify-between items-center p-[20px]'>
 				<button
 					type='button'
 					className='btn btn-primary btn-sm text-[#fc3737] rounded-xl'

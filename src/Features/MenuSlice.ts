@@ -80,7 +80,7 @@ export const AddNewLoai = createAsyncThunk(
 );
 
 export const AllDanhMucSlice = createSlice({
-  name: "Loai",
+  name: "SanPham",
   initialState,
   reducers: {},
   extraReducers: (builder) => {

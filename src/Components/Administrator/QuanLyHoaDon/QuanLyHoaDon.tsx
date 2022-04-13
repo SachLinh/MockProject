@@ -108,28 +108,11 @@ export default function QuanLyHoaDon() {
       <h1 className="text-[#f73d3d] text-[40px] w-full text-center bg-[#e2e2e2] p-[15px] rounded-xl">
         QUẢN LÝ HÓA ĐƠN
       </h1>
-      <Link to="/Admin/AddHoaDon">
+      {/* <Link to="/Admin/AddHoaDon">
         <button className="btn btn-outline-success mx-[20px] my-4">
           Thêm mới hóa đơn
         </button>
-      </Link>
-      {/* <div className="flex flex-row justify-start items-center px-[20px] mb-[20px]">
-        <label className="mr-[30px] w-32">Số DT tìm kiếm</label>
-        <div className="input-group mb-3">
-          <span className="input-group-text" id="basic-addon1">
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </span>
-          <input
-            type="text"
-            name=""
-            id=""
-            placeholder="Số ĐT cần tìm"
-            value={searchSDT}
-            onChange={(e) => setsearchSDT(e.target.value)}
-            className="p-[15px] border outline-none form-control"
-          />
-        </div>
-      </div> */}
+      </Link> */}
       <table className="table table-hover leading-[40px]">
         <thead>
           <tr className="text-center">
