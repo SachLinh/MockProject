@@ -17,7 +17,17 @@ function Payment() {
     }, [])
 
     const postBill = () => {
-        axios.post('https://6232e62e6de3467dbac2a7d6.mockapi.io/HoaDon', { billInfo })
+        axios.post('https://6232e62e6de3467dbac2a7d6.mockapi.io/HoaDon', { 
+            subId: billInfo.id,
+            customerName: billInfo.customerName,
+            customerPhoneNumber: billInfo.customerPhoneNumber,
+            customerEmail: billInfo.customerEmail,
+            cutomerAddress: billInfo.cutomerAddress,
+            date: billInfo.date,
+            totalPrice: billInfo.totalPrice,
+            uid: billInfo.uid,
+            productList: billInfo.productLists,
+         })
             .then(res => {
                 console.log(res);
             })
