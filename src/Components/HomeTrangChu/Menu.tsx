@@ -89,35 +89,35 @@ export default function Menu() {
           >
             <SwiperSlide>
               <img
-                src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/A53.png"
+                src={require(`./Images/Slide1.png`)}
                 alt=""
                 className="w-full h-full lg:rounded-t-2xl rounded-2xl"
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/mI_12.png"
+               src={require(`./Images/slide2.png`)}
                 alt=""
                 className="w-full h-full lg:rounded-t-2xl rounded-2xl"
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/reno7.png"
+               src={require(`./Images/slide3.png`)}
                 alt=""
                 className="w-full h-full lg:rounded-t-2xl rounded-2xl"
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/ASUS-690x300_T3300_222.jpg"
+                src={require(`./Images/slide4.png`)}
                 alt=""
                 className="w-full h-full lg:rounded-t-2xl rounded-2xl"
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/ipad_10.2_home.png"
+                src={require(`./Images/slide5.png`)}
                 alt=""
                 className="w-full h-full lg:rounded-t-2xl rounded-2xl"
               />
