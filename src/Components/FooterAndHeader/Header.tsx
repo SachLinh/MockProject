@@ -8,12 +8,11 @@ import FindProduct from "../HomeTrangChu/FindProduct";
 export default function Header() {
   let [open, setOpen] = useState(false);
   const isSignedIn = useRecoilValue<boolean>(isSignedInState);
-
-  const [search, setSearch] = useState<string>("");  
+  const [search, setSearch] = useState<string>("");
   const navigate = useNavigate();
-  const find = (search:string) => { 
-	navigate(`/DanhMucSPByName/${search}`)
-	setSearch('')
+  const find = (search: string) => {
+    navigate(`/DanhMucSPByName/${search}`);
+    setSearch("");
   };
   return (
     <nav className="w-full bg-[#d70018] fixed flex flex-col lg:justify-center justify-start items-center z-50">
@@ -23,49 +22,27 @@ export default function Header() {
       >
         <div
           className="flex lg:flex-row flex-col justify-start lg:justify-between lg:items-center items-start
-				 sm:py-3 lg:py-[0px]  text-white w-full text-[12px]"
+				 sm:py-[6px] md:py-[3px] py-[3px] lg:py-[4px]  text-white w-full text-[12px]"
         >
-          <h2 className="lg:w-[15%] sm:w-[30%] w-[40%] lg:mt-[0px]  
-          lg:mb-[0px] sm:text-[16px] xl:text-[18px] text-[16px] py-[10px] sm:py-[3px] xl:py-[0px] font-extrabold text-[rgb(255,255,255)]">
-            
-            <Link to=""> G1-UlTr Phone</Link>
-          </h2>
-          <div
-            onClick={() => {
-              setOpen(!open);
-            }}
-            className=" sm:text-2xl text-xl cursor-pointer absolute sm:top-[9px] md:top-[8px] top-[6px] right-4 lg:hidden"
-          >
-            <i className={open ? "fa-solid fa-xmark" : "fa-solid fa-bars"}></i>
-          </div>
-          <ul
-            className={`lg:w-[85%] absolute  bg-[#d70018] xl:pt-0 h-auto lg:static transition-all duration-500 
->>>>>>> origin/main
-						lg:bg-inherit w-full lg:h-full flex lg:flex-row flex-col justify-starts lg:justify-between lg:items-center items-start 
-            ${open ? "sm:top-[50px] opacity-100 px-2 py-3 top-[32px]" : "top-[-490px]"}`}
-          >
-            <li className="h-full leading-[64px] flex flex-col justify-around items-center
-             md:first:mb-[3px] first:mb-[0px]
-             ">
-              <div className="flex flex-row justify-around items-center bg-[#eb4a4a] rounded-xl">
-                <i className="fa-solid fa-location-dot pl-[5px] text-base"></i>
-                <div className=" h-[40px] w-[100px] flex flex-col justify-center items-center">
-                  <span className="inline-block h-[20px] text-[#fff] leading-[15px]">
-                    Khu vực
-                  </span>
-                  <select className="outline-none text-[#fff] text-[14px] bg-[#eb4a4a] inline-block  rounded-xl">
-                    <option className="bg-[#fff] text-[#000] rounded-xl w-[100px]">
-                      Mien Nam
-                    </option>
-                    <option className=" bg-[#fff] text-[#000] rounded-xl">
-                      Mien Bac
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </li>
-            <li className="xl:w-[400px] lg:w-[250px] w-[300px] h-full leading-[64px] input-group">
-              <span className="input-group-text cursor-pointer" id="basic-addon1" onClick={()=>{find(search)}}>
+
+          <div className="w-full flex flex-row justify-start px-[8px]">
+            <h2
+              className="lg:w-[30%] sm:w-[22%] w-[30%] 
+              lg:mt-[0px]  lg:mb-[0px] 
+              sm:text-[16px] xl:text-[20px] text-[16px] 
+              sm:py-[3px] xl:py-[0px] font-extrabold text-[rgb(255,255,255)] flex flex-col justify-center"
+            >
+              <Link to=""> G1-UlTr Phone</Link>
+            </h2>
+            <div className="xl:w-[400px] lg:w-[330px] md:w-[400px] sm:w-[350px] w-[50%] h-full leading-[64px] input-group">
+              <span
+                className="input-group-text cursor-pointer"
+                id="basic-addon1"
+                onClick={() => {
+                  find(search);
+                }}
+              >
+
                 <i className="fa-solid fa-magnifying-glass"></i>
               </span>
               <input
@@ -79,7 +56,27 @@ export default function Header() {
                   setSearch(e.target.value);
                 }}
               />
-            </li>
+            </div>
+          </div>
+
+          <div
+            onClick={() => {
+              setOpen(!open);
+            }}
+            className=" sm:text-3xl text-xl cursor-pointer absolute sm:top-5px] md:top-[6px] top-[8px] sm:m8-[0px] mr-[8px] right-4 lg:hidden"
+          >
+            <i className={open ? "fa-solid fa-xmark" : "fa-solid fa-bars"}></i>
+          </div>
+
+          <ul
+            className={`lg:w-[85%] absolute  bg-[#d70018] xl:pt-0 h-auto lg:static transition-all duration-500 
+						lg:bg-inherit w-full lg:h-full flex lg:flex-row flex-col justify-starts lg:justify-between lg:items-center items-start 
+            ${
+              open
+                ? "sm:top-[55px] md:top-[50px] opacity-100 px-2 py-3 top-[50px]"
+                : "top-[-490px]"
+            }`}
+          >
             <li className="h-full leading-[64px] flex flex-col justify-around items-center">
               <Link
                 to=""

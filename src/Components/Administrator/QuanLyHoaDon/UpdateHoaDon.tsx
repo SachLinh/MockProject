@@ -3,7 +3,7 @@ import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { HoaDonType } from "./HoaDonType";
+import { HoaDonType } from "../../../TypeState/HoaDonType";
 
 const initState = {
     id: "",
@@ -105,7 +105,7 @@ export default function UpdateHoaDon() {
               <input
                 type="text"
                 name="name"
-                placeholder={hoaDon?.name}
+               // placeholder={hoaDon?.name}
                 value={name}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
@@ -120,7 +120,7 @@ export default function UpdateHoaDon() {
               <input
                 type="text"
                 name="totalprice"
-                placeholder={hoaDon?.totalprice}
+               // placeholder={hoaDon?.totalprice}
                 value={totalprice}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
@@ -136,7 +136,7 @@ export default function UpdateHoaDon() {
                 type="text"
                 name="date"
                 value={date}
-                placeholder={hoaDon?.date}
+               // placeholder={hoaDon?.date}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -151,7 +151,7 @@ export default function UpdateHoaDon() {
                 type="text"
                 name="phonenumber"
                 value={phonenumber}
-                placeholder={hoaDon?.phonenumber}
+               // placeholder={hoaDon?.phonenumber}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -166,7 +166,7 @@ export default function UpdateHoaDon() {
                 type="text"
                 name="address"
                 value={address}
-                placeholder={hoaDon?.address}
+               // placeholder={hoaDon?.address}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />

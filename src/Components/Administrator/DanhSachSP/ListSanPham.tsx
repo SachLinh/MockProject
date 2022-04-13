@@ -4,26 +4,20 @@ import axios from 'axios';
 import React, { Component, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../../App/hooks';
+import { getAllSanPham } from '../../../Features/SanPhamSlice';
 import { SanPhamType } from '../../../TypeState/SanPhamType';
 import PageProd from '../Pagination/PageProd';
 
 export default function ListSanPham() {
+	const dispatch = useAppDispatch()
 	useEffect(() => {
-		getListCata();
+		dispatch(getAllSanPham())
 	}, []);
-	const [listProd, setListProd] = useState<SanPhamType[]>([]);
+	const listSanPham = useAppSelector(state => state.listSanPham)
+	const listProd:SanPhamType[] = listSanPham.listSanPham
 	const [currentPage, setCurrentPage] = useState(1);
 	const [postsPerPage] = useState(5);
-	const getListCata = async () => {
-		try {
-			const resProd = await axios.get(
-				`https://6232e62e6de3467dbac2a7d6.mockapi.io/SanPham`,
-			);
-			setListProd(resProd.data);
-		} catch (error) {
-			console.log(error);
-		}
-	};
 	// Giá trị sắp xếp
 	const SORT = {
 		TangID: '1',
@@ -78,33 +72,29 @@ export default function ListSanPham() {
 							);
 						} else {
 							if (sortId === '6') {
-								res.sort((a, b) => (a.name < b.name ? 1 : -1));
+								res.sort((a, b) => (a.id < b.id ? 1 : -1));
 							} else {
-								if (sortId === '7') {
+								if (sortId === '8') {
 									res.sort((a, b) =>
 										parseInt(a.cost) < parseInt(b.cost) ? 1 : -1,
 									);
 								} else {
-									if (sortId === '8') {
+									if (sortId === '9') {
 										res.sort((a, b) =>
 											parseInt(a.capacity) < parseInt(b.capacity)
 												? 1
 												: -1,
 										);
 									} else {
-										if (sortId === '9') {
+										if (sortId === '10') {
 											res.sort((a, b) =>
 												parseInt(a.LoaiId) < parseInt(b.LoaiId)
 													? 1
 													: -1,
 											);
 										} else {
-											if (sortId === '10') {
-												res.sort((a, b) =>
-													parseInt(a.LoaiId) < parseInt(b.LoaiId)
-														? 1
-														: -1,
-												);
+											if (sortId === '7') {
+												res.sort((a, b) => (a.name < b.name ? 1 : -1));
 											}
 										}
 									}

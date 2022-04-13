@@ -1,62 +1,57 @@
-import React, { useState, useEffect } from 'react';
-import { BsHandIndexThumbFill } from 'react-icons/bs';
+import React from 'react';
 import {
-    atom,
-    DefaultValue,
-    isRecoilValue,
-    selector,
     useRecoilState,
-    useRecoilValue,
     useSetRecoilState
 } from 'recoil';
-import { cartProductState } from '../../Recoil/RecoilState';
+import { cartProductState, totalPriceState } from '../../Recoil/RecoilState';
 import { CartProduct } from '../../TypeState/CartProduct';
-import { SanPhamType } from '../../TypeState/SanPhamType';
-import { totalPriceState } from './Cart';
 
 type Props = {
-    value: SanPhamType,
-    index: number
+    value: CartProduct,
+    index: number,
+    deleteProductInCart: Function
 }
 
-export default function CartItem({ value, index }: Props) {
-    const [productCount, setProductCount] = useState<number>(1);
+export default function CartItem({ value, index, deleteProductInCart }: Props) {
     const setTotalPrice = useSetRecoilState(totalPriceState);
-    const [cartProduct, setCartProduct] = useRecoilState(cartProductState);
-    useEffect(() => {
-        setTotalPrice(prev => productCount * parseInt(value.cost) * 1000000);
-    },[])
+    const [cartProductList, setCartProductList] = useRecoilState<CartProduct[]>(cartProductState);
 
     const increaseProductCount = () => {
-        // const cartProductList = [...cartProduct];
-        // setProductCount(prev => prev+1);
-        // cartProductList.map((value, key) => {
-        //     if(key === index){
-        //         value.count = productCount
-        //     }
-        // })
-        // setCartProduct(cartProductList);
-        setTotalPrice(prev => prev + parseInt(value.cost) * 1000000);
+        const cartProducts = [...cartProductList];
+        cartProducts.map((value, key) => {
+            if(key === index){
+                cartProducts[index] ={...cartProducts[index], count: value.count + 1}
+            }
+        })
+        setCartProductList(cartProducts);
+        setTotalPrice(prev => prev + value.price);
     }
     const decreaseProductCount = () => {
-        if(productCount > 1){
-            // const cartProductList = [...cartProduct];
-            // setProductCount(prev => prev-1);
-            // cartProductList.map((value, key) => {
-            //     if(key === index){
-            //         value.count = productCount
-            //     }
-            // })
-            // setCartProduct(cartProductList);
-            setTotalPrice(prev => prev - parseInt(value.cost) * 1000000);
+        if(value.count > 1){
+            const cartProducts = [...cartProductList];
+            cartProducts.map((value, key) => {
+                if(key === index){
+                    cartProducts[index] ={...cartProducts[index], count: value.count -1}
+                }
+            })
+            setCartProductList(cartProducts);
+            setTotalPrice(prev => prev - value.price);
         }
     }
+    const decreaseTotalPrice = () => {
+        setTotalPrice(prev => prev - value.price * value.count)
+    }
+
+    const formatPrice = (price: number): string => {
+		return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)
+	}
+
 
     return (
         <div className='mt-3 px-2 py-3 grid grid-flow-row grid-cols-3 border border-solid rounded-xl  relative shadow-lg'>
             <div className=''>
                 <img
-                    src={value.avatar}
+                    src={value.image}
                     alt='product in cart'
                 />
             </div>
@@ -64,14 +59,15 @@ export default function CartItem({ value, index }: Props) {
                 <p className='font-bold'>{value.name}</p>
                 <div className='grid grid-flow-row grid-cols-4'>
                     <p className='text-sm text-red-600 font-semibold pt-1'>
-                        {value.cost + " ₫"}
+                        {formatPrice(value.price)}
                     </p>
                     <p className='text-sm text-[#777] line-through font-light pt-1'>
-                        {value.oldCost + " ₫"}
+                        {formatPrice(value.oldPrice)}
+
                     </p>
                     <div className='bg-red-600 w-10/12 p-1 rounded-lg'>
-                        <p className='text-sm text-white font-semibold'>
-                            Giảm 14%
+                        <p className='text-xs text-white font-semibold'>
+                            Giảm {value.promotion} %
                         </p>
                     </div>
                 </div>
@@ -81,7 +77,7 @@ export default function CartItem({ value, index }: Props) {
                         <svg xmlns="http://www.w3.org/2000/svg" onClick={decreaseProductCount} className="h-5 w-5 my-auto cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
                         </svg>
-                        <input className="w-8 text-center" value={productCount} type="text" readOnly={true} />
+                        <input className="w-8 text-center" value={value.count} type="text" readOnly={true} />
                         <svg xmlns="http://www.w3.org/2000/svg" onClick={increaseProductCount} className="h-5 w-5 my-auto cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                         </svg>
@@ -91,12 +87,12 @@ export default function CartItem({ value, index }: Props) {
                     <p className=''>- Chương trình khuyến mại:</p>
                     <ul className='pl-4 text-red-500'>
                         <li className='list-disc text-[15px] text-black'>
-                            Gói dịch vụ ưu tiên cao cấp và phòng chờ hạng thương gia
+                            {value.endow}
                         </li>
                     </ul>
                 </div>
             </div>
-            <div className='absolute h-5 w-5 top-1 right-1'>
+            <div onClick={() => {deleteProductInCart(index); decreaseTotalPrice()}} className='absolute h-5 w-5 top-1 right-1'>
                 <svg
                     xmlns='http://www.w3.org/2000/svg'
                     className='h-5 w-5 text-gray-500 font-bold cursor-pointer'

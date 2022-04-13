@@ -22,6 +22,10 @@ export const cartProductState = atom({
     key: "cartProductList",
 	default : [] as CartProduct[]
 })
+export const totalPriceState = atom({
+	key: "totalPrice",
+	default : 0
+})
 export const billInfoState = atom({
     key: "billInfo",
     default: {} as BillType
