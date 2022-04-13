@@ -12,6 +12,7 @@ function CartEmpty({ }: Props) {
             <h3 className='mt-10 text-xs sm:text-sm xl:text-xl text-[#444]'>Không có sản phẩm nào trong giỏ hàng, vui lòng quay lại</h3>
             <Link to="/">
                 <div className='text-xs sm:text-sm xl:text-md mx-auto mt-10 w-1/3  sm:w-1/4 bg-red-600 rounded-lg cursor-pointer'>
+
                     <p className='text-white py-[10px] hover:underline'>Quay lại trang chủ</p>
                 </div>
             </Link>

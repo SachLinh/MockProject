@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
 	useRecoilState,
+
 } from 'recoil';
 import { cartProductState, totalPriceState } from '../../Recoil/RecoilState';
 import { CartProduct } from '../../TypeState/CartProduct';
@@ -28,7 +29,6 @@ function Cart() {
 	const formatPrice = (price: number): string => {
 		return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)
 	}
-
 	const setProductInCart = () => {
 		let price: number = 0;
 		const cartProduct: CartProduct[] = [];
@@ -93,7 +93,9 @@ function Cart() {
 					<div className='grid grid-flow-row grid-cols-2 pb-2'>
 						<p className='text-md font-bold'>Tổng tiền tạm tính:</p>
 						<p className='text-md text-red-600 font-semibold text-right'>
+
 							{formatPrice(totalPrice)}
+
 						</p>
 					</div>
 					<Link to="/payment-info">

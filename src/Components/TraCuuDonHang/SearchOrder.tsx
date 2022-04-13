@@ -4,8 +4,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BillType, Product } from "../../TypeState/BillType";
 
-
 function SearchOrder() {
+  const [searchOrder, setSearchOrder] = useState<any>();
+  const [checkOrder, setcheckOrder] = useState<any>();
+  const [show, setShow] = useState(false);
 
     const [searchOrder, setSearchOrder] = useState<BillType>();
     const [checkOrder, setcheckOrder] = useState<string>();
@@ -91,6 +93,7 @@ function SearchOrder() {
         </div>
 
     );
+
 }
 
 export default SearchOrder;

@@ -8,11 +8,11 @@ import FindProduct from "../HomeTrangChu/FindProduct";
 export default function Header() {
   let [open, setOpen] = useState(false);
   const isSignedIn = useRecoilValue<boolean>(isSignedInState);
-  const [search, setSearch] = useState<string>("");  
+  const [search, setSearch] = useState<string>("");
   const navigate = useNavigate();
-  const find = (search:string) => { 
-	navigate(`/DanhMucSPByName/${search}`)
-	setSearch('')
+  const find = (search: string) => {
+    navigate(`/DanhMucSPByName/${search}`);
+    setSearch("");
   };
   return (
     <nav className="w-full bg-[#d70018] fixed flex flex-col lg:justify-center justify-start items-center z-50">
@@ -22,49 +22,30 @@ export default function Header() {
       >
         <div
           className="flex lg:flex-row flex-col justify-start lg:justify-between lg:items-center items-start
-				 sm:py-3 lg:py-[0px]  text-white w-full text-[12px]"
+				 sm:py-[6px] md:py-[3px] py-[3px] lg:py-[4px]  text-white w-full text-[12px]"
         >
-          <h2 className="lg:w-[15%] sm:w-[30%] w-[40%] lg:mt-[0px]  lg:mb-[0px] sm:text-[16px] xl:text-[18px] text-[16px] py-[10px] sm:py-[3px] xl:py-[0px] font-extrabold text-[rgb(255,255,255)]">
-            
-            <Link to=""> G1-UlTr Phone</Link>
-          </h2>
-          <div
-            onClick={() => {
-              setOpen(!open);
-            }}
-            className=" sm:text-2xl text-xl cursor-pointer absolute sm:top-[9px] md:top-[8px] top-[6px] right-4 lg:hidden"
-          >
-            <i className={open ? "fa-solid fa-xmark" : "fa-solid fa-bars"}></i>
-          </div>
-          <ul
-            className={`lg:w-[85%] absolute  bg-[#d70018] xl:pt-0 h-auto lg:static transition-all duration-500 
-						lg:bg-inherit w-full lg:h-full flex lg:flex-row flex-col justify-starts lg:justify-between lg:items-center items-start 
-						${open ? "sm:top-[50px] opacity-100 px-2 py-3 top-[32px]" : "top-[-490px]"}`}
-          >
-            <li className="h-full leading-[64px] flex flex-col justify-around items-center">
-              <div className="flex flex-row justify-around items-center bg-[#eb4a4a] rounded-xl">
-                <i className="fa-solid fa-location-dot pl-[5px] text-base"></i>
-                <div className=" h-[40px] w-[100px] flex flex-col justify-center items-center">
-                  <span className="inline-block h-[20px] text-[#fff] leading-[15px]">
-                    Khu vực
-                  </span>
-                  <select className="outline-none text-[#fff] text-[14px] bg-[#eb4a4a] inline-block  rounded-xl">
-                    <option className="bg-[#fff] text-[#000] rounded-xl w-[100px]">
-                      Mien Nam
-                    </option>
-                    <option className=" bg-[#fff] text-[#000] rounded-xl">
-                      Mien Bac
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </li>
-            <li className="w-[400px] h-full leading-[64px] input-group">
-              <span className="input-group-text cursor-pointer" id="basic-addon1" onClick={()=>{find(search)}}>
+          <div className="w-full flex flex-row justify-start px-[8px]">
+            <h2
+              className="lg:w-[30%] sm:w-[22%] w-[30%] 
+              lg:mt-[0px]  lg:mb-[0px] 
+              sm:text-[16px] xl:text-[20px] text-[16px] 
+              sm:py-[3px] xl:py-[0px] font-extrabold text-[rgb(255,255,255)] flex flex-col justify-center"
+            >
+              <Link to=""> G1-UlTr Phone</Link>
+            </h2>
+            <div className="xl:w-[400px] lg:w-[330px] md:w-[400px] sm:w-[350px] w-[50%] h-full leading-[64px] input-group">
+              <span
+                className="input-group-text cursor-pointer"
+                id="basic-addon1"
+                onClick={() => {
+                  find(search);
+                }}
+              >
                 <i className="fa-solid fa-magnifying-glass"></i>
               </span>
               <input
-                className="form-control h-[40px] pl-3 rounded-xl p-[5px] outline-none text-[#020000] text-[14px] xl:w-[300px] w-[200px]"
+                className="form-control h-[40px] pl-3 rounded-xl p-[5px] outline-none
+                 text-[#020000] text-[14px] w-full"
                 placeholder="Bạn cần tìm gì?"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
@@ -73,16 +54,37 @@ export default function Header() {
                   setSearch(e.target.value);
                 }}
               />
-            </li>
+            </div>
+          </div>
+
+          <div
+            onClick={() => {
+              setOpen(!open);
+            }}
+            className=" sm:text-3xl text-xl cursor-pointer absolute sm:top-5px] md:top-[6px] top-[8px] sm:m8-[0px] mr-[8px] right-4 lg:hidden"
+          >
+            <i className={open ? "fa-solid fa-xmark" : "fa-solid fa-bars"}></i>
+          </div>
+
+          <ul
+            className={`lg:w-[85%] absolute  bg-[#d70018] xl:pt-0 h-auto lg:static transition-all duration-500 
+						lg:bg-inherit w-full lg:h-full flex lg:flex-row flex-col justify-starts lg:justify-between lg:items-center items-start 
+            ${
+              open
+                ? "sm:top-[55px] md:top-[50px] opacity-100 px-2 py-3 top-[50px]"
+                : "top-[-490px]"
+            }`}
+          >
             <li className="h-full leading-[64px] flex flex-col justify-around items-center">
               <Link
                 to=""
-                className="flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
+                className="flex flex-row justify-around items-center
+                 text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
               >
-                <i className="fa-solid fa-phone text-[15px] lg:text-[20px] xl:text-[25px] mr-2"></i>
+                <i className="fa-solid fa-phone text-[15px] lg:text-[18px] xl:text-[25px] mr-2"></i>
                 <div className="h-[50px] w-auto flex flex-col justify-start items-start">
-                  <span className="h-[23px] leading-5">Gọi mua hàng</span>
-                  <span className="h-[23px] leading-5">1234.5678</span>
+                  <span className="h-[25px] leading-5">Gọi mua hàng</span>
+                  <span className="h-[25px] leading-5">1234.5678</span>
                 </div>
               </Link>
             </li>
@@ -91,7 +93,7 @@ export default function Header() {
                 to="/CuaHang"
                 className="flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
               >
-                <i className="fa-solid fa-location-dot text-[15px] lg:text-[20px] xl:text-[25px] mr-2"></i>
+                <i className="fa-solid fa-location-dot text-[15px] lg:text-[18px] xl:text-[25px] mr-2"></i>
                 <div className="h-[50px] w-auto flex flex-col justify-start items-start">
                   <span className="h-[25px] leading-6">Cửa hàng</span>
                   <span className="h-[25px] leading-6">gần bạn</span>
@@ -103,7 +105,7 @@ export default function Header() {
                 to="/SearchOrder"
                 className="flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
               >
-                <i className="fa-solid fa-truck text-[15px] lg:text-[20px] xl:text-[25px] mr-2"></i>
+                <i className="fa-solid fa-truck text-[15px] lg:text-[18px] xl:text-[25px] mr-2"></i>
                 <div className="h-[50px] w-auto flex flex-col justify-start items-start">
                   <span className="h-[25px] leading-6">Tra cứu</span>
                   <span className="h-[25px] leading-6">đơn hàng</span>
@@ -115,7 +117,7 @@ export default function Header() {
                 to="/cart"
                 className="flex flex-row justify-around items-center text-white hover:bg-[#eb4a4a] px-1 rounded-xl"
               >
-                <i className="fa-solid fa-bag-shopping text-[15px] lg:text-[20px] xl:text-[25px] mr-2"></i>
+                <i className="fa-solid fa-bag-shopping text-[15px] lg:text-[18px] xl:text-[25px] mr-2"></i>
                 <div className="h-[50px] w-auto flex flex-col justify-start items-start">
                   <span className="h-[50px] leading-[50px]">Giỏ hàng</span>
                 </div>

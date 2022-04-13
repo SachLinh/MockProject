@@ -75,7 +75,9 @@ export default function Menu() {
             {showListCata}
           </ul>
         </div>
-        <div className="sm:mt-[0px] z-10 mt-[40px] rounded-2xl shadow-[#9e9c9c] w-full sm:w-[56%] h-full lg:w-[68%] shadow-[0_0px_5px_2px_#9b9a9a]">
+        <div className="sm:mt-[0px] z-10 mt-[40px] rounded-2xl shadow-[#9e9c9c] 
+        w-[98%%] sm:w-[56%] h-full lg:w-[68%] 
+        shadow-[0_0px_5px_2px_#9b9a9a] sm:mx-[0px] mx-[10px]">
           <Swiper
             className="w-full h-full lg:h-[304px]"
             loop={true}

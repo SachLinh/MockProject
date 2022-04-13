@@ -41,9 +41,11 @@ export default function CartItem({ value, index, deleteProductInCart }: Props) {
     const decreaseTotalPrice = () => {
         setTotalPrice(prev => prev - value.price * value.count)
     }
+
     const formatPrice = (price: number): string => {
 		return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)
 	}
+
 
     return (
         <div className='mt-3 px-2 py-3 grid grid-flow-row grid-cols-3 border border-solid rounded-xl  relative shadow-lg'>
@@ -61,6 +63,7 @@ export default function CartItem({ value, index, deleteProductInCart }: Props) {
                     </p>
                     <p className='text-sm text-[#777] line-through font-light pt-1'>
                         {formatPrice(value.oldPrice)}
+
                     </p>
                     <div className='bg-red-600 w-10/12 p-1 rounded-lg'>
                         <p className='text-xs text-white font-semibold'>
