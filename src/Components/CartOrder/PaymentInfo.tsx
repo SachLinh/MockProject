@@ -5,10 +5,9 @@ import {
     useSetRecoilState
 } from 'recoil';
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BillType } from '../../TypeState/BillType';
 import { billInfoState, userInfoState, cartProductState, totalPriceState } from '../../Recoil/RecoilState';
-import { CartProduct } from '../../TypeState/CartProduct';
 
 type Inputs = {
     name: string,
