@@ -86,7 +86,7 @@ function SearchOrder() {
                     <label
                         className="mt-[30px] px-[10px] font-bold">
                         Số điện thoại: </label>
-                    <input placeholder="(Không bắt buộc)"
+                    <input placeholder="(Bắt buộc)"
                         value={phoneNumber}
                         onChange={setPhone}
                         className="w-[225px] h-[40px] border-[#dedede] rounded border-solid border mt-[25px] p-[8px] text-center leading-[18px]"
@@ -107,12 +107,12 @@ function SearchOrder() {
             {show && <div className="px-2 border border-solid">
                 <div className="text-lg text-black font-bold grid grid-flow-row grid-cols-1 gap-y-3 border border-solid rounded-xl mx-1 my-3 px-3 pb-5 ">
                     <h2 className="text-center font-bold">Tình trạng đơn hàng</h2>
-                    <p>Mã Đơn Hàng : {searchBill?.subId}</p>
-                    <p>Người Nhận : {searchBill?.customerName}</p>
-                    <p>Số Điện Thoại : {searchBill?.customerPhoneNumber}</p>
-                    <p>Ngày Đặt : {searchBill?.date}</p>
-                    <p>Nhận Sản Phẩm Tại : {searchBill?.cutomerAddress}</p>
-                    <p>Tổng Tiền : {formatPrice(parseInt(searchBill?.totalPrice + ""))}</p>
+                    <p>Mã Đơn Hàng : <span className="text-[#fc3939] text-[20px]">{searchBill?.subId}</span> </p>
+                    <p>Người Nhận : <span className="text-[#fc3939] text-[20px]">{searchBill?.customerName}</span></p>
+                    <p>Số Điện Thoại : <span className="text-[#fc3939] text-[20px]">{searchBill?.customerPhoneNumber}</span></p>
+                    <p>Ngày Đặt : <span className="text-[#fc3939] text-[20px]">{searchBill?.date}</span> </p>
+                    <p>Nhận Sản Phẩm Tại : <span className="text-[#fc3939] text-[20px]"> {searchBill?.cutomerAddress}</span></p>
+                    <p>Tổng Tiền : <span className="text-[#fc3939] text-[20px]"> {formatPrice(parseInt(searchBill?.totalPrice + ""))}</span></p>
                 </div>
             </div>}
         </div>

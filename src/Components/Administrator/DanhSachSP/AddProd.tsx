@@ -122,38 +122,6 @@ data.img2 === "" || data.img3 === "" || data.img4 === "" || data.img5 === "" || 
 
        else {
         dispatch(AddNewSP({data}))
-        setData({
-          id: "",
-          name: "",
-          avatar: "",
-          cost: "",
-          capacity: "",
-          description: "",
-          color: "",
-          promotion: "",
-          oldCost: "",
-          endow: "",
-          kichThuoc: "",
-          doPhangiai: "",
-          congNghemanhinh: "",
-          chatLieu: "",
-          thoiLuongpin: "",
-          thoiGiansac: "",
-          loaiCpu: "",
-          tinhNangnoibat: "",
-          cameraSau: "",
-          cameraTruoc: "",
-          RAM: "",
-          ROM: "",
-          SIM: "",
-          heDieuHanh: "",
-          img1: "",
-          img2: "",
-          img3: "",
-          img4: "",
-          img5: "",
-          LoaiId: "",
-        });
         alert("Thêm mới thành công");
         navigate(`/Admin/QuanLySanPham`);
       }
