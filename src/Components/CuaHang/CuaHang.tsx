@@ -147,125 +147,34 @@ export default function CuaHang() {
       </div>
       <div
         className="m-auto mt-[10px] w-[400px] 
-        2xl:w-[1500px] 
+        2xl:w-[1300px] 
         xl:w-[1200px] 
         lg:w-[1000px]
         md:w-[700px]
         sm:w-[600px] "
       >
         <div className="box_diaChi w-full border-2 rounded-lg p-[10px]">
-          <h2 className="font-bold">Hệ thống cửa hàng bán lẻ ULTRPHONES</h2>
-          <p className="text-[13px]">
-            Giờ mở cửa: 8h-22h(Áp dụng tùy của hàng)
+          <h2 className="font-bold lg:text-[25px] md:text-[20px] sm:text-[15px]">Cửa hàng bán lẻ ULTRPHONES</h2>
+          <p className="text-[13px] lg:text-[20px] md:text-[17px] mt-[5px]">
+            Giờ mở cửa: 8h-22h
           </p>
-          <div className="box_CuaHangSearch bg-slate-100 lg:w-1/2 w-full h-[100px] border-2 rounded-lg ">
-            <div className="select_box flex flex-row justify-around p-[10px]">
-              <select className="khuVuc border-[1px] border-black rounded-sm w-1/3 m-[10px]">
-                <option>Tất cả khu vực</option>
-                <option>Miền Nam</option>
-                <option>Miền Bắc</option>
-              </select>
-              <select className="Tinh border-[1px] border-black rounded-sm w-1/3 m-[10px]">
-                <option>Chọn tỉnh thành</option>
-                <option>Miền Nam</option>
-                <option>Miền Bắc</option>
-              </select>
-              <select className="quan border-[1px] border-black rounded-sm w-1/3 m-[10px]">
-                <option>Chọn quận</option>
-                <option>Miền Nam</option>
-                <option>Miền Bắc</option>
-              </select>
-            </div>
-            <div className="m-auto">
-              <input
-                className="w-5/6 m-auto border-[1px] border-black rounded-sm "
-                placeholder="Nhập tên đường, quận, huyện"
-              ></input>
-            </div>
+          <div className="flex flex-col lg:flex-row lg:mt-[10px] lg:justify-around">    
+          <div className="lg:w-[500px] w-full ">
+          <p className="text-red-600">Địa chỉ: <strong>322 Mỹ Đình, Mỹ Đình 1, Nam Từ Liêm, Hà Nội</strong></p>
+            <img src="https://cdn.sforum.vn/sforum/wp-content/uploads/2019/04/khai-truong-cellphones-quang-trung-hoc-mon-4.jpeg"
+            className="" alt=""/>
+            
+          </div>
+          <div className="lg:w-1/2 mt-[20px] lg:mt-[0px] w-full ">
+          <p className="text-red-600"><strong>Bản đồ</strong></p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.235563796158!2d105.77199741478445!3d21.023258493342272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454aef64d38a5%3A0x146dc6bfe48ea3cf!2zMzIyIMSQLiBN4bu5IMSQw6xuaCwgTeG7uSDEkMOsbmgsIFThu6sgTGnDqm0sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1649858380193!5m2!1svi!2s"
+               style={{border:"0"}} allowFullScreen loading="lazy" referrerPolicy="" className="lg:w-[500px] lg:h-[375px] w-full h-full lg:pl-[70px]">
+                </iframe>
+          </div>
+          
           </div>
         </div>
-      </div>
-      <div
-        className="m-auto mt-[10px] w-[400px] 
-        2xl:w-[1500px] 
-        xl:w-[1200px] 
-        lg:w-[1000px]
-        md:w-[700px]
-        sm:w-[600px] "
-      >
-        <div className="box_diaChi w-full border-2 rounded-lg p-[10px]">
-          <h2 className="font-bold">Hệ thống cửa hàng bán lẻ ULTRPHONES</h2>
-          <p className="text-[13px]">
-            Giờ mở cửa: 8h-22h(Áp dụng tùy của hàng)
-          </p>
-          <div className="box_CuaHangSearch bg-slate-100 lg:w-1/2 w-full h-[100px] border-2 rounded-lg ">
-            <div className="select_box flex flex-row justify-around p-[10px]">
-              <select className="khuVuc border-[1px] border-black rounded-sm w-1/3 m-[10px]">
-                <option>Tất cả khu vực</option>
-                <option>Miền Nam</option>
-                <option>Miền Bắc</option>
-              </select>
-              <select className="Tinh border-[1px] border-black rounded-sm w-1/3 m-[10px]">
-                <option>Chọn tỉnh thành</option>
-                <option>Miền Nam</option>
-                <option>Miền Bắc</option>
-              </select>
-              <select className="quan border-[1px] border-black rounded-sm w-1/3 m-[10px]">
-                <option>Chọn quận</option>
-                <option>Miền Nam</option>
-                <option>Miền Bắc</option>
-              </select>
-            </div>
-            <div className="m-auto">
-              <input
-                className="w-5/6 m-auto border-[1px] border-black rounded-sm "
-                placeholder="Nhập tên đường, quận, huyện"
-              ></input>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className="m-auto mt-[10px] w-[400px] 
-        2xl:w-[1500px] 
-        xl:w-[1200px] 
-        lg:w-[1000px]
-        md:w-[700px]
-        sm:w-[600px] "
-      >
-        <div className="box_diaChi w-full border-2 rounded-lg p-[10px]">
-          <h2 className="font-bold">Hệ thống cửa hàng bán lẻ ULTRPHONES</h2>
-          <p className="text-[13px]">
-            Giờ mở cửa: 8h-22h(Áp dụng tùy của hàng)
-          </p>
-          <div className="box_CuaHangSearch bg-slate-100 lg:w-1/2 w-full h-[100px] border-2 rounded-lg ">
-            <div className="select_box flex flex-row justify-around p-[10px]">
-              <select className="khuVuc border-[1px] border-black rounded-sm w-1/3 m-[10px]">
-                <option>Tất cả khu vực</option>
-                <option>Miền Nam</option>
-                <option>Miền Bắc</option>
-              </select>
-              <select className="Tinh border-[1px] border-black rounded-sm w-1/3 m-[10px]">
-                <option>Chọn tỉnh thành</option>
-                <option>Miền Nam</option>
-                <option>Miền Bắc</option>
-              </select>
-              <select className="quan border-[1px] border-black rounded-sm w-1/3 m-[10px]">
-                <option>Chọn quận</option>
-                <option>Miền Nam</option>
-                <option>Miền Bắc</option>
-              </select>
-            </div>
-            <div className="m-auto">
-              <input
-                className="w-5/6 m-auto border-[1px] border-black rounded-sm "
-                placeholder="Nhập tên đường, quận, huyện"
-              ></input>
-            </div>
-          </div>
-        </div>
-      </div>
-      
+      </div>    
     </div>
     </div>
   );

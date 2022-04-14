@@ -24,6 +24,7 @@ export default function Header() {
           className="flex lg:flex-row flex-col justify-start lg:justify-between lg:items-center items-start
 				 sm:py-[6px] md:py-[3px] py-[3px] lg:py-[4px]  text-white w-full text-[12px]"
         >
+
           <div className="w-full flex flex-row justify-start px-[8px]">
             <h2
               className="lg:w-[30%] sm:w-[22%] w-[30%] 
@@ -41,6 +42,7 @@ export default function Header() {
                   find(search);
                 }}
               >
+
                 <i className="fa-solid fa-magnifying-glass"></i>
               </span>
               <input
