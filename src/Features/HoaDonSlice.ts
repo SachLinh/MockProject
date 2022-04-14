@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 const initialState = {
-    listHoaDon : []
+    listHoaDon : [],
+    hoaDonDetail:null
 }
 export const getAllHoaDon= createAsyncThunk('/AllHoaDon',
     // Declare the type your function argument here:
@@ -50,7 +51,7 @@ export const getChiTietHoaDon= createAsyncThunk('/AllChiTietHD',
                 
             })
             .addCase(getChiTietHoaDon.fulfilled,(state,action)=>{
-                state.listHoaDon = action.payload;
+                state.hoaDonDetail = action.payload;
             })
             .addCase(getChiTietHoaDon.rejected,(state,action)=>{
               

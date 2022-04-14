@@ -1,39 +1,33 @@
-import axios from "axios";
 import React, { Component, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { isTemplateMiddle } from "typescript";
 import { useAppDispatch, useAppSelector } from "../../../App/hooks";
 import { getAllHoaDon, getChiTietHoaDon } from "../../../Features/HoaDonSlice";
-import { HoaDonType } from "../../../TypeState/HoaDonType";
-import PageHoaDon from "./PageHoaDon";
+import { getAllSanPham } from "../../../Features/SanPhamSlice";
+import { SanPhamType } from "../../../TypeState/SanPhamType";
 
 export default function ChiTietHoaDon() {
   const param = useParams();
   const dispatch = useAppDispatch();
-  useEffect(() => {
-    //dispatch(getChiTietHoaDon(param.idhoadon))
-    getHoaDon();
-  }, []);
-  //   const listData = useAppSelector(state => state.listHoaDon)
-  //   const listHoaDon:HoaDonType[] = listData.listHoaDon;
 
-  const [listHoaDon, setListHoaDon] = useState<HoaDonType>();
-  const getHoaDon = async () => {
-    try {
-      const res = await axios.get(
-        `https://6232e62e6de3467dbac2a7d6.mockapi.io/HoaDon/${param.idhoadon}`
-      );
-      setListHoaDon(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  useEffect(() => {
+    dispatch(getChiTietHoaDon(param.idhoadon));
+    dispatch(getAllSanPham());
+  }, []);
+  const listData = useAppSelector((state) => state.listHoaDon);
+  const listHoaDon: any = listData.hoaDonDetail;
+  const listSP = useAppSelector((state) => state.listSanPham);
+  const listSPham: SanPhamType[] = listSP.listSanPham;
 
   return (
     <div className="w-full">
       <h1 className="text-[#f73d3d] text-[40px] w-full text-center bg-[#e2e2e2] p-[15px] rounded-xl">
         CHI TIẾT HÓA ĐƠN
       </h1>
+      <Link to="/Admin/QuanLyHoaDon" className="">
+          <button className="my-[10px] ml-[10px] p-[10px] border-2 btn btn-outline-danger rounded-xl font-Roboto font-[500] text-[20px]">
+            <i className="fa-solid fa-arrow-rotate-left"></i>Trở Lại
+          </button>
+        </Link>
       <div className="p-[20px] w-full">
         <table className="p-[20px] mt-[20px] w-full">
           {/* // id */}
@@ -51,7 +45,7 @@ export default function ChiTietHoaDon() {
               <label htmlFor="">Name</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-              {listHoaDon?.billInfo?.customerName}
+              {listHoaDon?.customerName}
             </td>
           </tr>
           {/* //Phone */}
@@ -60,7 +54,7 @@ export default function ChiTietHoaDon() {
               <label htmlFor="">Phone</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-              {listHoaDon?.billInfo?.customerPhoneNumber}
+              {listHoaDon?.customerPhoneNumber}
             </td>
           </tr>
           {/* // email */}
@@ -69,7 +63,7 @@ export default function ChiTietHoaDon() {
               <label htmlFor="">Email</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-              {listHoaDon?.billInfo.customerEmail}
+              {listHoaDon?.customerEmail}
             </td>
           </tr>
           {/* // Price */}
@@ -78,7 +72,7 @@ export default function ChiTietHoaDon() {
               <label htmlFor="">Price</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-              {listHoaDon?.billInfo?.totalPrice}
+              {listHoaDon?.totalPrice}
             </td>
           </tr>
           {/* // Address */}
@@ -87,7 +81,7 @@ export default function ChiTietHoaDon() {
               <label htmlFor="">Address</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-              {listHoaDon?.billInfo?.cutomerAddress}
+              {listHoaDon?.cutomerAddress}
             </td>
           </tr>
           {/* // san SanPham */}
@@ -106,22 +100,34 @@ export default function ChiTietHoaDon() {
                     <th className="border border-slate-400">count</th>
                   </tr>
                 </thead>
-                {listHoaDon?.billInfo?.productLists.map((item, index) => {
+                {listHoaDon?.productList.map((item: any, index: any) => {
                   return (
                     <tbody>
-                      <tr className="text-center">
-                        <th className="border border-slate-400">{item.id}</th>
-                        <th className="border border-slate-400">{item.name}</th>
-                        <th className="border border-slate-400">
-                          <img src={item.image} alt="" />
-                        </th>
-                        <th className="border border-slate-400">
-                          {item.price}
-                        </th>
-                        <th className="border border-slate-400">
-                          {item.count}
-                        </th>
-                      </tr>
+                      {listSPham.map((itemSP, index) => {
+                        if (item.id === itemSP.id) {
+                          return (
+                            <tr className="text-center">
+                              <td className="border border-slate-400">
+                                {itemSP.id}
+                              </td>
+                              <td className="border border-slate-400">
+                                {itemSP.name}
+                              </td>
+
+                              <td className="border border-slate-400">
+                                <img src={itemSP.avatar} alt="" />
+                              </td>
+                              <td className="border border-slate-400">
+                                {itemSP.cost}
+                              </td>
+
+                              <td className="border border-slate-400">
+                                {item.count}
+                              </td>
+                            </tr>
+                          );
+                        }
+                      })}
                     </tbody>
                   );
                 })}

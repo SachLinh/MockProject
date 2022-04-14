@@ -1,24 +1,19 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../../App/hooks";
+import { detailSP } from "../../../Features/SanPhamSlice";
 import { SanPhamType } from "../../../TypeState/SanPhamType";
 
 export default function ChiTietSanPham() {
   const params = useParams();
-  const [sanPham, setSanPham] = useState<SanPhamType>();
-  const navigate = useNavigate();
-  const getSanPham = async () => {
-    try {
-      const res = await axios.get(
-        `https://6232e62e6de3467dbac2a7d6.mockapi.io/SanPham/${params.idSanPham}`
-      );
-      setSanPham(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const dispatch = useAppDispatch()
+  const data = useAppSelector(state => state.listSanPham)
+  const sanPham:any = data.detailSP
+
+
   useEffect(() => {
-    getSanPham();
+   dispatch(detailSP(params.idSanPham))
   }, []);
 
   return (
@@ -27,8 +22,8 @@ export default function ChiTietSanPham() {
         <h2 className="text-[#f73d3d] text-[40px] w-full text-center bg-[#e2e2e2] p-[15px] rounded-xl">
           Chi tiết Sản phẩm
         </h2>
-        <Link to="/Admin/QuanLySanPham">
-          <button className="my-[10px] ml-[10px] p-[10px] border-2 font-Roboto font-[500] text-[20px]">
+        <Link to="/Admin/QuanLySanPham" className="">
+          <button className="my-[10px] ml-[10px] p-[10px] border-2 btn btn-outline-danger rounded-xl font-Roboto font-[500] text-[20px]">
             <i className="fa-solid fa-arrow-rotate-left"></i>Trở Lại
           </button>
         </Link>
@@ -231,42 +226,42 @@ export default function ChiTietSanPham() {
           </tr>
           <tr>
             <th className="border pl-[10px] border-slate-300">
-              <label htmlFor="">Ảnh 1</label>
+              <label htmlFor="">Anh 1</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-              {sanPham?.img1}
+              <img src={sanPham?.img1} alt="" className="w-[100px]" />
             </td>
           </tr>
           <tr>
             <th className="border pl-[10px] border-slate-300">
-              <label htmlFor="">Ảnh 2</label>
+              <label htmlFor="">Anh 2</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-              {sanPham?.img2}
+              <img src={sanPham?.img2} alt="" className="w-[100px]" />
             </td>
           </tr>
           <tr>
             <th className="border pl-[10px] border-slate-300">
-              <label htmlFor="">Ảnh 3</label>
+              <label htmlFor="">Anh 3</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-              {sanPham?.img3}
+              <img src={sanPham?.img3} alt="" className="w-[100px]" />
             </td>
           </tr>
           <tr>
             <th className="border pl-[10px] border-slate-300">
-              <label htmlFor="">Ảnh 4</label>
+              <label htmlFor="">Anh 4</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-              {sanPham?.img4}
+              <img src={sanPham?.img4} alt="" className="w-[100px]" />
             </td>
           </tr>
           <tr>
             <th className="border pl-[10px] border-slate-300">
-              <label htmlFor="">Ảnh 5</label>
+              <label htmlFor="">Anh 5</label>
             </th>
             <td className="w-5/6 h-[50px] border border-slate-300">
-              {sanPham?.img5}
+              <img src={sanPham?.img5} alt="" className="w-[100px]" />
             </td>
           </tr>
           <tr>

@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { useNavigate, useParams } from 'react-router-dom';
-import { HoaDonType } from "../../../TypeState/HoaDonType";
+import { HoaDonType2 } from '../../../TypeState/HoaDonType2';
 
 export default function DeleteHoaDon() {
   const params = useParams();
-  const [hoaDon, sethoaDon] = useState<HoaDonType>();
+  const [hoaDon, sethoaDon] = useState<HoaDonType2>();
   const navigate = useNavigate();
   const gethoaDon = async ()=>{
     try{
@@ -42,6 +43,11 @@ export default function DeleteHoaDon() {
         <h2 className="text-[#f73d3d] text-[40px] w-full text-center bg-[#e2e2e2] p-[15px] rounded-xl">
           Delete Hóa Đơn
         </h2>
+        <Link to="/Admin/QuanLyHoaDon" className="">
+          <button className="my-[10px] ml-[10px] p-[10px] border-2 btn btn-outline-danger rounded-xl font-Roboto font-[500] text-[20px]">
+            <i className="fa-solid fa-arrow-rotate-left"></i>Trở Lại
+          </button>
+        </Link>
         <form className="flex flex-row justify-between items-center p-[50px]">
           <label htmlFor="">Mã ID</label>
           <input
@@ -55,8 +61,8 @@ export default function DeleteHoaDon() {
           <input
             type="text"
             name="name"
-            placeholder={hoaDon?.billInfo.customerName}
-            value={hoaDon?.billInfo.customerName}
+            placeholder={hoaDon?.customerName}
+            value={hoaDon?.customerName}
             className="border p-[10px] mr-[20px] outline-none"
           />
           <button

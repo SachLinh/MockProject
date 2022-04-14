@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-import { DanhMucType } from "../TypeState/DanhMucType";
 const initialState = {
   listCata: [] as any,
   detaildele: null,
@@ -128,7 +127,7 @@ export const AllDanhMucSlice = createSlice({
       .addCase(updateDanhMucByID.fulfilled, (state, action) => {
         for (let i = 0; i < state.listCata.length; i++) {
           if (state.listCata[i]._id === action.payload.id) {
-            state.listCata.splice(state.listCata[i].id, 1, action.payload);
+            state.listCata.splice(i, 1, action.payload);
           }
         }
       })

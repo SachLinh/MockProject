@@ -3,7 +3,7 @@ import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../App/hooks";
 import { getAllHoaDon } from "../../../Features/HoaDonSlice";
-import { HoaDonType } from "../../../TypeState/HoaDonType";
+import { HoaDonType2 } from "../../../TypeState/HoaDonType2";
 import PageHoaDon from "./PageHoaDon";
 
 
@@ -13,7 +13,7 @@ export default function QuanLyHoaDon() {
     dispatch(getAllHoaDon())
   }, []);
   const listData = useAppSelector(state => state.listHoaDon)
-  const listHoaDon:HoaDonType[] = listData.listHoaDon;
+  const listHoaDon:HoaDonType2[] = listData.listHoaDon;
   
   // page
   const [currentPage, setCurrentPage] = useState(1);
@@ -46,8 +46,8 @@ export default function QuanLyHoaDon() {
 
   const [searchSDT, setsearchSDT] = useState("");
   // Tìm kiếm
-  const findSDT = function (list: HoaDonType[]) {
-    let res: HoaDonType[] = [...list];
+  const findSDT = function (list: HoaDonType2[]) {
+    let res: HoaDonType2[] = [...list];
     if (searchSDT) {
       res = res.filter((el) =>
       el.id.toLowerCase().includes(searchSDT.toLowerCase()),
@@ -73,12 +73,12 @@ export default function QuanLyHoaDon() {
     return (
       <tr key={index}>
         <td className="border border-slate-400 text-center">{item.id}</td>
-        <td className="border border-slate-400 text-center">{item.billInfo.id}</td>
-        <td className="border border-slate-400">{item.billInfo.customerName}</td>
-        <td className="border border-slate-400">{item.billInfo.customerPhoneNumber}</td>
-        <td className="border border-slate-400">{item.billInfo.totalPrice}</td>
-        <td className="border border-slate-400">{item.billInfo.date}</td>
-        <td className="border border-slate-400">{item.billInfo.cutomerAddress}</td>
+        <td className="border border-slate-400 text-center">{item.uid}</td>
+        <td className="border border-slate-400">{item.customerName}</td>
+        <td className="border border-slate-400">{item.customerPhoneNumber}</td>
+        <td className="border border-slate-400">{item.totalPrice}</td>
+        <td className="border border-slate-400">{item.date}</td>
+        <td className="border border-slate-400">{item.cutomerAddress}</td>
         <td className="border border-slate-400  w-[170px] text-center">
           <Link to={`/Admin/UpdateHoaDon/${item.id}`}>
             <button type="button" className="btn btn-info">
@@ -121,7 +121,7 @@ export default function QuanLyHoaDon() {
                 STT {getSortAge()}
               </button>
             </th>
-            <th className="border border-slate-400">ID Hoa Don</th>
+            <th className="border border-slate-400">ID User</th>
             <th className="border border-slate-400">Khách hàng</th>
             <th className="border border-slate-400">Số điện thoại</th>
             <th className="border border-slate-400">Tổng tiền</th>

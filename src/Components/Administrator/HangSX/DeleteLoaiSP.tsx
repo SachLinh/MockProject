@@ -33,8 +33,8 @@ export default function DeleteLoaiSP() {
         <h2 className="text-[#f73d3d] text-[40px] w-full text-center bg-[#e2e2e2] p-[15px] rounded-xl">
           Delete Hãng Sản Xuất
         </h2>
-        <Link to="/Admin/QuanLyHangSX">
-          <button className="my-[10px] ml-[10px] p-[10px] border-2 font-Roboto font-[500] text-[20px]">
+        <Link to="/Admin/QuanLyHangSX" className="">
+          <button className="my-[10px] ml-[10px] p-[10px] border-2 btn btn-outline-danger rounded-xl font-Roboto font-[500] text-[20px]">
             <i className="fa-solid fa-arrow-rotate-left"></i>Trở Lại
           </button>
         </Link>

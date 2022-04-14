@@ -3,10 +3,10 @@ import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { HoaDonType } from "../../../TypeState/HoaDonType";
+import { HoaDonType2 } from "../../../TypeState/HoaDonType2";
 
 export default function UpdateHoaDon() {
-  const [hoaDon, sethoaDon] = useState<HoaDonType>();
+  const [hoaDon, sethoaDon] = useState<HoaDonType2>();
   const navigate = useNavigate();
   const params = useParams();
   const [data, setData] = useState<any>({});
@@ -18,8 +18,6 @@ export default function UpdateHoaDon() {
       sethoaDon(res.data);
       const initState = {
         id:res.data.id,
-        billInfo:{
-        id: res.data.billInfo?.id,
         customerName: "",
         customerPhoneNumber: "",
         cutomerAddress: "",
@@ -28,7 +26,6 @@ export default function UpdateHoaDon() {
         uid: res.data.billInfo?.uid,
         productLists:res.data.billInfo?.productLists
         }
-      };
       setData(initState);
     } catch (error) {
       console.log(error);
@@ -39,20 +36,9 @@ export default function UpdateHoaDon() {
     gethoaDon();
   }, []);
   
-  const {billInfo
-  } = data;
+  const {customerName, customerPhoneNumber, cutomerAddress } = data;
 
   const onChangeText = (e: any) => {
-    // const bill = {
-    //   id: e.data.billInfo?.id,
-    //     customerName: "",
-    //     customerPhoneNumber: "",
-    //     cutomerAddes: "",
-    //     date: e.data.billInfo?.date,
-    //     totalPrice: e.data.billInfo?.totalPrice,
-    //     uid: e.data.billInfo?.uid,
-    //     productLists:e.data.billInfo?.productLists
-    // }
     setData({
       ...data,
       [e.target.name]: e.target.value,
@@ -84,10 +70,15 @@ export default function UpdateHoaDon() {
   };
   return (
     <div className="">
-      <div className="text-center">
+      <div className="">
         <h2 className="text-[#f73d3d] text-[40px] w-full text-center bg-[#e2e2e2] p-[15px] rounded-xl">
           Update Hóa Đơn
         </h2>
+        <Link to="/Admin/QuanLyHoaDon" className="">
+          <button className="my-[10px] ml-[10px] p-[10px] border-2 btn btn-outline-danger rounded-xl font-Roboto font-[500] text-[20px]">
+            <i className="fa-solid fa-arrow-rotate-left"></i>Trở Lại
+          </button>
+        </Link>
         <table className="m-[20px] border-separate border border-slate-400 w-5/6 table table-hover leading-[40px] ">
           <tr>
             <th className="border border-slate-300">
@@ -97,8 +88,8 @@ export default function UpdateHoaDon() {
               <input
                 type="text"
                 name="id"
-                placeholder={hoaDon?.billInfo.id}
-                value={hoaDon?.billInfo?.id}
+                placeholder={hoaDon?.id}
+                value={hoaDon?.id}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -112,8 +103,8 @@ export default function UpdateHoaDon() {
               <input
                 type="text"
                 name="customerName"
-                placeholder={hoaDon?.billInfo.customerName}
-                //value={billi}
+                placeholder={hoaDon?.customerName}
+                value={customerName}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -127,8 +118,8 @@ export default function UpdateHoaDon() {
               <input
                 type="text"
                 name="customerPhoneNumber"
-                //value={customerPhoneNumber}
-                placeholder={hoaDon?.billInfo.customerPhoneNumber}
+                value={customerPhoneNumber}
+                placeholder={hoaDon?.customerPhoneNumber}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -142,8 +133,8 @@ export default function UpdateHoaDon() {
               <input
                 type="text"
                 name="cutomerAddress"
-                //value={cutomerAddress}
-                placeholder={hoaDon?.billInfo.cutomerAddress}
+                value={cutomerAddress}
+                placeholder={hoaDon?.cutomerAddress}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />

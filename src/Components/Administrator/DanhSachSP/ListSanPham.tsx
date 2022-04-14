@@ -72,7 +72,7 @@ export default function ListSanPham() {
 							);
 						} else {
 							if (sortId === '6') {
-								res.sort((a, b) => (a.id < b.id ? 1 : -1));
+								res.sort((a, b) => (parseInt(a.id) < parseInt(b.id)? 1 : -1));
 							} else {
 								if (sortId === '8') {
 									res.sort((a, b) =>
@@ -274,6 +274,8 @@ export default function ListSanPham() {
 					Dung lượng
 				</button>
 			</div>
+			<div className='w-full p-[20px]'>
+
 			<table className='table table-hover leading-[40px]'>
 				<thead>
 					<tr className='text-center'>
@@ -294,6 +296,7 @@ export default function ListSanPham() {
 				</thead>
 				<tbody className='font-Roboto font-[500px]'>{getListSanPham}</tbody>
 			</table>
+			</div>
 			<PageProd
 				postsPerPage={postsPerPage}
 				totalPosts={listProd.length}

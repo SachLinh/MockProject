@@ -3,8 +3,7 @@ import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { HoaDonType } from "../../../TypeState/HoaDonType";
-import { BillInfo } from "../../../TypeState/HoaDonType";
+import { HoaDonType2 } from "../../../TypeState/HoaDonType2";
 
 
 
@@ -18,7 +17,7 @@ export default function AddHoaDon() {
     date: "",
     totalPrice:"",
   };
-  const [hoaDon, sethoaDon] = useState<HoaDonType>();
+  const [hoaDon, sethoaDon] = useState<HoaDonType2>();
   const navigate = useNavigate();
 
 
@@ -88,6 +87,11 @@ export default function AddHoaDon() {
         <h2 className="text-[#f73d3d] text-[40px] w-full text-center bg-[#e2e2e2] p-[15px] rounded-xl">
           Thêm Hóa Đơn Mới
         </h2>
+        <Link to="/Admin/QuanLyHoaDon" className="">
+          <button className="my-[10px] ml-[10px] p-[10px] border-2 btn btn-outline-danger rounded-xl font-Roboto font-[500] text-[20px]">
+            <i className="fa-solid fa-arrow-rotate-left"></i>Trở Lại
+          </button>
+        </Link>
         <table className="m-[20px] border-separate border border-slate-400 w-5/6 table table-hover leading-[40px] ">
           <tr>
             <th className="border border-slate-300">
@@ -112,7 +116,7 @@ export default function AddHoaDon() {
               <input
                 type="text"
                 name="customerName"
-               placeholder={hoaDon?.billInfo.customerName}
+               placeholder={hoaDon?.customerName}
                 value={customerName}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
@@ -128,7 +132,7 @@ export default function AddHoaDon() {
                 type="text"
                 name="customerPhoneNumber"
                 value={customerPhoneNumber}
-               placeholder={hoaDon?.billInfo.customerPhoneNumber}
+               placeholder={hoaDon?.customerPhoneNumber}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -143,7 +147,7 @@ export default function AddHoaDon() {
                 type="text"
                 name="totalPrice"
                 value={totalPrice}
-               placeholder={hoaDon?.billInfo.totalPrice}
+               placeholder={hoaDon?.totalPrice}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -158,7 +162,7 @@ export default function AddHoaDon() {
                 type="text"
                 name="date"
                 value={date}
-               placeholder={hoaDon?.billInfo.date}
+               placeholder={hoaDon?.date}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -173,7 +177,7 @@ export default function AddHoaDon() {
                 type="text"
                 name="cutomerAddress"
                 value={cutomerAddress}
-               placeholder={hoaDon?.billInfo.cutomerAddress}
+               placeholder={hoaDon?.cutomerAddress}
                 className="border p-[10px] mr-[20px] outline-none w-full"
                 onChange={onChangeText}
               />
@@ -193,7 +197,7 @@ export default function AddHoaDon() {
                           type="text"
                           name="cutomerAddress"
                           value={cutomerAddress}
-                        placeholder={hoaDon?.billInfo.cutomerAddress}
+                        placeholder={hoaDon?.cutomerAddress}
                           className="border p-[10px] mr-[20px] outline-none w-full"
                           onChange={onChangeText}
                         />
@@ -205,7 +209,7 @@ export default function AddHoaDon() {
                             type="text"
                             name="cutomerAddress"
                             value={cutomerAddress}
-                          placeholder={hoaDon?.billInfo.cutomerAddress}
+                          placeholder={hoaDon?.cutomerAddress}
                             className="border p-[10px] mr-[20px] outline-none w-full"
                             onChange={onChangeText}
                           />
@@ -217,7 +221,7 @@ export default function AddHoaDon() {
                             type="text"
                             name="cutomerAddress"
                             value={cutomerAddress}
-                          placeholder={hoaDon?.billInfo.cutomerAddress}
+                          placeholder={hoaDon?.cutomerAddress}
                             className="border p-[10px] mr-[20px] outline-none w-full"
                             onChange={onChangeText}
                           />
@@ -229,7 +233,7 @@ export default function AddHoaDon() {
                             type="text"
                             name="cutomerAddress"
                             value={cutomerAddress}
-                          placeholder={hoaDon?.billInfo.cutomerAddress}
+                          placeholder={hoaDon?.cutomerAddress}
                             className="border p-[10px] mr-[20px] outline-none w-full"
                             onChange={onChangeText}
                           />
@@ -241,7 +245,7 @@ export default function AddHoaDon() {
                             type="text"
                             name="cutomerAddress"
                             value={cutomerAddress}
-                          placeholder={hoaDon?.billInfo.cutomerAddress}
+                          placeholder={hoaDon?.cutomerAddress}
                             className="border p-[10px] mr-[20px] outline-none w-full"
                             onChange={onChangeText}
                           />
@@ -249,7 +253,7 @@ export default function AddHoaDon() {
                     </th>
                   </tr>
                 </thead>
-                {hoaDon?.billInfo?.productLists.map((item, index) => {
+                {hoaDon?.productList.map((item, index) => {
                   return (
                     <tbody>
                       <tr className="text-center">
