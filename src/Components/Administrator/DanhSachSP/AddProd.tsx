@@ -110,93 +110,17 @@ export default function AddProd() {
   const onSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      if (data.name === "") {
-        alert("Vui lòng nhập name");
+      if (data.name === "" || data.avatar === "" || data.cost === "" || data.capacity === "" || data.description === "" || data.color === "" || data.promotion === ""
+      || data.oldCost === "" || data.endow === "" || data.kichThuoc === "" || data.doPhangiai === "" || data.congNghemanhinh === "" || data.chatLieu === "" ||
+data.thoiLuongpin === "" || data.thoiGiansac === "" || data.loaiCpu === "" || data.tinhNangnoibat === "" || data.cameraSau === "" 
+|| data.cameraTruoc === "" || data.RAM === "" || data.ROM === "" ||  data.SIM === "" ||  data.heDieuHanh === "" || data.img1 === "" ||
+data.img2 === "" || data.img3 === "" || data.img4 === "" || data.img5 === "" || data.LoaiId === "" 
+      ) 
+      {
+        alert("Vui lòng nhập đủ thông tin")
       }
-      if (data.avatar === "") {
-        alert("Vui lòng nhập avatar");
-      }
-      if (data.cost === "") {
-        alert("Vui lòng nhập cost");
-      }
-      if (data.capacity === "") {
-        alert("Vui lòng nhập capacity");
-      }
-      if (data.description === "") {
-        alert("Vui lòng nhập description");
-      }
-      if (data.color === "") {
-        alert("Vui lòng nhập color");
-      }
-      if (data.promotion === "") {
-        alert("Vui lòng nhập promotion");
-      }
-      if (data.oldCost === "") {
-        alert("Vui lòng nhập oldCost");
-      }
-      if (data.endow === "") {
-        alert("Vui lòng nhập endow");
-      }
-      if (data.kichThuoc === "") {
-        alert("Vui lòng nhập kichThuoc");
-      }
-      if (data.doPhangiai === "") {
-        alert("Vui lòng nhập doPhangiai");
-      }
-      if (data.congNghemanhinh === "") {
-        alert("Vui lòng nhập congNghemanhinh");
-      }
-      if (data.chatLieu === "") {
-        alert("Vui lòng nhập chatLieu");
-      }
-      if (data.thoiLuongpin === "") {
-        alert("Vui lòng nhập thoiLuongpin");
-      }
-      if (data.thoiGiansac === "") {
-        alert("Vui lòng nhập thoiGiansac");
-      }
-      if (data.loaiCpu === "") {
-        alert("Vui lòng nhập loaiCpu");
-      }
-      if (data.tinhNangnoibat === "") {
-        alert("Vui lòng nhập tinhNangnoibat");
-      }
-      if (data.cameraSau === "") {
-        alert("Vui lòng nhập cameraSau");
-      }
-      if (data.cameraTruoc === "") {
-        alert("Vui lòng nhập cameraTruoc");
-      }
-      if (data.RAM === "") {
-        alert("Vui lòng nhập RAM");
-      }
-      if (data.ROM === "") {
-        alert("Vui lòng nhập ROM");
-      }
-      if (data.SIM === "") {
-        alert("Vui lòng nhập SIM");
-      }
-      if (data.heDieuHanh === "") {
-        alert("Vui lòng nhập heDieuHanh");
-      }
-      if (data.img1 === "") {
-        alert("Vui lòng nhập Ảnh 1");
-      }
-      if (data.img2 === "") {
-        alert("Vui lòng nhập Ảnh 2");
-      }
-      if (data.img3 === "") {
-        alert("Vui lòng nhập Ảnh 3");
-      }
-      if (data.img4 === "") {
-        alert("Vui lòng nhập Ảnh 4");
-      }
-      if (data.img5 === "") {
-        alert("Vui lòng nhập Ảnh 5");
-      }
-      if (data.LoaiId === "") {
-        alert("Vui lòng nhập LoaiId");
-      } else {
+
+       else {
         dispatch(AddNewSP({data}))
         setData({
           id: "",

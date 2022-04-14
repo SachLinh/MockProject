@@ -44,7 +44,7 @@ export default function UpdateHoaDon() {
       [e.target.name]: e.target.value,
     })
   };
-  console.log('data', data);
+
   
   const onSubmit = async (e: any) => {
     e.preventDefault();

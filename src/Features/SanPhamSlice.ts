@@ -67,8 +67,6 @@ export const UpdateSP = createAsyncThunk(
   }
 );
 
-
-
 export const deleteSanPham = createAsyncThunk(
   "/deleteSanPham",
   // Declare the type your function argument here:
