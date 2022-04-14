@@ -2,32 +2,51 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { BillType, Product } from "../../TypeState/BillType";
+import { HoaDonType2 } from "../../TypeState/HoaDonType2";
 
 function SearchOrder() {
 
-//   const [searchOrder, setSearchOrder] = useState<any>();
-//   const [checkOrder, setcheckOrder] = useState<any>();
-//   const [show, setShow] = useState(false);
-
-
-    const [searchOrder, setSearchOrder] = useState<BillType>();
-    const [checkOrder, setcheckOrder] = useState<string>();
+    const [listBill, setListBill] = useState<HoaDonType2[]>();
+    const [searchBill, setSearchBill] = useState<HoaDonType2>();
+    const [billId, setBillId] = useState<string>();
+    const [phoneNumber, setPhoneNumber] = useState<string>();
     const [show, setShow] = useState<boolean>(false);
 
-    const getSearchOrder = async () => {
-        await axios.get(`https://6232e62e6de3467dbac2a7d6.mockapi.io/HoaDon/${checkOrder}`)
+    useEffect(() => {
+        getListBill();
+    }, [])
+
+    const getListBill = async () => {
+        await axios.get(`https://6232e62e6de3467dbac2a7d6.mockapi.io/HoaDon`)
             .then(res => {
-                setSearchOrder(res.data.billInfo);
-                setShow(true);
+                setListBill(res.data);
             })
             .catch(error => {
-                setShow(false);
                 console.log(error)
             });
     }
-    const formatPrice = (price: number|undefined) => {
-        if(price)
+    const setId = (e: any) => {
+        setBillId(e.target.value);
+    }
+    const setPhone = (e: any) => {
+        setPhoneNumber(e.target.value);
+    }
+    const getSearchOrder = () => {
+        let flag = false;
+        listBill?.map(bill => {
+            if (billId === bill.subId && phoneNumber === bill.customerPhoneNumber) {
+                setSearchBill(bill);
+                setShow(true);
+                flag = true;
+            }
+        })
+        if (!flag) {
+            setShow(false);
+            alert('Không tìm thấy đơn hàng');
+        }
+    }
+    const formatPrice = (price: number | undefined) => {
+        if (price)
             return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)
     }
 
@@ -59,13 +78,17 @@ function SearchOrder() {
                     <label
                         className="mt-[30px] px-[10px] font-bold" id="madonhang">
                         Mã đơn hàng:  </label>
-                    <input value={checkOrder} onChange={(e) => setcheckOrder(e.target.value)} placeholder="(Bắt buộc)"
+                    <input placeholder="(Bắt buộc)"
+                        value={billId}
+                        onChange={setId}
                         className="w-[225px] h-[40px] border-[#dedede] rounded border-solid border mt-[25px] p-[8px] text-center leading-[18px]"
                     />
                     <label
                         className="mt-[30px] px-[10px] font-bold">
                         Số điện thoại: </label>
                     <input placeholder="(Không bắt buộc)"
+                        value={phoneNumber}
+                        onChange={setPhone}
                         className="w-[225px] h-[40px] border-[#dedede] rounded border-solid border mt-[25px] p-[8px] text-center leading-[18px]"
                     />
                     <Link to="">
@@ -84,12 +107,12 @@ function SearchOrder() {
             {show && <div className="px-2 border border-solid">
                 <div className="text-lg text-black font-bold grid grid-flow-row grid-cols-1 gap-y-3 border border-solid rounded-xl mx-1 my-3 px-3 pb-5 ">
                     <h2 className="text-center font-bold">Tình trạng đơn hàng</h2>
-                    <p>Mã Đơn Hàng : {searchOrder?.id}</p>
-                    <p>Người Nhận : {searchOrder?.customerName}</p>
-                    <p>Số Điện Thoại : {searchOrder?.customerPhoneNumber}</p>
-                    <p>Ngày Đặt : {searchOrder?.date}</p>
-                    <p>Nhận Sản Phẩm Tại : {searchOrder?.cutomerAddress}</p>
-                    <p>Tổng Tiền : {formatPrice(searchOrder?.totalPrice)}</p>
+                    <p>Mã Đơn Hàng : {searchBill?.subId}</p>
+                    <p>Người Nhận : {searchBill?.customerName}</p>
+                    <p>Số Điện Thoại : {searchBill?.customerPhoneNumber}</p>
+                    <p>Ngày Đặt : {searchBill?.date}</p>
+                    <p>Nhận Sản Phẩm Tại : {searchBill?.cutomerAddress}</p>
+                    <p>Tổng Tiền : {formatPrice(parseInt(searchBill?.totalPrice + ""))}</p>
                 </div>
             </div>}
         </div>

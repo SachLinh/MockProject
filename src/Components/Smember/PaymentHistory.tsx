@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil';
 import { userInfoState } from '../../Recoil/RecoilState';
 import { BillType } from '../../TypeState/BillType';
+import { HoaDonType2 } from '../../TypeState/HoaDonType2';
 
 type Props = {}
 
 function PaymentHistory({ }: Props) {
 
-  const [billList, setBillList] = useState<BillType[]>([]);
+  const [billList, setBillList] = useState<HoaDonType2[]>([]);
   const userInfo = useRecoilValue(userInfoState);
 
   useEffect(() => {
@@ -16,12 +17,13 @@ function PaymentHistory({ }: Props) {
   }, [])
 
   const getBillList = async () => {
-    const listBill: BillType[] = [];
+    const listBill: HoaDonType2[] = [];
     await axios.get('https://6232e62e6de3467dbac2a7d6.mockapi.io/HoaDon')
       .then(res => {
         res.data.map((value: any) => {
-          if (value.billInfo.uid == userInfo.uid) {
-            listBill.push(value.billInfo);
+          if (value.uid == userInfo.uid) {
+            listBill.push(value);
+            console.log(value);
           }
         })
         setBillList(listBill);
@@ -50,10 +52,10 @@ function PaymentHistory({ }: Props) {
             billList.map((bill, key) => {
               return (
                 <tr key={key}>
-                  <td>{bill.id}</td>
+                  <td>{bill.subId}</td>
                   <td>{bill.date}</td>
                   <td>{bill.customerName}</td>
-                  <td>{formatPrice(bill.totalPrice)}</td>
+                  <td>{formatPrice(parseInt(bill.totalPrice))}</td>
                 </tr>
               )
             })

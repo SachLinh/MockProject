@@ -7,13 +7,14 @@ export interface HoaDonType2 {
   uid: string;
   date: string;
   totalPrice: string;
-    id: string;
-  }
-  export interface ProductList {
-    id: string;
-    image: string;
-    name: string;
-    price: number;
-    oldPrice: number;
-    count: number;
-  }  
+  id: string;
+  subId: string;
+}
+export interface ProductList {
+  id: string;
+  image: string;
+  name: string;
+  price: number;
+  oldPrice: number;
+  count: number;
+}  
