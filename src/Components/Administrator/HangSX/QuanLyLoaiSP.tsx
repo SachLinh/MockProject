@@ -93,11 +93,11 @@ export default function QuanLyLoaiSP() {
       </h1>
       <Link to={`/Admin/QuanLyHangSX/AddNewLoaiSP`}>
 
-        <button className="btn btn-outline-success mx-[20px] my-4">Thêm mới Loại Sản Phẩm</button>
+        <button className="btn btn-outline-success mx-[20px] my-4">Thêm mới Hãng Sản Xuất</button>
 
       </Link>
       <div className="flex flex-row justify-start items-center px-[20px] mb-[20px]">
-        <label className="mr-[30px]">Tên tìm kiếm</label>
+        <label className="mr-[30px] w-32">Tên tìm kiếm</label>
         <div className="input-group mb-3">
           <span className="input-group-text" id="basic-addon1">
             <i className="fa-solid fa-magnifying-glass"></i>

@@ -44,13 +44,13 @@ export default function QuanLyHoaDon() {
     }
   };
 
-  const [searchSDT, setsearchSDT] = useState("");
+  const [searchSubID, setsearchSubID] = useState("");
   // Tìm kiếm
   const findSDT = function (list: HoaDonType2[]) {
     let res: HoaDonType2[] = [...list];
-    if (searchSDT) {
+    if (searchSubID) {
       res = res.filter((el) =>
-      el.id.toLowerCase().includes(searchSDT.toLowerCase()),
+      el.subId.toLowerCase().includes(searchSubID.toLowerCase()),
     );
     }
     if (sortId !== SORT.down) {
@@ -73,7 +73,7 @@ export default function QuanLyHoaDon() {
     return (
       <tr key={index}>
         <td className="border border-slate-400 text-center">{item.id}</td>
-        <td className="border border-slate-400 text-center">{item.uid}</td>
+        <td className="border border-slate-400 text-center">{item.subId}</td>
         <td className="border border-slate-400">{item.customerName}</td>
         <td className="border border-slate-400">{item.customerPhoneNumber}</td>
         <td className="border border-slate-400">{item.totalPrice}</td>
@@ -108,11 +108,23 @@ export default function QuanLyHoaDon() {
       <h1 className="text-[#f73d3d] text-[40px] w-full text-center bg-[#e2e2e2] p-[15px] rounded-xl">
         QUẢN LÝ HÓA ĐƠN
       </h1>
-      {/* <Link to="/Admin/AddHoaDon">
-        <button className="btn btn-outline-success mx-[20px] my-4">
-          Thêm mới hóa đơn
-        </button>
-      </Link> */}
+      <div className="mt-[10px] flex flex-row justify-start items-center px-[20px] mb-[20px]">
+        <label className="mr-[30px] w-32">ID Tìm kiếm</label>
+        <div className="input-group mb-3 ">
+          <span className="input-group-text" id="basic-addon1">
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </span>
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Sub ID cần tìm"
+            value={searchSubID}
+            onChange={(e) => setsearchSubID(e.target.value)}
+            className="p-[15px] border outline-none form-control"
+          />
+        </div>
+      </div>
       <table className="table table-hover leading-[40px]">
         <thead>
           <tr className="text-center">
@@ -121,7 +133,7 @@ export default function QuanLyHoaDon() {
                 STT {getSortAge()}
               </button>
             </th>
-            <th className="border border-slate-400">ID User</th>
+            <th className="border border-slate-400">ID HD</th>
             <th className="border border-slate-400">Khách hàng</th>
             <th className="border border-slate-400">Số điện thoại</th>
             <th className="border border-slate-400">Tổng tiền</th>
