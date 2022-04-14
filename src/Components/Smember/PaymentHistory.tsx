@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil';
 import { userInfoState } from '../../Recoil/RecoilState';
-import { BillType } from '../../TypeState/BillType';
 import { HoaDonType2 } from '../../TypeState/HoaDonType2';
 
 type Props = {}
@@ -23,7 +22,6 @@ function PaymentHistory({ }: Props) {
         res.data.map((value: any) => {
           if (value.uid == userInfo.uid) {
             listBill.push(value);
-            console.log(value);
           }
         })
         setBillList(listBill);

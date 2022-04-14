@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
@@ -16,10 +16,6 @@ const uiConfig = {
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         // firebase.auth.FacebookAuthProvider.PROVIDER_ID
     ],
-    // callbacks: {
-    //     // Avoid redirects after sign-in.
-    //     signInSuccessWithAuthResult: () => false,
-    // },
 };
 
 function Smember({ }: Props) {
