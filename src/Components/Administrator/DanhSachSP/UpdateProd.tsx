@@ -12,53 +12,67 @@ import { SanPhamType } from "../../../TypeState/SanPhamType";
 
 
 export default function UpdateProd() {
+  const [sanPham, setDataSP] = useState<SanPhamType>()
   const [ListLoai, setLoai] = useState<DanhMucType[]>([]);
+  const [data, setData] = useState<any>({});
   const navigate = useNavigate();
   const params = useParams();
 
-  const dispatch = useAppDispatch()
-  const dataSP = useAppSelector(state => state.listSanPham)
-  const sanPham:any = dataSP.detailSP
-  const [data, setData] = useState<any>({});
+  // const dispatch = useAppDispatch()
+  // const dataSP = useAppSelector(state => state.listSanPham)
+  // const sanPham:any = dataSP.detailSP
+  // const [data, setData] = useState<any>({});
 
   useEffect(() => {
-    dispatch(detailSP(params.idSanPham))
+    // dispatch(detailSP(params.idSanPham))
+    getData()
     getLoai()
-    const initState = {
-      id: sanPham.id,
-      name: sanPham.name,
-      avatar: sanPham.avatar,
-      cost: sanPham.cost,
-      capacity: sanPham.capacity,
-      description: sanPham.description,
-      color: sanPham.color,
-      promotion: sanPham.promotion,
-      oldCost: sanPham.oldCost,
-      endow: sanPham.endow,
-      kichThuoc: sanPham.kichThuoc,
-      doPhangiai: sanPham.doPhangiai,
-      congNghemanhinh: sanPham.congNghemanhinh,
-      chatLieu: sanPham.chatLieu,
-      thoiLuongpin: sanPham.thoiLuongpin,
-      thoiGiansac: sanPham.thoiGiansac,
-      loaiCpu: sanPham.loaiCpu,
-      tinhNangnoibat: sanPham.tinhNangnoibat,
-      cameraSau: sanPham.cameraSau,
-      cameraTruoc: sanPham.cameraTruoc,
-      RAM: sanPham.RAM,
-      ROM: sanPham.ROM,
-      SIM: sanPham.SIM,
-      heDieuHanh: sanPham.heDieuHanh,
-      img1: sanPham.img1,
-      img2: sanPham.img2,
-      img3: sanPham.img3,
-      img4: sanPham.img4,
-      img5: sanPham.img5,
-      LoaiId: sanPham.LoaiId,
-    };
-    setData(initState);
+
   }, []);
 
+  const getData = async ()=>{
+    try {
+      const res = await axios.get(
+        `https://6232e62e6de3467dbac2a7d6.mockapi.io/SanPham/${params.idSanPham}`
+      );
+      setDataSP(res.data);
+        const initState = {
+          id: res.data.id,
+          name: res.data.name,
+          avatar: res.data.avatar,
+          cost: res.data.cost,
+          capacity: res.data.capacity,
+          description: res.data.description,
+          color: res.data.color,
+          promotion: res.data.promotion,
+          oldCost: res.data.oldCost,
+          endow: res.data.endow,
+          kichThuoc: res.data.kichThuoc,
+          doPhangiai: res.data.doPhangiai,
+          congNghemanhinh: res.data.congNghemanhinh,
+          chatLieu: res.data.chatLieu,
+          thoiLuongpin: res.data.thoiLuongpin,
+          thoiGiansac: res.data.thoiGiansac,
+          loaiCpu: res.data.loaiCpu,
+          tinhNangnoibat: res.data.tinhNangnoibat,
+          cameraSau: res.data.cameraSau,
+          cameraTruoc: res.data.cameraTruoc,
+          RAM: res.data.RAM,
+          ROM: res.data.ROM,
+          SIM: res.data.SIM,
+          heDieuHanh: res.data.heDieuHanh,
+          img1: res.data.img1,
+          img2: res.data.img2,
+          img3: res.data.img3,
+          img4: res.data.img4,
+          img5: res.data.img5,
+          LoaiId: res.data.LoaiId,
+        };
+        setData(initState);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const getLoai = async () => {
     try {
@@ -105,6 +119,8 @@ export default function UpdateProd() {
     img5,
     LoaiId,
   } = data;
+console.log('data', data);
+
   const onChangeText = (e: any) => {
     setData({
       ...data,
@@ -124,39 +140,10 @@ data.img2 === "" || data.img3 === "" || data.img4 === "" || data.img5 === "" || 
       {
         alert("Vui lòng nhập đủ thông tin")
       }else {
-        dispatch(UpdateSP(data))
-        setData({
-          id: "",
-          name: "",
-          avatar: "",
-          cost: "",
-          capacity: "",
-          description: "",
-          color: "",
-          promotion: "",
-          oldCost: "",
-          endow: "",
-          kichThuoc: "",
-          doPhangiai: "",
-          congNghemanhinh: "",
-          chatLieu: "",
-          thoiLuongpin: "",
-          thoiGiansac: "",
-          loaiCpu: "",
-          tinhNangnoibat: "",
-          cameraSau: "",
-          cameraTruoc: "",
-          RAM: "",
-          ROM: "",
-          SIM: "",
-          heDieuHanh: "",
-          img1: "",
-          img2: "",
-          img3: "",
-          img4: "",
-          img5: "",
-          LoaiId: "",
-        });
+        const res = await axios.put(
+          `https://6232e62e6de3467dbac2a7d6.mockapi.io/SanPham/${params.idSanPham}`, data
+        );
+        setDataSP(res.data);
         alert("Thay đổi thành công");
         navigate(`/Admin/QuanLySanPham`);
       }
